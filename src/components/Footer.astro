@@ -1,0 +1,54 @@
+---
+import config from "../site.config.json" 
+
+import Container from '../components/Container.astro';
+import BlueLink from '../components/links/BlueLink.astro';
+
+import infoLinks from '../content/infolinks.json';
+
+
+const getCopyright = () => {
+  return `\u00a9 ${new Date().getFullYear()} ${config.site}.`
+}
+---
+
+<style>
+  .footer {
+    @apply flex flex-row w-full text-gray-600 text-sm border-t border-solid border-gray-200 mt-8 py-12 text-xs justify-between;
+  }
+
+  .info-links-list {
+    @apply inline-block;
+  }
+
+  .info-links-list-item {
+    @apply inline-block ml-8;
+  }
+</style>
+
+<footer>
+  <Container>
+    <div class="footer">
+      <div>{getCopyright()}</div>
+
+      <div>
+        <ul class="info-links-list">
+          {infoLinks.map(
+            (link: { name: string; url: string }, index: number) => {
+              return (
+                <li
+                  key={index}
+                  class="info-links-list-item"
+                >
+                  <BlueLink href={link.url}>{link.name}</BlueLink>
+                </li>
+              )
+            }
+          )}
+        </ul>
+      </div>
+
+    </div>
+  </Container>
+
+</footer>

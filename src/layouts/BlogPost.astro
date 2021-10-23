@@ -1,0 +1,17 @@
+---
+import { Markdown } from 'astro/components';
+import BasePage from '../components/BaseHead.astro';
+import BlogHeader from '../components/BlogHeader.astro';
+import BlogPost from '../components/BlogPost.astro';
+
+const {content} = Astro.props;
+const {title, description, publishDate, author, heroImage, permalink, alt} = content;
+---
+
+<BasePage title={title} description={description} permalink={permalink}>
+  <BlogHeader />
+  <BlogPost title={title} author={author} heroImage={heroImage} publishDate={publishDate} alt={alt}>
+    <slot />
+  </BlogPost>
+</BasePage>
+

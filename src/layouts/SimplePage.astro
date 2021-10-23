@@ -1,0 +1,43 @@
+---
+import BasePage from '../layouts/BasePage.astro';
+import Container from '../components/Container.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Sidebar from '../components/Sidebar.astro';
+
+export interface Props {
+  title: string
+  description: string
+  permalink: string
+}
+
+const { title, description, permalink, tab } = Astro.props;
+
+let selectedTab
+
+if (tab === undefined) {
+  selectedTab = title
+} else {
+  selectedTab = tab
+}
+
+---
+
+<style>
+  
+
+  .main-content {
+    @apply w-3/4;
+  }
+</style>
+
+<BasePage title={title} description={description} permalink={permalink}>
+<Header tab={selectedTab}/>
+
+  <Container>
+    <Sidebar />
+    <div class="main-content"><slot /></div>
+  </Container>
+
+  <Footer/>
+</BasePage>

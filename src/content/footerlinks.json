@@ -1,0 +1,9 @@
+[
+  {
+    "title": "Start Here",
+    "links": [
+      { "name": "About", "url": "/about" },
+      { "name": "Blog", "url": "/posts" }
+    ]
+  }
+]

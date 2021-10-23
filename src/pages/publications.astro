@@ -1,0 +1,208 @@
+---
+// Component Imports
+import SimplePage from '../layouts/SimplePage.astro';
+import publications from '../content/publications.json';
+
+interface MarkdownFrontmatter {
+  publishDate: number;
+}
+
+const sortByDate = (
+  publications: Array<any>,
+  descending: boolean = true
+): Map<number, Array<any>> => {
+  const pubMap = new Map<number, Map<number, Map<number, Map<string, any>>>>()
+
+  publications.map((publication: any) => {
+    if (!pubMap.has(publication.year)) {
+      pubMap.set(
+        publication.year,
+        new Map<number, Map<number, Map<string, any>>>()
+      )
+    }
+
+    if (!pubMap.get(publication.year).has(publication.month)) {
+      pubMap
+        .get(publication.year)
+        .set(publication.month, new Map<number, Map<string, any>>())
+    }
+
+    if (
+      !pubMap.get(publication.year).get(publication.month).has(publication.day)
+    ) {
+      pubMap
+        .get(publication.year)
+        .get(publication.month)
+        .set(publication.day, new Map<string, any>())
+    }
+
+    pubMap
+      .get(publication.year)
+      .get(publication.month)
+      .get(publication.day)
+      .set(publication.title, publication)
+  })
+
+  const ret: Map<number, Array<any>> = new Map<number, Array<any>>()
+
+  if (descending) {
+    Array.from(pubMap.keys())
+      .sort()
+      .reverse()
+      .forEach((year: number) => {
+        ret.set(year, [])
+        Array.from(pubMap.get(year).keys())
+          .sort()
+          .reverse()
+          .forEach((month: number) => {
+            Array.from(pubMap.get(year).get(month).keys())
+              .sort()
+              .reverse()
+              .forEach((day: number) => {
+                Array.from(pubMap.get(year).get(month).get(day).keys())
+                  .sort()
+                  .forEach((title: string) => {
+                    ret
+                      .get(year)
+                      .push(pubMap.get(year).get(month).get(day).get(title))
+                  })
+              })
+          })
+      })
+  } else {
+    Array.from(pubMap.keys())
+      .sort()
+      .forEach((year: number) => {
+        ret.set(year, [])
+        Array.from(pubMap.get(year).keys())
+          .sort()
+          .forEach((month: number) => {
+            Array.from(pubMap.get(year).get(month).keys())
+              .sort()
+              .forEach((day: number) => {
+                Array.from(pubMap.get(year).get(month).get(day).keys())
+                  .sort()
+                  .forEach((title: string) => {
+                    ret
+                      .get(year)
+                      .push(pubMap.get(year).get(month).get(day).get(title))
+                  })
+              })
+          })
+      })
+  }
+
+  return ret
+}
+
+const pubmedUrl = (pubmed: number) => {
+  return `https://pubmed.ncbi.nlm.nih.gov/${pubmed}/` //``https://www.ncbi.nlm.nih.gov/pubmed/?term=${pubmed}`
+}
+
+const doiUrl = (doi: string) => {
+  return `https://doi.org/${doi}`
+}
+
+// Component Script:
+// You can write any JavaScript/TypeScript that you'd like here.
+// It will run during the build, but never in the browser.
+// All variables are available to use in the HTML template below.
+let title = 'Publications';
+let description = 'The perfect starter for your perfect blog.';
+let permalink = 'https://example.com/';
+
+// Data Fetching: List all Markdown posts in the repo.
+
+let allPosts = Astro.fetchContent<MarkdownFrontmatter>('./posts/*.md');
+allPosts = allPosts.sort((a, b) => new Date(b.publishDate).valueOf() - new Date(a.publishDate).valueOf());
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+
+const publicationMap = sortByDate(publications)
+
+---
+
+<style>
+  .year-block {
+    @apply mb-8;
+  }
+
+  .header {
+    @apply text-blue-700 mb-2 font-bold;
+  }
+
+  .pub-list {
+    @apply border-b border-solid border-gray-200 pb-4;
+  }
+
+  .pub-list-item {
+    @apply mb-4;
+  }
+
+  .pub-title {
+    @apply font-semibold;
+  }
+
+  .pub-authors {
+    @apply text-sm;
+  }
+
+  .pub-journal {
+    @apply font-light;
+  }
+</style>
+
+<SimplePage title={title} description={description} permalink={permalink}>
+  {Array.from(publicationMap.keys())
+    .sort()
+    .reverse()
+    .map((year: number, yearIndex: number) => {
+    return (
+      <section class="year-block">
+        <h1 class="header">
+          {year}
+        </h1>
+
+        <ol class="pub-list">
+          {publicationMap
+            .get(year)
+            .map((publication: any, pubIndex: number) => {
+              let url
+
+              if (publication.url !== "") {
+                url = publication.url
+              } else if (publication.doi !== "") {
+                url = doiUrl(publication.doi)
+              } else if (publication.pmid !== "") {
+                url = pubmedUrl(publication.pmid)
+              } else {
+                url = ""
+              }
+
+              return (
+                <li class="pub-list-item">
+                  <h2 class="pub-title">
+                    {url !== "" ? (
+                      <a href={url}>
+                        {publication.title}
+                      </a>
+                    ) : (
+                      publication.title
+                    )}
+                  </h2>
+                  <section class="pub-authors">
+                    {publication.authors}
+                  </section>
+                  <section class="pub-authors pub-journal">
+                    {publication.journal}. {publication.year}.
+                  </section>
+                </li>
+              )
+            })}
+        </ol>
+      </section>
+    )
+  })}
+
+</SimplePage>

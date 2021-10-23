@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Overview",
+    "url": "/"
+  },
+  {
+    "name": "Publications",
+    "url": "/publications"
+  },
+  {
+    "name": "Resume",
+    "url": "/resume"
+  },
+  {
+    "name": "Posts",
+    "url": "/posts"
+  },
+  {
+    "name": "Resources",
+    "url": "/resources"
+  }
+]

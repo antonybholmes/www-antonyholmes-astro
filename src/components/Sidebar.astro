@@ -1,0 +1,27 @@
+---
+import config from "../site.config.json" 
+
+import Container from '../components/Container.astro';
+import BlueLink from '../components/links/BlueLink.astro';
+
+import infoLinks from '../content/infolinks.json';
+
+const { site,email } = config;
+
+---
+
+<style>
+  .sidebar {
+    @apply w-1/4 px-8;
+  }
+
+  .me {
+    @apply rounded-full -mt-16 border border-solid border-gray-300;
+  }
+</style>
+
+<div class="sidebar">
+<img src="images/authors/antony-holmes.jpg" class="me" />
+<h1>{site}</h1>
+<i class="far fa-envelope"></i><a href={email}>{email}</a>
+</div>

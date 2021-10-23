@@ -1,0 +1,15 @@
+---
+---
+<style>
+  .centered-container {
+    @apply flex flex-row justify-center w-full;
+  }
+
+  .centered-container-content {
+    @apply flex flex-row w-2/3;
+  }
+</style>
+
+<div class="centered-container">
+  <div class="centered-container-content"><slot /></div>
+</div>

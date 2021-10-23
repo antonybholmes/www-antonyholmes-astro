@@ -1,0 +1,64 @@
+---
+import Container from '../components/Container.astro';
+import infoLinks from '../content/headerlinks.json';
+
+export interface Props {
+  tab: string
+}
+
+const { tab } = Astro.props;
+
+---
+
+<style>
+  .header {
+    @apply flex flex-row w-full border-b border-solid border-gray-200 pt-8 mb-8;
+  }
+
+  .sidebar {
+    @apply w-1/4;
+  }
+
+  .header-links-list {
+    @apply inline-block text-sm font-semibold;
+  }
+
+  .header-links-list-item {
+    @apply inline-block;
+  }
+
+  .header-links-list-item-link {
+    @apply block px-4 py-3 border-b-2;
+  }
+
+  .header-links-list-item-not-selected {
+    @apply border-transparent hover:border-gray-300 transition ease-in-out duration-300;
+  }
+
+  .header-links-list-item-selected {
+    @apply border-blue-600;
+  }
+
+  .header-content {
+    @apply flex flex-row w-3/4;
+  }
+</style>
+
+<header class="header">
+  <Container>
+    <div class="sidebar"/>
+    <div class="header-content">
+        <ul class="header-links-list">
+          {infoLinks.map(
+            (link: { name: string; url: string }, index: number) => {
+              return (
+                <li key={index} class="header-links-list-item">
+                  <a href={link.url} class={`header-links-list-item-link ${link.name === tab ? "header-links-list-item-selected" : "header-links-list-item-not-selected"}`}>{link.name}</a>
+                </li>
+              )
+            }
+          )}
+        </ul>
+    </div>
+  </Container>
+</header>
