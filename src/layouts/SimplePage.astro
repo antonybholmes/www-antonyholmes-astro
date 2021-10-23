@@ -27,12 +27,12 @@ if (tab === undefined) {
   
 
   .main-content {
-    @apply w-3/4;
+    @apply w-3/4 min-h-screen;
   }
 </style>
 
 <BasePage title={title} description={description} permalink={permalink}>
-<Header tab={selectedTab}/>
+  <Header tab={selectedTab}/>
 
   <Container>
     <Sidebar />

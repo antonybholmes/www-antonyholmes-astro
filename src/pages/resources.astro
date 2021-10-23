@@ -24,19 +24,22 @@ allPosts = allPosts.sort((a, b) => new Date(b.publishDate).valueOf() - new Date(
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 ---
+
+
 <SimplePage title={title} description={description} permalink={permalink}>
   {websites.map((websitegroup) => (
     <div>
-      <h1>{websitegroup.name}</h1>
-
-      {websitegroup.links.map((link) => (
-        <ol class="list-decimal list-inside border border-solid border-gray-200 rounded-md p-4">
-            <li class="mb-8">
-                <a href={link.url}>{link.name}</a>
-            </li>
-          </ol>
-          ))}
-
+      <h1 class="mb-4">{websitegroup.name}</h1>
+      <ol class="border-b border-solid border-gray-200 rounded-md mb-8">
+        {websitegroup.links.map((link) => (
+          
+              <li class="mb-4">
+                  <h2>{link.name}</h2>
+                  <a href={link.url} class="text-sm">{link.url}</a>
+              </li>
+          
+            ))}
+      </ol>
     </div>
   ))}
 </SimplePage>
