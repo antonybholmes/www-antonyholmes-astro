@@ -19,7 +19,7 @@ const cp = publications.length
   }
 
   .sidebar {
-    @apply w-1/4;
+    @apply lg:w-1/4;
   }
 
   .header-links-list {
@@ -31,7 +31,7 @@ const cp = publications.length
   }
 
   .header-links-list-item-link {
-    @apply flex flex-row h-full items-center px-4 py-3 border-b-2;
+    @apply flex flex-row h-full items-center px-2 lg:px-4 py-3 border-b-2;
   }
 
   .header-links-list-item-not-selected {
@@ -47,13 +47,13 @@ const cp = publications.length
   }
 
   .tab-counter {
-    @apply w-8 p-1 ml-2 rounded-full bg-gray-200 text-center font-normal;
+    @apply flex flex-row justify-center px-2 py-1 ml-2 rounded-full bg-gray-200 text-center font-normal text-xs;
   }
 </style>
 
 <header class="header">
   <Container>
-    <div class="sidebar"/>
+    <div class="sidebar" />
     <div class="header-content">
         <ul class="header-links-list">
           {infoLinks.map(
