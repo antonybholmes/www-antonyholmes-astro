@@ -4,11 +4,11 @@
 
 @layer base {
   body {
-    @apply m-0 p-0 bg-white text-gray-900;
+    @apply m-0 p-0 bg-white text-gray-900 text-sm;
   }
 
   .h {
-    @apply m-0 p-0 font-semibold;
+    @apply mb-2 p-0 font-semibold;
   }
 
   h1 {

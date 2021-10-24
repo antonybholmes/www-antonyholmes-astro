@@ -14,29 +14,12 @@ export interface Props {
 
 let { title, description, permalink, tab, content } = Astro.props;
 
-let postTitle
-
-if (content !== undefined) {
-  title = content.title
-  postTitle = title
-  description = content.description
-  permalink = content.permalink
-  
-  if (content.tab !== undefined) {
-    tab = content.tab
-  } else {
+if (tab === undefined) {
     tab = title
-  }
-} else {
-  if (tab === undefined) {
-    tab = title
-  }
 }
 ---
 
 <style>
-  
-
   .main-content {
     @apply w-full px-4 xl:px-0 lg:w-3/4 min-h-screen;
   }
@@ -48,9 +31,7 @@ if (content !== undefined) {
   <Container>
     <Sidebar />
     <div class="main-content">
-      {postTitle !== undefined && <h1>{postTitle}</h1>}
-    <slot />
-    
+      <slot />
     </div>
   </Container>
 

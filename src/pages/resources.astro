@@ -27,24 +27,30 @@ allPosts = allPosts.sort((a, b) => new Date(b.publishDate).valueOf() - new Date(
 
 <style>
   .resource-block {
-    @apply border-b border-solid border-gray-200 rounded-md pb-8 mb-8;
+    @apply mb-8;
+  }
+
+  .website-name {
+    @apply text-base text-gray-500;
+  }
+
+  .website-link-name {
+    @apply text-base m-0;
   }
 </style>
 
 <SimplePage title={title} description={description} permalink={permalink}>
-<p>Some interesting links from around the web.</p>
+  <p>Some interesting links from around the web.</p>
   {websites.map((websitegroup) => (
     <section class="resource-block">
-      <h1>{websitegroup.name}</h1>
+      <h1 class="website-name">{websitegroup.name}</h1>
       <ol>
         {websitegroup.links.map((link) => (
-          
-              <li class="mb-4">
-                  <h2>{link.name}</h2>
-                  <a href={link.url} class="text-sm">{link.url}</a>
-              </li>
-          
-            ))}
+          <li class="mb-4">
+            <h2 class="website-link-name">{link.name}</h2>
+            <a href={link.url} class="text-sm">{link.url}</a>
+          </li>
+          ))}
       </ol>
     </section>
   ))}

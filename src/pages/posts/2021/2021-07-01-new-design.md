@@ -7,7 +7,7 @@ description: "I've redesigned my web site using React and Gatsby."
 readtime: "1 min"
 tags: ["Blog"]
 tab: "Posts"
-layout: '../../../layouts/SimplePage.astro'
+layout: '../../../layouts/BlogPostPage.astro'
 related: []
 ---
 

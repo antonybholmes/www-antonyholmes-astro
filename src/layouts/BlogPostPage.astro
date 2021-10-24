@@ -1,0 +1,14 @@
+---
+import { Markdown } from 'astro/components';
+import SimplePage from '../layouts/SimplePage.astro';
+import BlogPost from '../components/BlogPost.astro';
+
+const { content } = Astro.props;
+const { title, description, publishDate, author, heroImage, permalink, alt } = content;
+---
+
+<SimplePage title={title} description={description} permalink={permalink} tab="Posts">
+  <BlogPost title={title} author={author} heroImage={heroImage} publishDate={publishDate} alt={alt}>
+    <slot />
+  </BlogPost>
+</SimplePage>

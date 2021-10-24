@@ -1,5 +1,11 @@
 ---
+import dayjs from "dayjs"
+
 import Author from './Author.astro';
+
+import config from "../site.config.json" 
+
+const { twitter } = config;
 
 export interface Props {
   title: string;
@@ -12,20 +18,26 @@ export interface Props {
 const { title, author, publishDate, heroImage, alt } = Astro.props;
 ---
 
-<div class="layout">
-  <article class="content">
-  <div>
-    <header>
-      {heroImage && <img width="720" height="420" class="hero-image" loading="lazy" src={heroImage} alt={alt} />}
-      <p class="publish-date">{publishDate}</p>
-      <h1 class="title">{title}</h1>
-      <Author name="@FredKSchott" href="https://twitter.com/FredKSchott" />
-    </header>
-    <main>
-      <slot />
-    </main>
-  </div>
-  </article>
-</div>
+<style>
+  .publish-date {
+    @apply m-0;
+  }
+
+  .title {
+    @apply m-0;
+  }
+</style>
+
+<article class="content">
+  <header>
+    {heroImage && <img width="720" height="420" class="hero-image" loading="lazy" src={heroImage} alt={alt} />}
+    <p class="publish-date">{dayjs(publishDate).format("MMM DD, YYYY")}</p>
+    <h1 class="title">{title}</h1>
+    <Author name={`@${twitter}`} href={`https://twitter.com/${twitter}`} />
+  </header>
+  <main>
+    <slot />
+  </main>
+</article>
 
 
