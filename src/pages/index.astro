@@ -44,16 +44,10 @@ allPosts = allPosts.sort((a, b) => dayjs(b.publishDate).valueOf() - dayjs(a.publ
     <BlueLink href="/posts/2021/2021-10-20-new-design">here</BlueLink>.
   </p>
 
-  <div class="layout">
-    <article class="content">
-      <section class="intro">
-        <h1 class="latest">{title}</h1>
-        <p>{description}</p>
-      </section>
-      <section>
-        {allPosts.map(p => <BlogPostPreview post={p} />)}
-      </section>
-    </article>
-  </div>
+
+  <section>
+    {allPosts.map(p => <BlogPostPreview post={p} />)}
+  </section>
+
 
 </SimplePage>

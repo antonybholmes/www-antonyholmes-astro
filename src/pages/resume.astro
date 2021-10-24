@@ -19,11 +19,23 @@ let permalink = 'https://example.com/';
 
 <style>
   .job {
-    @apply mb-12;
+    @apply mb-12 border border-solid border-gray-300 rounded-md overflow-hidden text-sm;
   }
 
   .job-date {
-    @apply text-gray-500;
+    @apply text-gray-500 text-base font-normal mb-1;
+  }
+
+  .job-header {
+   
+  }
+
+  .job-title {
+    @apply p-2 bg-gray-100 text-base; 
+  }
+
+  .job-overview {
+    @apply m-0 p-2; 
   }
 
   .skills-list {
@@ -31,35 +43,51 @@ let permalink = 'https://example.com/';
   }
 
   .skill {
-    @apply block border border-solid border-gray-200 rounded-md p-4 w-48/100 mb-4;
+    @apply block bg-blue-100 text-blue-500 rounded-md px-4 py-6 w-48/100 mb-4;
+  }
+
+  .skillset {
+    @apply text-base text-blue-700 mb-1;
+  }
+
+  .skill-name {
+    @apply text-sm;
   }
 
   .skill-details {
-    @apply m-0;
+    @apply m-0  text-sm;
   }
 
   .skill-notes {
-    @apply text-gray-500 text-sm;
+    @apply font-light text-xs;
   }
 
   .details-list {
-    @apply list-decimal list-inside;
+    @apply list-decimal list-inside p-2;
   }
 
   .detail {
     @apply mb-2;
   }
 
+  .degree {
+    @apply bg-green-100 rounded-md p-4 mb-4 text-green-500;
+  }
+
   .school {
     @apply font-normal;
   }
 
+  .degree-date {
+    @apply text-sm text-green-500;
+  }
+
   .resume-section {
-    @apply mb-4;
+    @apply mb-8;
   }
 
   .resume-section-secondary {
-    @apply border-t border-solid border-gray-300 pt-8 mt-16;
+    @apply mt-16;
   }
 </style>
 
@@ -67,15 +95,15 @@ let permalink = 'https://example.com/';
 
   <h1 class="resume-section">Skills</h1>        
   {skills.map((skillset) => (
-    <section class="job">
+    <section>
       <header>
-      <h2 class="job-date">{skillset.name}</h2>
+      <h2 class="skillset">{skillset.name}</h2>
       </header>
       <main>
       <ul class="skills-list">
           {skillset.skills.map((skill) => (
             <li class="skill">
-                <h3>{skill.name}</h3>
+                <h3 class="skill-name">{skill.name}</h3>
                 <p class="skill-details">{skill.details}</p>
                 <p class="skill-details skill-notes">{skill.notes}</p>
             </li>
@@ -87,13 +115,16 @@ let permalink = 'https://example.com/';
 
   <h1 class="resume-section resume-section-secondary">Experience</h1>        
   {jobs.map((job) => (
-    <section class="job">
-      <header>
+    <article>
       <h3 class="job-date">{job.date}</h3>
-      <h2>{job.title}</h2>
+      <section class="job">
+      <header class="job-header">
+      
+      <h2 class="job-title">{job.title}</h2>
+      <p class="job-overview">{job.overview}</p>
       </header>
       <main>
-      <p>{job.overview}</p>
+      
       <ul class="details-list">
           {job.details.map((detail) => (
             <li class="detail">
@@ -103,17 +134,21 @@ let permalink = 'https://example.com/';
       </ul>
     </main>
     </section>
+    </article>
   ))}
 
   <h1 class="resume-section resume-section-secondary">Volunteer Work</h1>        
   {volunteer.map((job) => (
-    <section class="job">
-      <header>
+      <article>
       <h3 class="job-date">{job.date}</h3>
-      <h2>{job.title}</h2>
+      <section class="job">
+      <header class="job-header">
+      
+      <h2 class="job-title">{job.title}</h2>
+      <p class="job-overview">{job.overview}</p>
       </header>
       <main>
-      <p>{job.overview}</p>
+      
       <ul class="details-list">
           {job.details.map((detail) => (
             <li class="detail">
@@ -124,14 +159,15 @@ let permalink = 'https://example.com/';
       </ul>
     </main>
     </section>
+    </article>
   ))}
 
 
   <h1 class="resume-section resume-section-secondary">Education</h1>        
   {education.map((degree) => (
-    <section class="job">
+    <section class="degree">
       <header>
-      {degree.date !== "" && <h3 class="job-date">{degree.date}</h3>}
+      {degree.date !== "" && <h3 class="degree-date">{degree.date}</h3>}
       <h3 class="school">{degree.school}</h3>
       <h2>{degree.title}</h2>
       </header>

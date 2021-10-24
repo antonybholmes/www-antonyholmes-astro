@@ -39,8 +39,7 @@
         "skills":[
             {
                 "name":"Amazon Web Services",
-                "details": "EC2, S3, Lambda, CloudFront, Route 53",
-                "notes": "I am an AWS admininstrator."
+                "details": "EC2, S3, Lambda, CloudFront, Route 53"
             },
             {
                 "name":"Databases",
