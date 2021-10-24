@@ -5,6 +5,7 @@ import SimplePage from '../layouts/SimplePage.astro';
 import jobs from '../content/jobs.json';
 import volunteer from '../content/volunteer.json';
 import education from '../content/education.json';
+import skills from '../content/skills.json';
 
 
 // Component Script:
@@ -23,6 +24,22 @@ let permalink = 'https://example.com/';
 
   .job-date {
     @apply text-gray-500;
+  }
+
+  .skills-list {
+    @apply flex flex-row flex-wrap items-stretch w-full justify-between;
+  }
+
+  .skill {
+    @apply block border border-solid border-gray-200 rounded-md p-4 w-48/100 mb-4;
+  }
+
+  .skill-details {
+    @apply m-0;
+  }
+
+  .skill-notes {
+    @apply text-gray-500 text-sm;
   }
 
   .details-list {
@@ -48,7 +65,27 @@ let permalink = 'https://example.com/';
 
 <SimplePage title={title} description={description} permalink={permalink}>
 
-  <h1 class="resume-section">Experience</h1>        
+  <h1 class="resume-section">Skills</h1>        
+  {skills.map((skillset) => (
+    <section class="job">
+      <header>
+      <h2 class="job-date">{skillset.name}</h2>
+      </header>
+      <main>
+      <ul class="skills-list">
+          {skillset.skills.map((skill) => (
+            <li class="skill">
+                <h3>{skill.name}</h3>
+                <p class="skill-details">{skill.details}</p>
+                <p class="skill-details skill-notes">{skill.notes}</p>
+            </li>
+          ))}
+      </ul>
+    </main>
+    </section>
+  ))}
+
+  <h1 class="resume-section resume-section-secondary">Experience</h1>        
   {jobs.map((job) => (
     <section class="job">
       <header>
