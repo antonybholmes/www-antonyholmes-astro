@@ -1,0 +1,38 @@
+---
+export interface Props {
+  size: string;
+}
+
+let { size } = Astro.props;
+
+if (size === undefined) {
+  size = "sm"
+}
+
+let cls1:string = "w-full "
+let cls2:string = "w-full "
+
+switch (size) {
+  case "lg":
+    cls1 += "lg:hidden"
+    cls2 += "hidden lg:block"
+    break
+  case "xl":
+    cls1 += "xl:hidden"
+    cls2 += "hidden xl:block"
+    break
+  case "2xl":
+    cls1 += "2xl:hidden"
+    cls2 += "hidden 2xl:block"
+    break
+  default:
+    cls1 += "sm:hidden"
+    cls2 += "hidden sm:block"
+    break
+}
+---
+
+<div class="w-full">
+  <div class={cls1}><slot name="c1" /></div>
+  <div class={cls2}><slot name="c2" /></div>
+</div>

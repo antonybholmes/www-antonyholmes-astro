@@ -1,7 +1,11 @@
 ---
-import Container from '../components/Container.astro';
+import Container from './Container.astro';
+import AltView from './AltView.astro';
+
 import infoLinks from '../content/headerlinks.json';
 import publications from '../content/publications.json';
+
+import DropDownMenu from './DropDownMenu.tsx'
 
 export interface Props {
   tab: string
@@ -11,11 +15,13 @@ const { tab } = Astro.props;
 
 const cp = publications.length
 
+
+//{link.name === "Publications" && <div class="tab-counter">{cp}</div>} 
 ---
 
 <style>
   .header {
-    @apply flex flex-row w-full border-b border-solid border-gray-200 pt-4 mb-8;
+    @apply flex flex-row w-full border-b border-solid border-gray-200 py-4 mb-8;
   }
 
   .sidebar {
@@ -23,7 +29,7 @@ const cp = publications.length
   }
 
   .header-links-list {
-    @apply flex flex-row text-sm font-semibold;
+    @apply flex flex-row text-sm font-medium;
   }
 
   .header-links-list-item {
@@ -31,15 +37,15 @@ const cp = publications.length
   }
 
   .header-links-list-item-link {
-    @apply flex flex-row h-full items-center px-2 lg:px-4 py-3 border-b-2;
+    @apply flex flex-row h-full items-center px-2 lg:px-4 py-2 border-none;
   }
 
   .header-links-list-item-not-selected {
-    @apply border-transparent hover:border-gray-300 transition ease-in-out duration-300;
+    @apply text-gray-500 border-transparent hover:text-gray-900 transition ease-in-out duration-300;
   }
 
   .header-links-list-item-selected {
-    @apply border-blue-600;
+    @apply bg-blue-50 text-blue-800 rounded-md;
   }
 
   .header-content {
@@ -52,23 +58,40 @@ const cp = publications.length
 </style>
 
 <header class="header">
-  <Container>
-    <div class="sidebar" />
-    <div class="header-content">
-        <ul class="header-links-list">
-          {infoLinks.map(
-            (link: { name: string; url: string }, index: number) => {
-              return (
-                <li key={index} class="header-links-list-item">
-                  <a href={link.url} class={`header-links-list-item-link ${link.name === tab ? "header-links-list-item-selected" : "header-links-list-item-not-selected"}`}>
-                  <div>{link.name}</div>
-                  {link.name === "Publications" && <div class="tab-counter">{cp}</div>}
-                </a>
-                </li>
-              )
-            }
-          )}
-        </ul>
-    </div>
-  </Container>
+  <AltView size="xl">
+    <DropDownMenu slot="c1" client:visible>
+      <ul>
+        {infoLinks.map(
+          (link: { name: string; url: string }, index: number) => {
+            return (
+              <li key={index} class="header-links-list-item">
+                <a href={link.url} class={`header-links-list-item-link ${link.name === tab ? "header-links-list-item-selected" : "header-links-list-item-not-selected"}`}>
+                <div>{link.name}</div>
+              </a>
+              </li>
+            )
+          }
+        )}
+      </ul>
+    </DropDownMenu>
+    <Container slot="c2">
+      <div class="sidebar" />
+      <div class="header-content">
+          <ul class="header-links-list">
+            {infoLinks.map(
+              (link: { name: string; url: string }, index: number) => {
+                return (
+                  <li key={index} class="header-links-list-item">
+                    <a href={link.url} class={`header-links-list-item-link ${link.name === tab ? "header-links-list-item-selected" : "header-links-list-item-not-selected"}`}>
+                    <div>{link.name}</div>
+                    
+                  </a>
+                  </li>
+                )
+              }
+            )}
+          </ul>
+      </div>
+    </Container>
+  </AltView>
 </header>

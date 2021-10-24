@@ -23,10 +23,14 @@ let permalink = 'https://example.com/';
 let allPosts = Astro.fetchContent<MarkdownFrontmatter>('./posts/**/*.md');
 
 allPosts = allPosts.sort((a, b) => dayjs(b.publishDate).valueOf() - dayjs(a.publishDate).valueOf());
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
 ---
+
+<style>
+  .blogs {
+    @apply mt-16;
+  }
+</style>
+
 <SimplePage title={title} description={description} permalink={permalink} tab="Overview">
   <h1>Hi there!</h1>
   <p>Hello, I'm Antony Holmes, and welcome to my personal web site.</p>
@@ -45,7 +49,7 @@ allPosts = allPosts.sort((a, b) => dayjs(b.publishDate).valueOf() - dayjs(a.publ
   </p>
 
 
-  <section>
+  <section class="blogs">
     {allPosts.map(p => <BlogPostPreview post={p} />)}
   </section>
 
