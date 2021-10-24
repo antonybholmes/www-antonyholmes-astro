@@ -25,12 +25,18 @@ allPosts = allPosts.sort((a, b) => new Date(b.publishDate).valueOf() - new Date(
 // https://docs.astro.build/core-concepts/astro-components/
 ---
 
+<style>
+  .resource-block {
+    @apply border-b border-solid border-gray-200 rounded-md pb-8 mb-8;
+  }
+</style>
 
 <SimplePage title={title} description={description} permalink={permalink}>
+<p>Some interesting links from around the web.</p>
   {websites.map((websitegroup) => (
-    <div>
-      <h1 class="mb-4">{websitegroup.name}</h1>
-      <ol class="border-b border-solid border-gray-200 rounded-md mb-8">
+    <section class="resource-block">
+      <h1>{websitegroup.name}</h1>
+      <ol>
         {websitegroup.links.map((link) => (
           
               <li class="mb-4">
@@ -40,6 +46,6 @@ allPosts = allPosts.sort((a, b) => new Date(b.publishDate).valueOf() - new Date(
           
             ))}
       </ol>
-    </div>
+    </section>
   ))}
 </SimplePage>

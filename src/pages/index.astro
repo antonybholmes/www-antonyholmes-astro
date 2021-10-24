@@ -1,7 +1,10 @@
 ---
+import dayjs from "dayjs"
+
 // Component Imports
 import SimplePage from '../layouts/SimplePage.astro';
 import BlogPostPreview from '../components/BlogPostPreview.astro';
+import BlueLink from '../components/links/BlueLink.astro';
 
 interface MarkdownFrontmatter {
   publishDate: number;
@@ -17,23 +20,40 @@ let permalink = 'https://example.com/';
 
 // Data Fetching: List all Markdown posts in the repo.
 
-let allPosts = Astro.fetchContent<MarkdownFrontmatter>('./posts/*.md');
-allPosts = allPosts.sort((a, b) => new Date(b.publishDate).valueOf() - new Date(a.publishDate).valueOf());
+let allPosts = Astro.fetchContent<MarkdownFrontmatter>('./posts/**/*.md');
+
+allPosts = allPosts.sort((a, b) => dayjs(b.publishDate).valueOf() - dayjs(a.publishDate).valueOf());
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
 ---
 <SimplePage title={title} description={description} permalink={permalink} tab="Overview">
-    <div class="layout">
-      <article class="content">
-        <section class="intro">
-          <h1 class="latest">{title}</h1>
-          <p>{description}</p>
-        </section>
-        <section>
-          {allPosts.map(p => <BlogPostPreview post={p} />)}
-        </section>
-      </article>
-    </div>
+  <h1>Hi there!</h1>
+  <p>Hello, I'm Antony Holmes, and welcome to my personal web site.</p>
+  <p>
+    I'm a researcher and full stack developer with experience using
+    multiple technologies, which you can read about in my{" "}
+    <BlueLink href="/resume">resume</BlueLink>. I have an aptly named{" "}
+    <BlueLink href="/publications">publications</BlueLink> page where you
+    can view all of the scientific literature I have written, primarily
+    focused on cancer genetics.
+  </p>
+
+  <p>
+    You can also learn a bit about this site and what I used to build it{" "}
+    <BlueLink href="/posts/2021/2021-10-20-new-design">here</BlueLink>.
+  </p>
+
+  <div class="layout">
+    <article class="content">
+      <section class="intro">
+        <h1 class="latest">{title}</h1>
+        <p>{description}</p>
+      </section>
+      <section>
+        {allPosts.map(p => <BlogPostPreview post={p} />)}
+      </section>
+    </article>
+  </div>
 
 </SimplePage>

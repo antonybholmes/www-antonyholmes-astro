@@ -4,12 +4,11 @@
 
 @layer base {
   body {
-    @apply m-0 p-0 bg-white;
+    @apply m-0 p-0 bg-white text-gray-900;
   }
 
   .h {
     @apply m-0 p-0 font-semibold;
-    color: rgb(0, 10, 20);
   }
 
   h1 {
@@ -22,5 +21,9 @@
 
   h3 {
     @apply h text-lg;
+  }
+
+  p {
+    @apply mb-4;
   }
 }

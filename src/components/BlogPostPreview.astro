@@ -1,57 +1,38 @@
 ---
+import dayjs from "dayjs"
+
+import BlackLink from './links/BlackLink.astro';
+import GrayLink from './links/GrayLink.astro';
+
+
 export interface Props {
   post: any;
 }
 
 const { post } = Astro.props;
 ---
-<article class="post-preview">
-  <header>
-    <p class="publish-date">{post.publishDate}</p>
-    <a href={post.url}><h1 class="title">{post.title}</h1></a>
-  </header>
-  <main>
-    <p>{post.description}</p>
-    <a href={post.url}>Read more</a>
-  </main>
-</article>
 
 <style>
-.content :global(main > * + *) {
-  margin-top: 1rem;
-}
+  .post-preview {
+    @apply mb-8;
+  }
 
-.post-preview {
-  padding-bottom: 2rem;
-  margin-bottom: 2rem;
-  border-bottom: 4px solid var(--theme-divider);
-}
+  .post-description {
+    @apply m-0;
+  }
 
-header {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  align-items: flex-start;
-  justify-content: center;
-
-  padding-bottom: 2rem;
-}
-
-.title,
-.author,
-.publish-date {
-  margin: 0;
-}
-
-.publish-date,
-.author {
-  font-size: 1.25rem;
-  color: var(--theme-text-lighter);
-}
-
-.title {
-  font-size: 2.25rem;
-  font-weight: 700;
-  color: var(--theme-text);
-}
+  .read-more {
+    @apply text-sm mt-1;
+  }
 </style>
+
+<article class="post-preview">
+  <header>
+    <h2 class="publish-date">{dayjs(post.publishDate).format("MMM DD, YYYY")}</h2>
+    <BlackLink href={post.url}><h1 class="title">{post.title}</h1></BlackLink>
+  </header>
+  <main>
+    <p class="post-description">{post.description}</p>
+    <div class="read-more"><GrayLink href={post.url}>Read more...</GrayLink></div>
+  </main>
+</article>

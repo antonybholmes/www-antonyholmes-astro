@@ -3,6 +3,8 @@
 import SimplePage from '../layouts/SimplePage.astro';
 
 import jobs from '../content/jobs.json';
+import volunteer from '../content/volunteer.json';
+import education from '../content/education.json';
 
 
 // Component Script:
@@ -14,24 +16,100 @@ let description = 'The perfect starter for your perfect blog.';
 let permalink = 'https://example.com/';
 ---
 
+<style>
+  .job {
+    @apply mb-12;
+  }
+
+  .job-date {
+    @apply text-gray-500;
+  }
+
+  .details-list {
+    @apply list-decimal list-inside;
+  }
+
+  .detail {
+    @apply mb-2;
+  }
+
+  .school {
+    @apply font-normal;
+  }
+
+  .resume-section {
+    @apply mb-4;
+  }
+
+  .resume-section-secondary {
+    @apply border-t border-solid border-gray-300 pt-8 mt-16;
+  }
+</style>
+
 <SimplePage title={title} description={description} permalink={permalink}>
-                
-{jobs.map((job) => (
-  <div>
-  <h3>{job.date}</h3>
-    <h1>{job.title}</h1>
-    <h2>{job.overview}</h2>
-    <ol class="list-decimal list-inside border border-solid border-gray-200 rounded-md p-4">
-    {job.details.map((detail) => (
-      
-          <li class="mb-8">
-              {detail}
-          </li>
-        
-        ))}
-  </ol>
-  </div>
-))}
-                
+
+  <h1 class="resume-section">Experience</h1>        
+  {jobs.map((job) => (
+    <section class="job">
+      <header>
+      <h3 class="job-date">{job.date}</h3>
+      <h2>{job.title}</h2>
+      </header>
+      <main>
+      <p>{job.overview}</p>
+      <ul class="details-list">
+          {job.details.map((detail) => (
+            <li class="detail">
+                {detail}
+            </li>
+          ))}
+      </ul>
+    </main>
+    </section>
+  ))}
+
+  <h1 class="resume-section resume-section-secondary">Volunteer Work</h1>        
+  {volunteer.map((job) => (
+    <section class="job">
+      <header>
+      <h3 class="job-date">{job.date}</h3>
+      <h2>{job.title}</h2>
+      </header>
+      <main>
+      <p>{job.overview}</p>
+      <ul class="details-list">
+          {job.details.map((detail) => (
+            <li class="detail">
+                {detail}
+            </li>
+          
+          ))}
+      </ul>
+    </main>
+    </section>
+  ))}
+
+
+  <h1 class="resume-section resume-section-secondary">Education</h1>        
+  {education.map((degree) => (
+    <section class="job">
+      <header>
+      {degree.date !== "" && <h3 class="job-date">{degree.date}</h3>}
+      <h3 class="school">{degree.school}</h3>
+      <h2>{degree.title}</h2>
+      </header>
+      <main>
+      <ul>
+          {degree.details.map((detail) => (
+            <li class="detail">
+                {detail}
+            </li>
+          
+          ))}
+      </ul>
+    </main>
+    </section>
+  ))}
+                  
 
 </SimplePage>

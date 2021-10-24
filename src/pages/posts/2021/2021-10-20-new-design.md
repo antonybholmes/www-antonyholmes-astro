@@ -1,0 +1,28 @@
+---
+id: "2021-10-20-new-design"
+title: "New new web site design!"
+author: "antony-holmes"
+publishDate: "2021-10-20"
+readtime: "1 min"
+tags: ["Blog"]
+related: []
+layout: '../../../layouts/SimplePage.astro'
+tab: "Posts"
+description: "I've redesigned my web site again using Astro."
+---
+
+I've redesigned my web site using Astro.
+
+If you're a developer and you are interested in how the work is done, here are some details. The site is not open source but please feel free to get in touch at hello@antonyholmes.com if you would like to view the code base.
+
+The site is was originally developed using Gatsby (you can see the original source code [here](https://github.com/antonybholmes/www-antony-holmes)), a framework for building websites in React. Gatsby is component based and takes care of the tiresome routing, transpiling, and hot-reloading that can make React annoying.
+
+Eventually I became annoyed that Gatsby loads itself as large JS blob even to render simple pages; I still think web pages should be as simple as possible, with a little JS sprinkled in for good measure so it loads quickly. You should be able to right click and view a page source and still see something resembling HTML that you can inspect without developer tools.
+
+With that in mind, I looked around for other static site tools and eventually settled on Astro since it allows me to continue to use React based developement, but strips almost all of the JS out of the final build so the site is a pure static site.
+
+Most of the site that you see is static, rendered at build time and served as plain HTML for speed, SEO and accessibility. I used Tailwind to style components with purgecss to remove unused css and reduce loading times.
+
+The site is hosted on AWS using S3 and Cloudfront. I choose to build the site locally and then push it to an S3 bucket. I've found that continous deployment using Netlify, Cloudflare and AWS Amplify to be unreliable and frequently my site will not build, usually because they will not pull the most recent packages into their build environment, so I prefer to have more control over the build process. The added bonus is that it's cheaper.
+
+Site data is stored in a mixture of Markdown (this post, for example) and JSON and I make extensive use of Gatsby's GraphQL features to translate it into pages. This neatly separates the content from the presentation (JSX, CSS) layer which makes managing the site easier.

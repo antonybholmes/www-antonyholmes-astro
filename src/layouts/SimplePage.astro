@@ -9,18 +9,29 @@ export interface Props {
   title: string
   description: string
   permalink: string
+  tab?: string
 }
 
-const { title, description, permalink, tab } = Astro.props;
+let { title, description, permalink, tab, content } = Astro.props;
 
-let selectedTab
+let postTitle
 
-if (tab === undefined) {
-  selectedTab = title
+if (content !== undefined) {
+  title = content.title
+  postTitle = title
+  description = content.description
+  permalink = content.permalink
+  
+  if (content.tab !== undefined) {
+    tab = content.tab
+  } else {
+    tab = title
+  }
 } else {
-  selectedTab = tab
+  if (tab === undefined) {
+    tab = title
+  }
 }
-
 ---
 
 <style>
@@ -32,11 +43,15 @@ if (tab === undefined) {
 </style>
 
 <BasePage title={title} description={description} permalink={permalink}>
-  <Header tab={selectedTab}/>
+  <Header tab={tab}/>
 
   <Container>
     <Sidebar />
-    <div class="main-content"><slot /></div>
+    <div class="main-content">
+      {postTitle !== undefined && <h1>{postTitle}</h1>}
+    <slot />
+    
+    </div>
   </Container>
 
   <Footer/>

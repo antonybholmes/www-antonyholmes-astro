@@ -11,6 +11,7 @@
   "devDependencies": {
     "@astrojs/renderer-preact": "^0.2.2",
     "astro": "^0.20.12",
+    "dayjs": "^1.10.7",
     "tailwindcss": "^2.2.17"
   }
 }

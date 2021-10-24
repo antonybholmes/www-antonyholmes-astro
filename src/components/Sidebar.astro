@@ -1,5 +1,9 @@
 ---
-import config from "../site.config.json" 
+import config from "../site.config.json"
+import links from "../content/sidebarlinks.json" 
+
+import BlackLink from './links/BlackLink.astro';
+
 
 const { site,email } = config;
 
@@ -7,26 +11,40 @@ const { site,email } = config;
 
 <style>
   .sidebar {
-    @apply w-1/4 px-8;
+    @apply w-1/4 px-12;
   }
 
   .me {
-    @apply rounded-full -mt-16 border border-solid border-gray-300 mb-4;
+    @apply rounded-full -mt-12 border border-solid border-gray-300 mb-4;
   }
 
   .email {
-    @apply flex flex-row items-center mt-2;
+    @apply flex flex-row items-center text-sm mt-2;
   }
 
   .email-icon {
-    @apply mr-2;
+    @apply w-6 text-gray-500;
   }
 </style>
 
 <div class="sidebar">
-<img src="images/authors/antony-holmes.jpg" class="me" />
+<a href="/"><img src="/images/authors/antony-holmes.jpg" class="me" /></a>
 <h1>{site}</h1>
-<div class="email">
-<div class="email-icon"><a href={email}><i class="far fa-envelope"></i></a></div><div><a href={email}>{email}</a></div>
-</div>
+<ul>
+<li class="email">
+  <div class="email-icon"><i class="far fa-envelope" /></div><div><BlackLink href={`mailto:${email}`}>{email}</BlackLink></div>
+</li>
+
+{links.map(
+  (link: { name: string; url: string }, index: number) => {
+    return (
+      <li class="email">
+        <div class="email-icon"><i class="fas fa-link" /></div><div><BlackLink href={link.url}>{link.name}</BlackLink></div>
+      </li>
+    )
+  }
+)}
+</ul>
+
+
 </div>

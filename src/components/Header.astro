@@ -1,12 +1,15 @@
 ---
 import Container from '../components/Container.astro';
 import infoLinks from '../content/headerlinks.json';
+import publications from '../content/publications.json';
 
 export interface Props {
   tab: string
 }
 
 const { tab } = Astro.props;
+
+const cp = publications.length
 
 ---
 
@@ -20,15 +23,15 @@ const { tab } = Astro.props;
   }
 
   .header-links-list {
-    @apply inline-block text-sm font-semibold;
+    @apply flex flex-row text-sm font-semibold;
   }
 
   .header-links-list-item {
-    @apply inline-block;
+    @apply block h-full;
   }
 
   .header-links-list-item-link {
-    @apply block px-4 py-3 border-b-2;
+    @apply flex flex-row h-full items-center px-4 py-3 border-b-2;
   }
 
   .header-links-list-item-not-selected {
@@ -40,7 +43,11 @@ const { tab } = Astro.props;
   }
 
   .header-content {
-    @apply flex flex-row w-3/4;
+    @apply flex flex-row;
+  }
+
+  .tab-counter {
+    @apply w-8 p-1 ml-2 rounded-full bg-gray-200 text-center font-normal;
   }
 </style>
 
@@ -53,7 +60,10 @@ const { tab } = Astro.props;
             (link: { name: string; url: string }, index: number) => {
               return (
                 <li key={index} class="header-links-list-item">
-                  <a href={link.url} class={`header-links-list-item-link ${link.name === tab ? "header-links-list-item-selected" : "header-links-list-item-not-selected"}`}>{link.name}</a>
+                  <a href={link.url} class={`header-links-list-item-link ${link.name === tab ? "header-links-list-item-selected" : "header-links-list-item-not-selected"}`}>
+                  <div>{link.name}</div>
+                  {link.name === "Publications" && <div class="tab-counter">{cp}</div>}
+                </a>
                 </li>
               )
             }
