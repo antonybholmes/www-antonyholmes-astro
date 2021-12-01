@@ -1,77 +1,68 @@
 ---
-// Component Imports
 import SimplePage from '../layouts/SimplePage.astro';
+import BasePage from '../layouts/BasePage.astro';
 import BlackLink from '../components/links/BlackLink.astro';
-
 import sortByDate from "../utils/sortByDate"
-
 import publications from '../content/publications.json';
 
-interface MarkdownFrontmatter {
-  publishDate: number;
-}
 
 const pubmedUrl = (pubmed: number) => {
-  return `https://pubmed.ncbi.nlm.nih.gov/${pubmed}/` //``https://www.ncbi.nlm.nih.gov/pubmed/?term=${pubmed}`
+  return `https://pubmed.ncbi.nlm.nih.gov/${pubmed}/` 
 }
 
 const doiUrl = (doi: string) => {
   return `https://doi.org/${doi}`
 }
 
-// Component Script:
-// You can write any JavaScript/TypeScript that you'd like here.
-// It will run during the build, but never in the browser.
-// All variables are available to use in the HTML template below.
+const getUrl = (publication: any) => {
+  if (publication.url !== "") {
+    return publication.url
+  } else if (publication.doi !== "") {
+    return doiUrl(publication.doi)
+  } else if (publication.pmid !== "") {
+    return pubmedUrl(publication.pmid)
+  } else {
+    return ''
+  }
+}
+
 let title = 'Publications';
-let description = 'The perfect starter for your perfect blog.';
+let description = 'My publications.';
 let permalink = 'https://example.com/';
 
-// Data Fetching: List all Markdown posts in the repo.
-
-let allPosts = Astro.fetchContent<MarkdownFrontmatter>('./posts/*.md');
-allPosts = allPosts.sort((a, b) => new Date(b.publishDate).valueOf() - new Date(a.publishDate).valueOf());
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
 
 const publicationMap = sortByDate(publications)
-
 ---
 
 <style>
   .year-block {
     @apply mb-12 w-3/4 text-justify;
   }
-
   .year {
-    @apply text-blue-800 mb-1 font-bold text-sm;
+    @apply text-red-800 mb-1 font-bold text-sm;
   }
-
   .pub-list-item {
     @apply mb-4;
   }
-
   .pub-title {
     @apply font-semibold text-lg m-0;
   }
-
   .pub-authors {
     @apply text-sm;
   }
-
   .pub-journal {
     @apply font-light;
   }
 </style>
 
 <SimplePage title={title} description={description} permalink={permalink}>
+  <ul>
   {Array.from(publicationMap.keys())
     .sort()
     .reverse()
-    .map((year: number, yearIndex: number) => {
-    return (
-      <section class="year-block">
+    .map((year: number, yearIndex: number) => (
+      <li>
+      <article class="year-block">
         <h2 class="year">
           {year}
         </h2>
@@ -80,17 +71,7 @@ const publicationMap = sortByDate(publications)
           {publicationMap
             .get(year)
             .map((publication: any, pubIndex: number) => {
-              let url
-
-              if (publication.url !== "") {
-                url = publication.url
-              } else if (publication.doi !== "") {
-                url = doiUrl(publication.doi)
-              } else if (publication.pmid !== "") {
-                url = pubmedUrl(publication.pmid)
-              } else {
-                url = ""
-              }
+              let url = getUrl(publication)
 
               return (
                 <li class="pub-list-item">
@@ -113,8 +94,9 @@ const publicationMap = sortByDate(publications)
               )
             })}
         </ol>
-      </section>
+      </article>
+      </li>
     )
-  })}
-
+  )}
+</ul>
 </SimplePage>

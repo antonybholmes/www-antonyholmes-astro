@@ -4,9 +4,9 @@ import SimplePage from '../layouts/SimplePage.astro';
 import websites from '../content/websites.json';
 
 
-interface MarkdownFrontmatter {
-  publishDate: number;
-}
+// interface MarkdownFrontmatter {
+//   publishDate: number;
+// }
 
 // Component Script:
 // You can write any JavaScript/TypeScript that you'd like here.
@@ -18,8 +18,8 @@ let permalink = 'https://example.com/';
 
 // Data Fetching: List all Markdown posts in the repo.
 
-let allPosts = Astro.fetchContent<MarkdownFrontmatter>('./posts/*.md');
-allPosts = allPosts.sort((a, b) => new Date(b.publishDate).valueOf() - new Date(a.publishDate).valueOf());
+//let allPosts = Astro.fetchContent<MarkdownFrontmatter>('./posts/*.md');
+//allPosts = allPosts.sort((a, b) => new Date(b.publishDate).valueOf() - new Date(a.publishDate).valueOf());
 
 // Full Astro Component Syntax:
 // https://docs.astro.build/core-concepts/astro-components/
@@ -42,7 +42,7 @@ allPosts = allPosts.sort((a, b) => new Date(b.publishDate).valueOf() - new Date(
 <SimplePage title={title} description={description} permalink={permalink}>
   <p>Some interesting links from around the web.</p>
   {websites.map((websitegroup) => (
-    <section class="resource-block">
+    <article class="resource-block">
       <h1 class="website-name">{websitegroup.name}</h1>
       <ol>
         {websitegroup.links.map((link) => (
@@ -52,6 +52,6 @@ allPosts = allPosts.sort((a, b) => new Date(b.publishDate).valueOf() - new Date(
           </li>
           ))}
       </ol>
-    </section>
+    </article>
   ))}
 </SimplePage>

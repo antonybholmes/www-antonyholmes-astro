@@ -33,7 +33,7 @@ allPosts = allPosts.sort((a, b) => dayjs(b.publishDate).valueOf() - dayjs(a.publ
 </style>
 
 <SimplePage title={title} description={description} permalink={permalink}>
-  <p>The latest blog posts.</p>
+  
 
   {allPosts.map(p => <BlogPostPreview post={p} />)}
 </SimplePage>

@@ -62,15 +62,14 @@ const cp = publications.length
     <DropDownMenu slot="c1" client:visible>
       <ul>
         {infoLinks.map(
-          (link: { name: string; url: string }, index: number) => {
-            return (
+          (link: { name: string; url: string }, index: number) => (
               <li key={index} class="header-links-list-item">
                 <a href={link.url} class={`header-links-list-item-link ${link.name === tab ? "header-links-list-item-selected" : "header-links-list-item-not-selected"}`}>
                 <div>{link.name}</div>
               </a>
               </li>
             )
-          }
+          
         )}
       </ul>
     </DropDownMenu>
@@ -79,8 +78,7 @@ const cp = publications.length
       <div class="header-content">
           <ul class="header-links-list">
             {infoLinks.map(
-              (link: { name: string; url: string }, index: number) => {
-                return (
+              (link: { name: string; url: string }, index: number) =>  (
                   <li key={index} class="header-links-list-item">
                     <a href={link.url} class={`header-links-list-item-link ${link.name === tab ? "header-links-list-item-selected" : "header-links-list-item-not-selected"}`}>
                     <div>{link.name}</div>
@@ -88,7 +86,7 @@ const cp = publications.length
                   </a>
                   </li>
                 )
-              }
+              
             )}
           </ul>
       </div>

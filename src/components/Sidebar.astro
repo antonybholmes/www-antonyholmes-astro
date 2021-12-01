@@ -1,12 +1,9 @@
 ---
 import config from "../site.config.json"
 import links from "../content/sidebarlinks.json" 
-
 import BlackLink from './links/BlackLink.astro';
 
-
-const { site,email } = config;
-
+const { site,email } = config
 ---
 
 <style>
@@ -32,17 +29,17 @@ const { site,email } = config;
 <h1>{site}</h1>
 <ul>
 <li class="email">
-  <div class="email-icon"><i class="far fa-envelope" /></div><div><BlackLink href={`mailto:${email}`}>{email}</BlackLink></div>
+  <div class="email-icon"><i class="far fa-envelope"></i></div>
+  <div><BlackLink href={`mailto:${email}`}>{email}</BlackLink></div>
 </li>
 
 {links.map(
-  (link: { name: string; url: string }, index: number) => {
-    return (
+  (link: { name: string; url: string }, index: number) =>  (
       <li class="email">
-        <div class="email-icon"><i class="fas fa-link" /></div><div><BlackLink href={link.url}>{link.name}</BlackLink></div>
+        <div class="email-icon"><i class="fas fa-link"></i></div><div><BlackLink href={link.url}>{link.name}</BlackLink></div>
       </li>
     )
-  }
+  
 )}
 </ul>
 

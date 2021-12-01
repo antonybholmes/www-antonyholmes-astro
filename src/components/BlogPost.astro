@@ -1,11 +1,8 @@
 ---
+
 import dayjs from "dayjs"
-
 import Author from './Author.astro';
-
 import config from "../site.config.json" 
-
-const { twitter } = config;
 
 export interface Props {
   title: string;
@@ -14,6 +11,9 @@ export interface Props {
   heroImage: string;
   alt: string;
 }
+
+
+const { twitter } = config;
 
 const { title, author, publishDate, heroImage, alt } = Astro.props;
 ---
