@@ -2,7 +2,7 @@ import React from "react"
 import { useEffect } from "preact/hooks"
 import { gsap } from "gsap"
 
-const DURATION = 0.3
+const DURATION = 0.25
 const BAR_WIDTH = "0.1rem"
 
 type MenuButtonProps = {
@@ -33,15 +33,15 @@ const MenuButton: React.FC<MenuButtonProps> = ({ isVisible, onClick }) => {
           },
           0
         )
-        .to(
-          "#bar2",
-          {
-            opacity: 0,
-            duration: DURATION,
-            ease: "power3.out",
-          },
-          0
-        )
+        // .to(
+        //   "#bar2",
+        //   {
+        //     opacity: 0,
+        //     duration: DURATION,
+        //     ease: "power3.out",
+        //   },
+        //   0
+        // )
         .to(
           "#bar1",
           {
@@ -98,15 +98,15 @@ const MenuButton: React.FC<MenuButtonProps> = ({ isVisible, onClick }) => {
           },
           DURATION
         )
-        .to(
-          "#bar2",
-          {
-            opacity: 1,
-            duration: DURATION,
-            ease: "power3.out",
-          },
-          DURATION
-        )
+        // .to(
+        //   "#bar2",
+        //   {
+        //     opacity: 1,
+        //     duration: DURATION,
+        //     ease: "power3.out",
+        //   },
+        //   DURATION
+        // )
         .pause()
     }
 
@@ -121,11 +121,11 @@ const MenuButton: React.FC<MenuButtonProps> = ({ isVisible, onClick }) => {
           className="absolute left-0 w-full bg-gray-900"
           style={{ height: BAR_WIDTH }}
         />
-        <div
+        {/* <div
           id="bar2"
           className="absolute left-0 top-1/2 w-full bg-gray-900"
           style={{ height: BAR_WIDTH }}
-        />
+        /> */}
         <div
           id="bar3"
           className="absolute left-0 bottom-0 w-full bg-gray-900"
