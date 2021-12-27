@@ -56,47 +56,48 @@ const publicationMap = sortByDate(publications)
 </style>
 
 <SimplePage title={title} description={description} permalink={permalink}>
-  <ul>
-  {Array.from(publicationMap.keys())
-    .sort()
-    .reverse()
-    .map((year: number, yearIndex: number) => (
-      <li>
-      <article class="year-block">
-        <h2 class="year">
-          {year}
-        </h2>
+  <div>
+    <h1>All Publications</h1>
+    <ul class="mt-8">
+      {Array.from(publicationMap.keys())
+        .sort()
+        .reverse()
+        .map((year: number, yearIndex: number) => (
+          <li class="year-block">
+            <h2 class="year">
+              {year}
+            </h2>
 
-        <ol>
-          {publicationMap
-            .get(year)
-            .map((publication: any, pubIndex: number) => {
-              let url = getUrl(publication)
+            <ul>
+              {publicationMap
+                .get(year)
+                .map((publication: any, pubIndex: number) => {
+                  let url = getUrl(publication)
 
-              return (
-                <li class="pub-list-item">
-                  <h1 class="pub-title">
-                    {url !== "" ? (
-                      <BlackLink href={url}>
-                        {publication.title}
-                      </BlackLink>
-                    ) : (
-                      publication.title
-                    )}
-                  </h1>
-                  <section class="pub-authors">
-                    {publication.authors}
-                  </section>
-                  <section class="pub-authors pub-journal">
-                    {publication.journal}. {publication.year}.
-                  </section>
-                </li>
-              )
-            })}
-        </ol>
-      </article>
-      </li>
-    )
-  )}
-</ul>
+                  return (
+                    <li class="pub-list-item">
+                      <h1 class="pub-title">
+                        {url !== "" ? (
+                          <BlackLink href={url}>
+                            {publication.title}
+                          </BlackLink>
+                        ) : (
+                          publication.title
+                        )}
+                      </h1>
+                      <section class="pub-authors">
+                        {publication.authors}
+                      </section>
+                      <section class="pub-authors pub-journal">
+                        {publication.journal}. {publication.year}.
+                      </section>
+                    </li>
+                  )
+                })}
+            </ul>
+          </li>
+        )
+      )}
+    </ul>
+  </div>
 </SimplePage>

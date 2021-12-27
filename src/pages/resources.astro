@@ -40,18 +40,20 @@ let permalink = 'https://example.com/';
 </style>
 
 <SimplePage title={title} description={description} permalink={permalink}>
-  <p>Some interesting links from around the web.</p>
-  {websites.map((websitegroup) => (
-    <article class="resource-block">
-      <h1 class="website-name">{websitegroup.name}</h1>
-      <ol>
-        {websitegroup.links.map((link) => (
-          <li class="mb-4">
-            <h2 class="website-link-name">{link.name}</h2>
-            <a href={link.url} class="text-sm">{link.url}</a>
-          </li>
-          ))}
-      </ol>
-    </article>
-  ))}
+  <div>
+    <h1>Some interesting links from around the web.</h1>
+    {websites.map((websitegroup) => (
+      <article class="resource-block">
+        <h1 class="website-name">{websitegroup.name}</h1>
+        <ol>
+          {websitegroup.links.map((link) => (
+            <li class="mb-4">
+              <h2 class="website-link-name">{link.name}</h2>
+              <a href={link.url} class="text-sm">{link.url}</a>
+            </li>
+            ))}
+        </ol>
+      </article>
+    ))}
+  </div>
 </SimplePage>
