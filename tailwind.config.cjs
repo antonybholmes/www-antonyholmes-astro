@@ -1,9 +1,7 @@
 module.exports = {
   mode: "jit",
-  purge: {
-    content: ["./public/**/*.html", "./src/**/*.{astro,js,jsx,svelte,ts,tsx,vue}"],
-    safelist: ['bg-gray-900']
-  },
+  content: ["./public/**/*.html", "./src/**/*.{astro,js,jsx,svelte,ts,tsx,vue}"],
+  safelist: ['bg-gray-900'],
   theme: {
     extend: {
       fontFamily: {
