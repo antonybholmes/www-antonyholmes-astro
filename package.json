@@ -1,6 +1,6 @@
 {
-  "name": "@example/blog",
-  "version": "0.0.1",
+  "name": "antonyholmes.com",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -10,9 +10,9 @@
   },
   "devDependencies": {
     "@astrojs/renderer-preact": "^0.4.0",
-    "astro": "^0.21.4",
+    "astro": "^0.22.5",
     "dayjs": "^1.10.7",
-    "tailwindcss": "^3.0.9"
+    "tailwindcss": "^3.0.10"
   },
   "dependencies": {
     "gsap": "^3.9.1"
