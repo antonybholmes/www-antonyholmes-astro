@@ -12,7 +12,7 @@
   }
 
   h1 {
-    @apply h text-2xl;
+    @apply h text-3xl;
   }
 
   h2 {

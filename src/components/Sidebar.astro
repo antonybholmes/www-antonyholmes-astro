@@ -25,23 +25,23 @@ const { site,email } = config
 </style>
 
 <div class="sidebar">
-<a href="/"><img src="/images/authors/antony-holmes.jpg" class="me" /></a>
-<h1>{site}</h1>
-<ul>
-<li class="email">
-  <div class="email-icon"><i class="far fa-envelope"></i></div>
-  <div><BlackLink href={`mailto:${email}`}>{email}</BlackLink></div>
-</li>
+  <a href="/"><img src="/images/authors/antony-holmes.jpg" class="me" /></a>
+  <h2>{site}</h2>
+  <ul>
+    <li class="email">
+      <div class="email-icon"><i class="far fa-envelope"></i></div>
+      <div><BlackLink href={`mailto:${email}`}>{email}</BlackLink></div>
+    </li>
 
-{links.map(
-  (link: { name: string; url: string }, index: number) =>  (
-      <li class="email">
-        <div class="email-icon"><i class="fas fa-link"></i></div><div><BlackLink href={link.url}>{link.name}</BlackLink></div>
-      </li>
-    )
-  
-)}
-</ul>
+    {links.map(
+      (link: { name: string; url: string }, index: number) =>  (
+          <li class="email">
+            <div class="email-icon"><i class="fas fa-link"></i></div><div><BlackLink href={link.url}>{link.name}</BlackLink></div>
+          </li>
+        )
+      
+    )}
+  </ul>
 
 
 </div>

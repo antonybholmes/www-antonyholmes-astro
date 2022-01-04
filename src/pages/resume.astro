@@ -92,97 +92,97 @@ let permalink = 'https://example.com/';
 </style>
 
 <SimplePage title={title} description={description} permalink={permalink}>
+  <div>
+    <h1 class="resume-section">Skills</h1>        
+    {skills.map((skillset) => (
+      <section>
+        <header>
+        <h2 class="skillset">{skillset.name}</h2>
+        </header>
+        <main>
+        <ul class="skills-list">
+            {skillset.skills.map((skill) => (
+              <li class="skill">
+                  <h3 class="skill-name">{skill.name}</h3>
+                  <p class="skill-details">{skill.details}</p>
+                  <p class="skill-details skill-notes">{skill.notes}</p>
+              </li>
+            ))}
+        </ul>
+      </main>
+      </section>
+    ))}
 
-  <h1 class="resume-section">Skills</h1>        
-  {skills.map((skillset) => (
-    <section>
-      <header>
-      <h2 class="skillset">{skillset.name}</h2>
-      </header>
-      <main>
-      <ul class="skills-list">
-          {skillset.skills.map((skill) => (
-            <li class="skill">
-                <h3 class="skill-name">{skill.name}</h3>
-                <p class="skill-details">{skill.details}</p>
-                <p class="skill-details skill-notes">{skill.notes}</p>
-            </li>
-          ))}
-      </ul>
-    </main>
-    </section>
-  ))}
-
-  <h1 class="resume-section resume-section-secondary">Experience</h1>        
-  {jobs.map((job) => (
-    <article>
-      <h3 class="job-date">{job.date}</h3>
-      <section class="job">
-      <header class="job-header">
-      
-      <h2 class="job-title">{job.title}</h2>
-      <p class="job-overview">{job.overview}</p>
-      </header>
-      <main>
-      
-      <ul class="details-list">
-          {job.details.map((detail) => (
-            <li class="detail">
-                {detail}
-            </li>
-          ))}
-      </ul>
-    </main>
-    </section>
-    </article>
-  ))}
-
-  <h1 class="resume-section resume-section-secondary">Volunteer Work</h1>        
-  {volunteer.map((job) => (
+    <h1 class="resume-section resume-section-secondary">Experience</h1>        
+    {jobs.map((job) => (
       <article>
-      <h3 class="job-date">{job.date}</h3>
-      <section class="job">
-      <header class="job-header">
-      
-      <h2 class="job-title">{job.title}</h2>
-      <p class="job-overview">{job.overview}</p>
-      </header>
-      <main>
-      
-      <ul class="details-list">
-          {job.details.map((detail) => (
-            <li class="detail">
-                {detail}
-            </li>
-          
-          ))}
-      </ul>
-    </main>
-    </section>
-    </article>
-  ))}
+        <h3 class="job-date">{job.date}</h3>
+        <section class="job">
+        <header class="job-header">
+        
+        <h2 class="job-title">{job.title}</h2>
+        <p class="job-overview">{job.overview}</p>
+        </header>
+        <main>
+        
+        <ul class="details-list">
+            {job.details.map((detail) => (
+              <li class="detail">
+                  {detail}
+              </li>
+            ))}
+        </ul>
+      </main>
+      </section>
+      </article>
+    ))}
+
+    <h1 class="resume-section resume-section-secondary">Volunteer Work</h1>        
+    {volunteer.map((job) => (
+        <article>
+        <h3 class="job-date">{job.date}</h3>
+        <section class="job">
+        <header class="job-header">
+        
+        <h2 class="job-title">{job.title}</h2>
+        <p class="job-overview">{job.overview}</p>
+        </header>
+        <main>
+        
+        <ul class="details-list">
+            {job.details.map((detail) => (
+              <li class="detail">
+                  {detail}
+              </li>
+            
+            ))}
+        </ul>
+      </main>
+      </section>
+      </article>
+    ))}
 
 
-  <h1 class="resume-section resume-section-secondary">Education</h1>        
-  {education.map((degree) => (
-    <section class="degree">
-      <header>
-      {degree.date !== "" && <h3 class="degree-date">{degree.date}</h3>}
-      <h3 class="school">{degree.school}</h3>
-      <h2>{degree.title}</h2>
-      </header>
-      <main>
-      <ul>
-          {degree.details.map((detail) => (
-            <li class="detail">
-                {detail}
-            </li>
-          
-          ))}
-      </ul>
-    </main>
-    </section>
-  ))}
+    <h1 class="resume-section resume-section-secondary">Education</h1>        
+    {education.map((degree) => (
+      <section class="degree">
+        <header>
+        {degree.date !== "" && <h3 class="degree-date">{degree.date}</h3>}
+        <h3 class="school">{degree.school}</h3>
+        <h2>{degree.title}</h2>
+        </header>
+        <main>
+        <ul>
+            {degree.details.map((detail) => (
+              <li class="detail">
+                  {detail}
+              </li>
+            
+            ))}
+        </ul>
+      </main>
+      </section>
+    ))}
                   
-
+  </div>
 </SimplePage>
