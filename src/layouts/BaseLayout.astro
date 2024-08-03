@@ -1,0 +1,45 @@
+---
+import BaseHead from "./BaseHead.astro"
+
+//import "@fontsource/manrope/300.css"
+//import "@fontsource/manrope/400.css"
+//import "@fontsource/manrope/500.css"
+//import "@fontsource/manrope/600.css"
+//import "@fontsource/manrope/700.css"
+
+//import "@fontsource/lato/400.css"
+//import "@fontsource/lato/500.css"
+//import "@fontsource/lato/600.css"
+//import "@fontsource/lato/700.css"
+
+import Footer from "@layouts/Footer.astro"
+import {cn} from "@lib/class-names"
+
+// import "@fontsource/figtree/300.css"
+// import "@fontsource/figtree/400.css"
+// import "@fontsource/figtree/500.css"
+// import "@fontsource/figtree/600.css"
+// import "@fontsource/figtree/700.css"
+
+// import "@fontsource/poppins/300.css"
+// import "@fontsource/poppins/400.css"
+// import "@fontsource/poppins/500.css"
+// import "@fontsource/poppins/600.css"
+// import "@fontsource/poppins/700.css"
+
+let { title, headerMode = "light", isIndexed = true } = Astro.props
+---
+
+<html lang="en">
+  <head>
+    <BaseHead title={title} isIndexed={isIndexed} />
+    <slot name="head" />
+  </head>
+
+  <body class={cn([headerMode === "light", "bg-white", "bg-slate-800"])}>
+    <slot name="main" />
+    <Footer />
+
+    <slot name="end" />
+  </body>
+</html>

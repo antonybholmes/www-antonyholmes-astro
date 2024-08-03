@@ -1,0 +1,43 @@
+---
+import DefaultLayout from '@layouts/DefaultLayout.astro';
+
+// @ts-ignore
+export async function getStaticPaths() {
+  // @ts-ignore
+  const posts = await Astro.glob("/content/posts/**/*.md");
+
+  return (
+    posts
+      // @ts-ignore
+      .filter((post) =>
+        import.meta.env.PROD ? post.frontmatter.draft !== true : true
+      )
+      // @ts-ignore
+      .map((post) => {
+        console.log(post.frontmatter.title, post.frontmatter.slug);
+        return {
+          params: {
+            slug: post.frontmatter.slug,
+          },
+          props: {
+            post,
+          },
+        };
+      })
+  );
+}
+
+const { post } = Astro.props;
+const { Content } = post;
+---
+<DefaultLayout title={post.frontmatter.title} tab="Blog" >
+<article slot="main">
+  <p>{post.frontmatter.title}</p>
+  <Content />
+  <div class="grid grid-cols-3 w-full border">
+    <div>a</div>
+    <div>b</div>
+    <div>c</div>
+  </div>
+</article>
+</DefaultLayout>
