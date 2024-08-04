@@ -40,6 +40,22 @@ blockquote {
   @apply duration-300 ease-out;
 }
 
+.trans-500 {
+  @apply duration-500 ease-out;
+}
+
+.trans-700 {
+  @apply duration-700 ease-out;
+}
+
+.trans-color {
+  @apply trans-300 transition-colors;
+}
+
+.trans-all {
+  @apply trans-300 transition-all;
+}
+
 ///
 /// markdown
 ///

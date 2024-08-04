@@ -4,7 +4,7 @@ categories:
   - Investing
 type: post
 heroCaption: 'If you don''t eat your cake, you can''t have any pudding!'
-status: published
+status: pubDate
 related: []
 title: The Vanilla Investor
 slug: the-vanilla-investor

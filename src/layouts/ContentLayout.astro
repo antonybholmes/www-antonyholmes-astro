@@ -1,21 +1,15 @@
 ---
-import { Breadcrumb } from "@components/breadcrumb"
-
+ 
 import type { ILayoutProps } from "@interfaces/layout-props"
 import { createCrumbs, type ICrumbProps } from "@lib/crumbs"
 import DefaultLayout from "./DefaultLayout.astro"
-import { PageTitle } from "@components/page-title"
+ 
 import { ContentDiv } from "@components/content-div"
-import { BaseCol } from "@components/base-col"
 
 export interface Props extends ILayoutProps, ICrumbProps {}
 
 let {
   title,
-  showTitle = true,
-  showCrumbs = true,
-  superTitle,
-  subTitle,
 
   tab,
   crumbs,

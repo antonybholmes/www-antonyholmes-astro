@@ -15,7 +15,7 @@ cons:
 details:
   - Straightforward 2% cash back card.
 url: 'https://www.citi.com'
-status: published
+status: pubDate
 title: Citi Double Cash Card
 slug: citi-double-cash-card
 hero: /assets/posts/credit-cards-2048x1024.webp

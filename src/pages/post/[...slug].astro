@@ -4,9 +4,11 @@ import { MarkdownContent } from "@components/markdown-content"
 
 import PostLayout from "@layouts/PostLayout.astro"
 
-import { CompactAvatars } from "@components/person/compact-avatars"
+import { CompactAvatars } from "@components/people/compact-avatars"
 
 import { getCollection, type CollectionEntry } from "astro:content"
+import { PostTags } from "@components/post/post-tags"
+import HeroImage from "@components/post/hero-image"
 
 // @ts-ignore
 export async function getStaticPaths() {
@@ -41,8 +43,14 @@ const { Content } = await post.render()
 
 <PostLayout title={post.data.title} tab="Blog">
   <Fragment slot="main">
-    <FormattedDate date={post.data.pubDate} />
+    <PostTags post={post} />
+    <HeroImage post={post} />
+
     <CompactAvatars people={post.data.authors} />
-    <MarkdownContent> <Content /></MarkdownContent>
+    <FormattedDate date={post.data.pubDate} />
+    <!-- <span class="h-px w-full bg-gray-300"/> -->
+    <MarkdownContent className="border-t border-gray-300 pt-8">
+      <Content /></MarkdownContent
+    >
   </Fragment>
 </PostLayout>

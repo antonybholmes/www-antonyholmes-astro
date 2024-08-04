@@ -19,7 +19,7 @@ details:
   - Basically no account fees.
   - Unlimited 2% cash back credit card.
 url: 'https://www.fidelity.com'
-status: published
+status: pubDate
 title: 'Hi, Fidelity'
 slug: hi-fidelity
 hero: /assets/posts/bank-2048x1024.webp

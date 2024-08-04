@@ -4,7 +4,7 @@ categories:
   - News
 type: post
 heroCaption: This post is more technologically advanced than a stamp.
-status: published
+status: pubDate
 title: First Post! Welcome
 slug: first-post
 hero: /assets/posts/post-2048x1024.webp

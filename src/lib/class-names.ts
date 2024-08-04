@@ -73,7 +73,7 @@ function _cn(args: CSSClass, classes: Set<String>) {
  * @returns a space separated string of class names.
  */
 export function cn(...args: CSSClass[]): string | undefined {
-  const used = new Set<string>()
+  //const used = new Set<string>()
   const classes: Set<String> = new Set()
 
   _cn(args, classes)

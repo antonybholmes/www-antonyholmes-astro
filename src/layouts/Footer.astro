@@ -1,6 +1,6 @@
 ---
-import { GitHubIcon } from "@icons/github-icon"
-import { RssIcon } from "@icons/rss-icon"
+import { GitHubIcon } from "@components/icons/github-icon"
+import { RssIcon } from "@components/icons/rss-icon"
 import { GITHUB_URL, SITE_TITLE } from "@consts"
 import { INFO_LINKS } from "@menus"
 
@@ -22,7 +22,7 @@ import { BaseCol } from "@components/base-col"
           class="flex flex-row gap-x-8 text-sm font-medium dark:border-white/20"
         >
           <li>
-            &copy; <script type="text/javascript">
+            &copy; <script type="text/javascript" is:inline>
               document.write(new Date().getFullYear())
             </script>
             {SITE_TITLE}

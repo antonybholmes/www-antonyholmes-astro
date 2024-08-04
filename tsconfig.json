@@ -27,7 +27,7 @@
       "@interfaces/*": [
         "src/interfaces/*"
       ],
-      "@icons/*": [
+      "@components/icons/*": [
         "src/components/icons/*"
       ],
       "@context/*": [

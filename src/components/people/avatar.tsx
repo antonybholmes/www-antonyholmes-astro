@@ -3,7 +3,8 @@ import { BaseLink } from "@components/link/base-link"
 import { VCenterRow } from "@components/v-center-row"
 import type { IElementProps } from "@interfaces/element-props"
 import { cn } from "@lib/class-names"
-import { getAuthorBaseUrl } from "@lib/urls"
+
+import { getAuthorBaseUrl } from "@lib/author"
 import { AvatarImage } from "./avatar-image"
 
 interface IProps extends IElementProps {

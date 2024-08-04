@@ -5,7 +5,7 @@ categories:
   - Investing
 type: post
 heroCaption: 'With enough small potatoes, we could reach the moon.'
-status: published
+status: pubDate
 title: Small Potatoes
 slug: small-potatoes
 hero: /assets/posts/potatoes-2048x1024.webp

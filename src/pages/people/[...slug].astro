@@ -1,0 +1,90 @@
+---
+import { BaseRow } from "@components/base-row"
+import { HCenterRow } from "@components/h-center-row"
+import { MarkdownContent } from "@components/markdown-content"
+import { PageTitle } from "@components/page-title"
+import { AvatarImage } from "@components/people/avatar-image"
+
+import ContentLayout from "@layouts/ContentLayout.astro"
+import { getAuthorBaseUrl } from "@lib/author"
+import { paginate } from "@lib/paginate"
+import { getAuthorPostMap, sortPosts } from "@lib/post"
+import { getUrlFriendlyTag } from "@lib/urls"
+import { type CollectionEntry, getCollection } from "astro:content"
+
+export async function getStaticPaths() {
+  let paths: any[] = []
+
+  const people = await getCollection("people")
+  const allPosts = await getCollection("posts")
+
+  //const authorMap = getAuthorMap(people)
+
+  const postMap = getAuthorPostMap(sortPosts(allPosts))
+
+  people.forEach(person => {
+    const slug = getUrlFriendlyTag(person.data.name)
+    const posts = postMap[slug]
+
+    paths = paths.concat(
+      paginate(posts, slug, {
+        person,
+        root: getAuthorBaseUrl(person.data.name),
+      }),
+    )
+  })
+
+  return paths
+}
+
+interface Props {
+  person: CollectionEntry<"people">
+  data: CollectionEntry<"posts">[]
+  page: number
+  pages: number
+}
+
+const { person } = Astro.props
+
+const { Content } = await person.render()
+---
+
+<ContentLayout title={person.data.name}>
+  <div slot="main">
+    <BaseRow className="gap-x-8">
+      <div class="w-full">
+        <HCenterRow className="mb-8 lg:hidden">
+          <div>
+            <AvatarImage
+              person={person.data.name}
+              className="h-64 w-64"
+              client:visible
+            />
+          </div>
+        </HCenterRow>
+        <PageTitle
+          title={person.data.name}
+          superTitle="Posts by"
+          subTitle={person.data.title}
+          className="text-center lg:text-left"
+        />
+        <MarkdownContent className="mt-8"><Content /></MarkdownContent>
+      </div>
+
+      <AvatarImage
+        person={person.data.name}
+        className="hidden aspect-square h-64 w-64 shrink-0 lg:block"
+        client:visible
+      />
+    </BaseRow>
+
+    <section class="mt-16 border-t border-slate-200 pt-16">
+      <!-- <PostsPage
+        posts={data}
+        page={page}
+        pages={pages}
+        root={`${PEOPLE_SLUG}/${person.slug}`}
+      /> -->
+    </section>
+  </div>
+</ContentLayout>

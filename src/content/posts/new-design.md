@@ -4,7 +4,7 @@ categories:
   - News
   - Web Development
 type: post
-status: published
+status: pubDate
 title: New website design!
 slug: new-website-design
 hero: /assets/posts/code-2048x1024.webp

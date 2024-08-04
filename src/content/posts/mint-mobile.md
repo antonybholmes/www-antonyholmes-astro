@@ -13,7 +13,7 @@ cons:
 details:
   - 'Simple, all inclusive wireless provider.'
 url: 'https://www.mintmobile.com'
-status: published
+status: pubDate
 title: Mint Mobile
 slug: mint-mobile
 hero: /assets/posts/phone-2048x1024.webp

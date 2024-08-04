@@ -3,7 +3,7 @@ description: How to make a simple toggle switch using React.
 categories:
   - Web Development
 type: post
-status: published
+status: pubDate
 title: Creating a React toggle switch using SVG
 slug: creating-a-react-toggle
 hero: /assets/posts/code-2048x1024.webp

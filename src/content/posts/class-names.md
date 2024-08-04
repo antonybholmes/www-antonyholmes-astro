@@ -3,7 +3,7 @@ description: How to simplify conditional class name strings.
 categories:
   - Web Development
 type: post
-status: published
+status: pubDate
 title: Simplifying class name strings
 slug: simplifying-class-name-strings
 hero: /assets/posts/code-2048x1024.webp

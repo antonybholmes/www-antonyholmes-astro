@@ -1,4 +1,4 @@
-import { PEOPLE_SLUG } from "@consts"
+import { TAG_SLUG } from "@consts"
 import { capitalize } from "lodash-es"
 
 export function getUrlFriendlyTag(tag: string): string {
@@ -6,8 +6,7 @@ export function getUrlFriendlyTag(tag: string): string {
     .trim()
     .toLowerCase()
     .replaceAll("&", "and")
-    .replaceAll("-", "--")
-    .replaceAll(" ", "-")
+    .replaceAll(/[\ \-]+/g, "-")
 }
 
 export function getUrlFriendlyImg(
@@ -36,6 +35,17 @@ export function getFormattedTag(tag: string) {
     .join(" ")
 }
 
-export function getAuthorBaseUrl(name: string) {
-  return `${PEOPLE_SLUG}/${getUrlFriendlyTag(name)}`
+export const getTagBaseUrl = (tag: string) => {
+  return `${TAG_SLUG}/${getUrlFriendlyTag(tag)}`
+}
+
+export function getCanonicalSlug(path: string): string {
+  return getUrlFriendlyTag(
+    path.replace(/\.md$/, "").replaceAll("\\", "/").replace(/^.+\//, ""),
+  )
+}
+
+export function getDateFromSlug(slug: string): string {
+  const match = slug.match(/(\d{4})-(\d{2})-(\d{2})/)
+  return match ? match.slice(1, 4).join("-") : "2022-01-01"
 }

@@ -126,7 +126,7 @@ export default defineConfig({
             label: "Draft",
             type: "boolean",
             //required: true,
-            description: "If this is checked the post will not be published",
+            description: "If this is checked the post will not be pubDate",
           },
           {
             label: "Updated",

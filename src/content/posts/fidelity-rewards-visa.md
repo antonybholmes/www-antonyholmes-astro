@@ -16,7 +16,7 @@ cons:
 details:
   - Straightforward 2% cash back card.
 url: 'https://www.fidelity.com'
-status: published
+status: pubDate
 title: Fidelity Rewards Credit Card
 slug: fidelity-rewards-credit-card
 hero: /assets/posts/credit-cards-2048x1024.webp

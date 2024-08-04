@@ -8,10 +8,7 @@ interface IProps extends ILayoutProps {
 }
 
 export default function BaseLayout({
-  title,
-  tab,
   className,
-  headerChildren,
   children,
 }: IProps) {
   return (
