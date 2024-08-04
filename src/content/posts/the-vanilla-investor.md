@@ -4,14 +4,14 @@ categories:
   - Investing
 type: post
 heroCaption: 'If you don''t eat your cake, you can''t have any pudding!'
-status: pubDate
+status: added
 related: []
 title: The Vanilla Investor
 slug: the-vanilla-investor
 hero: /assets/posts/vanilla-2048x1024.webp
 authors:
   - Antony Holmes
-pubDate: 2021-12-09T05:00:00.000Z
+added: 2021-12-09T05:00:00.000Z
 tags:
   - Portfolio Design
   - Guides

@@ -13,13 +13,13 @@ cons:
 details:
   - 'Simple, all inclusive wireless provider.'
 url: 'https://www.mintmobile.com'
-status: pubDate
+status: added
 title: Mint Mobile
 slug: mint-mobile
 hero: /assets/posts/phone-2048x1024.webp
 authors:
   - Antony Holmes
-pubDate: 2024-08-03T15:57:54.000Z
+added: 2024-08-03T15:57:54.000Z
 tags:
   - Low Cost
   - MNVO

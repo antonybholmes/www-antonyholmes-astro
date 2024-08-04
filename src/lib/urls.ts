@@ -1,4 +1,4 @@
-import { TAG_SLUG } from "@consts"
+import { POST_SLUG, TAG_SLUG } from "@consts"
 import { capitalize } from "lodash-es"
 
 export function getUrlFriendlyTag(tag: string): string {
@@ -37,6 +37,10 @@ export function getFormattedTag(tag: string) {
 
 export const getTagBaseUrl = (tag: string) => {
   return `${TAG_SLUG}/${getUrlFriendlyTag(tag)}`
+}
+
+export const getPostBaseUrl = (slug: string): string => {
+  return `${POST_SLUG}/${slug}`
 }
 
 export function getCanonicalSlug(path: string): string {

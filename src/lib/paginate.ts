@@ -1,12 +1,14 @@
 import { RECORDS_PER_PAGE } from "@consts"
-import type IFieldMap from "@interfaces/field-map"
+import { type IFieldMap } from "@interfaces/field-map"
 import { range } from "lodash-es"
+
+export type AstroPage = { props: any; params: any }
 
 export function paginate(
   data: any[],
   slug: string = "",
   globalProps: IFieldMap = {},
-): { props: any; params: any }[] {
+): AstroPage[] {
   const paths = []
 
   const pages = getPageCount(data)
@@ -37,11 +39,9 @@ export function paginate(
   }
 
   range(0, pages).forEach((page: number) => {
-    const currentPage = page + 1
-
     paths.push({
       params: {
-        slug: `${slug}${currentPage}`,
+        slug: `${slug}${page + 1}`,
       },
       props: {
         page,
@@ -59,7 +59,7 @@ export function getPageCount(
   items: any[],
   pageSize: number = RECORDS_PER_PAGE,
 ): number {
-  return Math.floor((items.length + pageSize - 1) / pageSize)
+  return Math.floor((items.length - 1) / pageSize) + 1
 }
 
 export function getPageItems(

@@ -8,7 +8,13 @@ export default {
     fontFamily: {
       sans: ["Inter", "Helvetica", "Arial"],
     },
-    extend: { colors: { gray: colors.slate } },
+    extend: {
+      colors: { gray: colors.slate },
+      scale: {
+        103: "1.03",
+        104: "1.04",
+      },
+    },
   },
   plugins: [],
 }

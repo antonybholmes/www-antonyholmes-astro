@@ -22,7 +22,7 @@ slug: cricket
 hero: /assets/posts/phone-2048x1024.webp
 authors:
   - Antony Holmes
-pubDate: 2024-08-03T15:58:38.000Z
+added: 2024-08-03T15:58:38.000Z
 tags:
   - Low Cost
   - MNVO

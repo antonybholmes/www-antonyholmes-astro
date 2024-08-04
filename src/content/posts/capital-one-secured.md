@@ -3,7 +3,6 @@ product: Capital One Secured Mastercard
 description: My review of the Capital One Secured Mastercard credit card.
 authors:
     - Antony Holmes
-    - Mr Cheese
 categories:
   - Reviews/Credit Cards
 type: review
@@ -18,11 +17,11 @@ cons:
 details:
   - Great starter credit card.
 url: 'https://www.capitalone.com/credit-cards/secured-mastercard'
-status: pubDate
+status: added
 title: Capital One Secured Mastercard Credit Card
 slug: capital-one-secured
 hero: /assets/posts/bank-2048x1024.webp
-pubDate: 2022-03-22T04:00:00.000Z
+added: 2022-03-22T04:00:00.000Z
 updated: 2024-08-03T15:28:54.000Z
 tags:
   - cheese

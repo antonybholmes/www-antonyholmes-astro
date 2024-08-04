@@ -3,13 +3,13 @@ description: How to simplify conditional class name strings.
 categories:
   - Web Development
 type: post
-status: pubDate
+status: added
 title: Simplifying class name strings
 slug: simplifying-class-name-strings
 hero: /assets/posts/code-2048x1024.webp
 authors:
   - Antony Holmes
-pubDate: 2024-08-03T15:59:02.000Z
+added: 2024-08-03T15:59:02.000Z
 tags:
   - Tailwind
   - Tutorials
@@ -129,7 +129,7 @@ export function cnu(...args: CSSClass[]): string {
   )
 }
 
-export default cn
+export cn
 ```
 
 In the example the arrays containing 3 elements where the first element is a boolean. such as `[show2, "p4", "p5"]` will conditionally add class `p4` or `p5` depending on whether `show2` is `true`. You can nest these expressions to create more complex one line conditional expressions that do not require cumbersome string interpolations, for example `[show, [show2, "p4", "p5"], "p6"]`, if `show` is `true`, then add class `p4` or `p5` depending on whether `show2` is `true`.

@@ -37,7 +37,7 @@ export default defineConfig({
           return {
             // When a new post is created the title field will be set to "New post"
             title: "New Post",
-            pubDate: new Date(),
+            added: new Date(),
             authors: ["Antony Holmes"],
             draft: true,
           };
@@ -69,7 +69,7 @@ export default defineConfig({
                   .toLowerCase()
                   .replace(/ /g, "-")
                   .replace(/[^\w-]+/g, ""),
-              pubDate: values.pubDate ?? new Date().toLocaleString(),
+              added: values.added ?? new Date().toLocaleString(),
               updated: new Date().toLocaleString(),
             };
           },
@@ -101,7 +101,7 @@ export default defineConfig({
           },
           {
             label: "Publication Date",
-            name: "pubDate",
+            name: "added",
             type: "datetime",
             // ui: {
             //   dateFormat: "MMM DD YYYY",
@@ -126,7 +126,7 @@ export default defineConfig({
             label: "Draft",
             type: "boolean",
             //required: true,
-            description: "If this is checked the post will not be pubDate",
+            description: "If this is checked the post will not be added",
           },
           {
             label: "Updated",

@@ -1,10 +1,12 @@
 import { PEOPLE_SLUG } from "@consts"
-import type IBaseFields from "@interfaces/base-fields"
+ 
 import type { CollectionEntry } from "astro:content"
 import { join } from "path"
 import { getAllFiles } from "./files"
-import markdownHtml, { getFrontmatter } from "./markdown"
+ 
 import { getCanonicalSlug, getUrlFriendlyTag } from "./urls"
+import type { IBaseFields } from "@interfaces/base-fields"
+import { getFrontmatter, markdownHtml } from "./markdown"
 
 export interface IAuthorMap {
   [key: string]: CollectionEntry<"people">

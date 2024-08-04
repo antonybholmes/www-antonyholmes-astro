@@ -1,26 +1,32 @@
 ---
 import { BaseCol } from "@components/base-col"
- 
+
 import { PrimaryColorLink } from "@components/link/primary-color-link"
 import { EPOCH, SITE_TITLE } from "@consts"
 import ContentLayout from "@layouts/ContentLayout.astro"
-import { differenceInDays, differenceInHours, differenceInMinutes, format } from "date-fns";
+import {
+  differenceInDays,
+  differenceInHours,
+  differenceInMinutes,
+  format,
+} from "date-fns"
 
-const today = new Date(); 
- 
+const today = new Date()
 
 const CLS = "block rounded-lg px-4 py-2 bg-blue-100 dark:bg-white/10 font-bold"
 ---
 
-<ContentLayout title="About" >
-  <BaseCol className="gap-y-8 w-full" slot="main">
+<ContentLayout title="About">
+  <BaseCol className="w-full gap-y-8" slot="main">
     <BaseCol
-      className="gap-y-4 rounded-xl bg-slate-100 dark:bg-white/10 p-6 w-full "
+      className="w-full gap-y-4 rounded-xl bg-slate-100 p-6 dark:bg-white/10"
     >
-       
-
       <div class="text-sm">
-        <p>{`Version ${format(today, "yyyy.MM.dd")}.${differenceInHours(today, EPOCH)}`}</p>
+        <p>
+          {
+            `Version ${format(today, "yyyy.MM.dd")}.${differenceInHours(today, EPOCH)}`
+          }
+        </p>
         <p>{`Updated ${format(today, "LLL dd, yyyy")}`}</p>
       </div>
 
@@ -29,8 +35,6 @@ const CLS = "block rounded-lg px-4 py-2 bg-blue-100 dark:bg-white/10 font-bold"
         {SITE_TITLE}. All rights reserved.
       </p>
     </BaseCol>
-
-   
 
     <div class="text-sm">
       <p>

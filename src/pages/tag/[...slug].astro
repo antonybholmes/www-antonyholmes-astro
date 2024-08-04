@@ -1,0 +1,37 @@
+---
+import { PostsPage } from "@components/post/posts-page"
+import ContentLayout from "@layouts/ContentLayout.astro"
+import { paginate, type AstroPage } from "@lib/paginate"
+import { getTagPostMap } from "@lib/post"
+import { getTagBaseUrl, getUrlFriendlyTag } from "@lib/urls"
+import { getCollection } from "astro:content"
+
+export async function getStaticPaths() {
+  let paths: AstroPage[] = []
+
+  const allPosts = await getCollection("posts")
+
+  const tagMap = getTagPostMap(allPosts)
+
+  ;[...tagMap.entries()].forEach(([tag, posts]) => {
+    paths = paths.concat(
+      paginate(posts, getUrlFriendlyTag(tag), {
+        title: tag,
+        showTitle: true,
+        superTitle: "Tag",
+        root: getTagBaseUrl(tag),
+      }),
+    )
+  })
+
+  return paths
+}
+
+const { slug } = Astro.params
+
+const { title, superTitle, showTitle, page, root, pages, data } = Astro.props
+---
+
+<ContentLayout title={title} showTitle={showTitle} tab="Blog">
+  <PostsPage posts={data} page={page} pages={pages} root={root} slot="main" />
+</ContentLayout>

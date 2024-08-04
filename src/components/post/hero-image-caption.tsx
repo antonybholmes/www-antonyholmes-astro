@@ -1,7 +1,7 @@
 import { cn } from "@lib/class-names"
 import type { IPostProps } from "./post-tags"
 
-export default function HeroImageCaption({ post, className }: IPostProps) {
+export function HeroImageCaption({ post, className }: IPostProps) {
   return (
     <div
       className={cn(

@@ -1,5 +1,5 @@
-import type IBaseFields from "@interfaces/base-fields"
-import type IFieldMap from "@interfaces/field-map"
+import type { IBaseFields } from "@interfaces/base-fields"
+import type { IFieldMap } from "@interfaces/field-map"
 import type { CollectionEntry } from "astro:content"
 import { join } from "path"
 import { getAllMDFiles } from "./files"
@@ -103,13 +103,13 @@ export function sortPosts(
     // .filter(post => {
     //   return (
     //     process.env.NODE_ENV === "development" ||
-    //     post.data.status === "pubDate"
+    //     post.data.status === "added"
     //   )
     // })
     // sort posts by date in descending order
     .sort((post1, post2) => {
-      const d1 = post1.data.pubDate
-      const d2 = post1.data.pubDate
+      const d1 = post1.data.added
+      const d2 = post1.data.added
       if (d1 > d2) {
         return -1
       } else if (d1 < d2) {
@@ -222,8 +222,8 @@ export const allPostsBySlugMap = (
 export function getTagPostMap(
   posts: CollectionEntry<"posts">[],
   max: number = -1,
-): IFieldMap {
-  const tagMap: IFieldMap = {}
+): Map<string, CollectionEntry<"posts">[]> {
+  const tagMap = new Map<string, CollectionEntry<"posts">[]>()
 
   posts.forEach(post => {
     post.data.tags.forEach((tag: string) => {
@@ -240,12 +240,12 @@ export function getTagPostMap(
       // to find tags
       //const t = getUrlFriendlyTag(tag)
 
-      if (!(tag in tagMap)) {
-        tagMap[tag] = []
+      if (!tagMap.has(tag)) {
+        tagMap.set(tag, [])
       }
 
-      if (max === -1 || tagMap[tag].length < max) {
-        tagMap[tag].push(post)
+      if (max === -1 || tagMap.get(tag)!.length < max) {
+        tagMap.get(tag)!.push(post)
       }
     })
   })

@@ -1,4 +1,4 @@
-import type IFieldMap from "@interfaces/field-map"
+import type { IFieldMap } from "@interfaces/field-map"
 import fs from "fs"
 import matter from "gray-matter"
 import rehypePrism from "rehype-prism"
@@ -19,7 +19,7 @@ export interface IMarkdownBase {
   fields: IMarkdownFields
 }
 
-export default async function markdownHtml(markdown: string) {
+export async function markdownHtml(markdown: string) {
   //const result = await remark().use(html).use(prism).process(markdown)
   const result = await unified()
     .use(remarkParse)

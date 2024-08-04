@@ -12,5 +12,6 @@ export const RECORDS_PER_PAGE = 12
 
 export const PEOPLE_SLUG = "/people"
 export const TAG_SLUG = "/tag"
+export const POST_SLUG = "/post"
 
 export const ANIMATION_DURATION_S = 0.3

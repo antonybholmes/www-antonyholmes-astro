@@ -1,5 +1,5 @@
-import { SortIcon } from "@components/icons/sort-icon"
 import { CheckIcon } from "@components/icons/check-icon"
+import { SortIcon } from "@components/icons/sort-icon"
 import { cn } from "@lib/class-names"
 import { ChevronDownIcon, ChevronUpIcon } from "@radix-ui/react-icons"
 import * as SelectPrimitive from "@radix-ui/react-select"

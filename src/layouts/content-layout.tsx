@@ -1,16 +1,16 @@
 import type { ILayoutProps } from "@interfaces/layout-props"
 import { Children } from "react"
-import BaseLayout from "./base-layout"
 
 import { Breadcrumb } from "@components/breadcrumb"
 import { ContentDiv } from "@components/content-div"
 import type { ICrumbProps } from "@lib/crumbs"
+import BaseLayout from "./BaseLayout.astro"
 
 export interface IProps extends ILayoutProps, ICrumbProps {
   headerClassName?: string
 }
 
-export default function ContentLayout({
+export function ContentLayout({
   title = "",
   subTitle,
   superTitle,

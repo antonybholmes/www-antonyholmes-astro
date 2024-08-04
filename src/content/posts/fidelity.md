@@ -19,13 +19,13 @@ details:
   - Basically no account fees.
   - Unlimited 2% cash back credit card.
 url: 'https://www.fidelity.com'
-status: pubDate
+status: added
 title: 'Hi, Fidelity'
 slug: hi-fidelity
 hero: /assets/posts/bank-2048x1024.webp
 authors:
   - Antony Holmes
-pubDate: 2024-08-03T15:58:05.000Z
+added: 2024-08-03T15:58:05.000Z
 tags:
   - Low Cost
 updated: 2024-08-03T15:58:05.000Z
@@ -41,7 +41,7 @@ Fidelity lets you buy basically any stock and ETF available, certainly all of th
 
 They were the first major brokerage to switch to fractional share trading on basically all stocks and ETFs. This is great because you can buy shares in dollar amounts instead of waiting until you have enough to buy single shares.
 
-Fractional shares also mean you can ditch mutual funds and replace them with ETFs, but maintain the best of both. ETFs are usually tax efficient and portable between brokerages and since you can buy in dollar amounts you have essentially the same features of a mutual fund, which the pubDate advantage of being able to trade them whenever you like instead of the end of the day.
+Fractional shares also mean you can ditch mutual funds and replace them with ETFs, but maintain the best of both. ETFs are usually tax efficient and portable between brokerages and since you can buy in dollar amounts you have essentially the same features of a mutual fund, which the added advantage of being able to trade them whenever you like instead of the end of the day.
 
 # Banking
 

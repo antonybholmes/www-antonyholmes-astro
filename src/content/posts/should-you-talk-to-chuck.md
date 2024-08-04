@@ -17,13 +17,13 @@ details:
   - Basically no account fees.
   - Unlimited 1.5% cash back credit card.
 url: 'https://www.fidelity.com'
-status: pubDate
+status: added
 title: Should you talk to chuck?
 slug: should-you-talk-to-chuck
 hero: /assets/posts/bank-2048x1024.webp
 authors:
   - Antony Holmes
-pubDate: 2024-08-03T15:56:58.000Z
+added: 2024-08-03T15:56:58.000Z
 tags:
   - Low Cost
 updated: 2024-08-03T15:56:58.000Z

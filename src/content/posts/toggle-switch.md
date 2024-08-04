@@ -3,13 +3,13 @@ description: How to make a simple toggle switch using React.
 categories:
   - Web Development
 type: post
-status: pubDate
+status: added
 title: Creating a React toggle switch using SVG
 slug: creating-a-react-toggle
 hero: /assets/posts/code-2048x1024.webp
 authors:
   - Antony Holmes
-pubDate: 2024-08-03T15:39:34.000Z
+added: 2024-08-03T15:39:34.000Z
 updated: 2024-08-03T15:39:34.000Z
 tags:
   - Typescript
@@ -38,7 +38,7 @@ First let's setup some interfaces to describe the parameters the toggle can acce
 ```typescript
 // class-props.ts
 
-export default interface IClassProps {
+export interface IClassProps {
   className?: string
   style?: {}
 }
@@ -49,7 +49,7 @@ export default interface IClassProps {
 
 import IClassProps from "./class-props"
 
-export default interface IChildrenProps extends IClassProps {
+export interface IChildrenProps extends IClassProps {
   children?: any
 }
 ```
@@ -116,7 +116,7 @@ The toggle is a simple component containing the SVG and some event handling. The
 import cn from "class-names"
 import type IToggleProps from "./toggle-props"
 
-export default function ToggleSwitch({
+export function ToggleSwitch({
   index = -1,
   isSelected,
   onClick,

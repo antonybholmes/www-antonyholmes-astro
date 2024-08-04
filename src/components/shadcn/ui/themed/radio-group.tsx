@@ -61,7 +61,7 @@ const SIDE_BUTTON_CLS = cn(
   "relative aspect-square overflow-hidden rounded border p-1 data-[state=checked]:border-input data-[state=unchecked]:border-transparent data-[state=checked]:bg-muted data-[state=unchecked]:hover:border-input data-[state=unchecked]:hover:bg-muted",
 )
 
-const BORDER_MAP:IStringMap = {
+const BORDER_MAP: IStringMap = {
   Off: "",
   Top: "-rotate-90",
   Bottom: "rotate-90",

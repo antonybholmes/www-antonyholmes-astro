@@ -8,7 +8,7 @@ import { CompactAvatars } from "@components/people/compact-avatars"
 
 import { getCollection, type CollectionEntry } from "astro:content"
 import { PostTags } from "@components/post/post-tags"
-import HeroImage from "@components/post/hero-image"
+import { HeroImage } from "@components/post/hero-image"
 
 // @ts-ignore
 export async function getStaticPaths() {
@@ -20,7 +20,6 @@ export async function getStaticPaths() {
       .filter(post => (import.meta.env.PROD ? post.data.draft !== true : true))
       // @ts-ignore
       .map(post => {
-        console.log(post.data.title, post.data.slug)
         return {
           params: {
             slug: post.data.slug,
@@ -47,7 +46,7 @@ const { Content } = await post.render()
     <HeroImage post={post} />
 
     <CompactAvatars people={post.data.authors} />
-    <FormattedDate date={post.data.pubDate} />
+    <FormattedDate date={post.data.added} />
     <!-- <span class="h-px w-full bg-gray-300"/> -->
     <MarkdownContent className="border-t border-gray-300 pt-8">
       <Content /></MarkdownContent

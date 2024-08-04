@@ -1,6 +1,3 @@
-import { cn } from "@lib/class-names"
-
- 
 export function Logo() {
   //const [hover, setHover] = useState(false)
   //const [down, setDown] = useState(false)

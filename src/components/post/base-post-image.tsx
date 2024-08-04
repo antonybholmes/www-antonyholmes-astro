@@ -1,13 +1,20 @@
+import { cn } from "@lib/class-names"
 import type { IPostProps } from "./post-tags"
 
-interface IProps extends IPostProps {}
+interface IProps extends IPostProps {
+  imgClassName?: string
+}
 
-export default function BasePostImage({
-  post,
-
-  className,
-}: IProps) {
+export function BasePostImage({ post, imgClassName, className }: IProps) {
   return (
-    <img src={post.data.hero} alt={post.data.title} className={className} />
+    <div
+      className={cn("overflow-hidden z-10 border border-red-500", className)}
+    >
+      <img
+        src={post.data.hero}
+        alt={post.data.title}
+        className={cn("scale-102 hover:scale-103 z-0 trans-all", imgClassName)}
+      />
+    </div>
   )
 }

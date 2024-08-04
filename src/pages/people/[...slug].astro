@@ -62,12 +62,7 @@ const { Content } = await person.render()
             />
           </div>
         </HCenterRow>
-        <PageTitle
-          title={person.data.name}
-          superTitle="Posts by"
-          subTitle={person.data.title}
-          className="text-center lg:text-left"
-        />
+        <PageTitle title={person.data.name} subTitle={person.data.title} />
         <MarkdownContent className="mt-8"><Content /></MarkdownContent>
       </div>
 

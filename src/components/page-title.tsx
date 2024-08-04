@@ -1,5 +1,6 @@
 import type { IElementProps } from "@interfaces/element-props"
-import type IPageTitleProps from "@interfaces/page-title-props"
+import type { IPageTitleProps } from "@interfaces/page-title-props"
+
 import { cn } from "@lib/class-names"
 
 interface IProps extends IPageTitleProps, IElementProps {

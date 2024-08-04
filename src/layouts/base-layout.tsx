@@ -7,10 +7,7 @@ interface IProps extends ILayoutProps {
   headerChildren?: any
 }
 
-export default function BaseLayout({
-  className,
-  children,
-}: IProps) {
+export function BaseLayout({ className, children }: IProps) {
   return (
     <>
       {/* <Meta />

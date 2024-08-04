@@ -9,7 +9,7 @@ slug: experiments-with-astro
 hero: /assets/posts/code-2048x1024.webp
 authors:
   - Antony Holmes
-pubDate: 2024-08-03T15:37:15.000Z
+added: 2024-08-03T15:37:15.000Z
 updated: 2024-08-03T15:37:15.000Z
 tags:
   - Website

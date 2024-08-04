@@ -177,7 +177,7 @@ export const buttonVariants = cva(BASE_BUTTON_CLS, {
   },
 })
 
-export default interface ButtonProps
+export interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants>,
     ITooltipSide {

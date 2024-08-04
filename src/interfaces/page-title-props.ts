@@ -1,4 +1,4 @@
-export default interface IPageTitleProps {
+export interface IPageTitleProps {
   title?: string
   superTitle?: string
   subTitle?: string

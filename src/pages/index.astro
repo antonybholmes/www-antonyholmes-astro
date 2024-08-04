@@ -3,9 +3,10 @@ import { getCollection } from "astro:content"
 
 import ContentLayout from "@layouts/ContentLayout.astro"
 import { FormattedDate } from "@components/formatted-date"
+import { BasePostImage } from "@components/post/base-post-image"
 
 const posts = (await getCollection("posts")).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf(),
+  (a, b) => a.data.added.valueOf() - b.data.added.valueOf(),
 )
 ---
 
@@ -16,10 +17,10 @@ const posts = (await getCollection("posts")).sort(
         posts.map(post => (
           <li>
             <a href={`/post/${post.slug}/`}>
-              <img width={720} height={360} src={post.data.hero} alt="" />
+              <BasePostImage post={post} className="rounded-lg max-h-48" />
               <h4 class="title">{post.data.title}</h4>
               <p class="date">
-                <FormattedDate date={post.data.pubDate} />
+                <FormattedDate date={post.data.added} />
               </p>
             </a>
           </li>
