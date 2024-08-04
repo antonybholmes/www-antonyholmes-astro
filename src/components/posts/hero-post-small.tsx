@@ -7,6 +7,7 @@ import { FormattedDate } from "@components/formatted-date"
 import { CompactAvatars } from "@components/people/compact-avatars"
 import { PostImage } from "./post-image"
 import { PostTitleLink } from "./post-title-link"
+import { VCenterRow } from "@components/v-center-row"
 
 interface IProps extends IPostProps {
   showAvatar?: boolean
@@ -31,18 +32,19 @@ export function HeroPostSmall({
       <BaseCol className="col-span-3 gap-y-1 lg:col-span-3 xl:col-span-2 ">
         <BaseCol>
           {/* <PostCategoryLink post={post} textSize="text-xl md:text-base" /> */}
-          <PostTitleLink post={post} className="text-2xl lg:text-xl" />
+          <PostTitleLink post={post} className="text-2xl lg:text-lg" />
         </BaseCol>
         {/* <CondComp cond={showDescription}>
           <HTML html={post.excerpt} className="text-sm text-slate-600" />
         </CondComp> */}
 
-        <BaseCol className="xl:gap-y-1">
+        <VCenterRow className="gap-x-2">
           {showAvatar && (
             <CompactAvatars people={post.data.authors} showImages={false} />
           )}
+          <span className="rounded-full w-1 h-1 aspect-square shrink-0 grow-0 bg-gray-400" />
           <FormattedDate date={post.data.added} />
-        </BaseCol>
+        </VCenterRow>
       </BaseCol>
     </article>
   )

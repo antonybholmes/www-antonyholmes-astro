@@ -8,7 +8,11 @@ import { AvatarImage } from "@components/people/avatar-image"
 import ContentLayout from "@layouts/ContentLayout.astro"
 import { getAuthorBaseUrl } from "@lib/author"
 import { paginate } from "@lib/paginate"
-import { getAuthorPostMap, sortPosts } from "@lib/post"
+import {
+  getAuthorPostMap,
+  getSortedPosts,
+  sortPostsByDateDesc,
+} from "@lib/post"
 import { getUrlFriendlyTag } from "@lib/urls"
 import { type CollectionEntry, getCollection } from "astro:content"
 
@@ -16,11 +20,11 @@ export async function getStaticPaths() {
   let paths: any[] = []
 
   const people = await getCollection("people")
-  const allPosts = await getCollection("posts")
+  const allPosts = await getSortedPosts()
 
   //const authorMap = getAuthorMap(people)
 
-  const postMap = getAuthorPostMap(sortPosts(allPosts))
+  const postMap = getAuthorPostMap(sortPostsByDateDesc(allPosts))
 
   people.forEach(person => {
     const slug = getUrlFriendlyTag(person.data.name)

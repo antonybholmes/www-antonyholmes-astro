@@ -15,10 +15,10 @@ export const ContentDiv = forwardRef(function ContentDiv(
   }
 
   return (
-    <HCenterRow
+    <div
       ref={ref}
       className={cn(
-        "grid grid-cols-1 xl:grid-cols-8 2xl:grid-cols-5 p-4",
+        "grid grid-cols-1 xl:grid-cols-8 2xl:grid-cols-5 px-2",
         className,
       )}
       {...props}
@@ -28,6 +28,6 @@ export const ContentDiv = forwardRef(function ContentDiv(
         {c.length > 1 ? c[1] : c[0]}
       </div>
       <div>{c.length > 2 && c[2]}</div>
-    </HCenterRow>
+    </div>
   )
 })

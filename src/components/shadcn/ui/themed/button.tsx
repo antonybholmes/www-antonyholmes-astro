@@ -91,7 +91,7 @@ export const buttonVariants = cva(BASE_BUTTON_CLS, {
       default: "font-normal",
       normal: "font-normal",
       medium: "font-medium",
-      semibold: "font-semibold",
+      semibold: "font-medium",
     },
     rounded: {
       none: "",

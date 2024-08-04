@@ -5,45 +5,45 @@ import { PrimaryColorLink } from "@components/link/primary-color-link"
 import { EPOCH, SITE_TITLE } from "@consts"
 import ContentLayout from "@layouts/ContentLayout.astro"
 import {
-  differenceInDays,
+ 
   differenceInHours,
-  differenceInMinutes,
+ 
   format,
 } from "date-fns"
 
 const today = new Date()
 
-const CLS = "block rounded-lg px-4 py-2 bg-blue-100 dark:bg-white/10 font-bold"
+ 
 ---
 
 <ContentLayout title="About">
   <BaseCol className="w-full gap-y-8" slot="main">
     <BaseCol
-      className="w-full gap-y-4 rounded-xl bg-slate-100 p-6 dark:bg-white/10"
+      className="w-full gap-y-2 rounded-xl border border-gray-200 p-6 text-xs shadow-md dark:bg-white/10"
     >
-      <div class="text-sm">
-        <p>
-          {
-            `Version ${format(today, "yyyy.MM.dd")}.${differenceInHours(today, EPOCH)}`
-          }
-        </p>
-        <p>{`Updated ${format(today, "LLL dd, yyyy")}`}</p>
-      </div>
+      <p>
+        {
+          `Version ${format(today, "yyyy.MM.dd")}.${differenceInHours(today, EPOCH)}`
+        }
+      </p>
+      <p>{`Updated ${format(today, "LLL dd, yyyy")}`}</p>
 
-      <p class="text-sm">
+      <p>
         &copy; {format(today, "yyyy")}
         {SITE_TITLE}. All rights reserved.
       </p>
     </BaseCol>
 
-    <div class="text-sm">
+    <BaseCol
+      className="gap-y-2 rounded-xl border border-gray-200 p-6 text-xs shadow-md"
+    >
       <p>
         This website is made possible by open source software and other
         services:
       </p>
 
-      <ul class="mt-4 flex w-full flex-col gap-y-2 text-sm">
-        <li class={CLS}>
+      <ul class="flex w-full flex-col gap-y-1">
+        <li>
           <PrimaryColorLink
             href="https://astro.build/"
             aria-label="View tool"
@@ -52,16 +52,16 @@ const CLS = "block rounded-lg px-4 py-2 bg-blue-100 dark:bg-white/10 font-bold"
             Astro
           </PrimaryColorLink>
         </li>
-        <li class={CLS}>
+        <li>
           <PrimaryColorLink
-            href="https://preactjs.com/"
+            href="https://react.dev/"
             aria-label="View tool"
             data-underline={true}
           >
-            Preact
+            React
           </PrimaryColorLink>
         </li>
-        <li class={CLS}>
+        <li>
           <PrimaryColorLink
             href="https://tailwindcss.com/"
             aria-label="View tool"
@@ -71,13 +71,13 @@ const CLS = "block rounded-lg px-4 py-2 bg-blue-100 dark:bg-white/10 font-bold"
           </PrimaryColorLink>
         </li>
         {
-          /* <li class={CLS}>
+          /* <li>
             <BlueLink href="https://www.w3.org/html" aria-label="View tool">
               HTML5
             </BlueLink>
           </li> */
         }
-        <li class={CLS}>
+        <li>
           <PrimaryColorLink
             href="https://www.npmjs.com"
             aria-label="View tool"
@@ -86,7 +86,7 @@ const CLS = "block rounded-lg px-4 py-2 bg-blue-100 dark:bg-white/10 font-bold"
             NPM
           </PrimaryColorLink>
         </li>
-        <li class={CLS}>
+        <li>
           <PrimaryColorLink
             href="https://nodejs.org/"
             aria-label="View tool"
@@ -95,7 +95,7 @@ const CLS = "block rounded-lg px-4 py-2 bg-blue-100 dark:bg-white/10 font-bold"
             Node.js
           </PrimaryColorLink>
         </li>
-        <li class={CLS}>
+        <li>
           <PrimaryColorLink
             href="https://github.com"
             aria-label="View tool"
@@ -104,7 +104,7 @@ const CLS = "block rounded-lg px-4 py-2 bg-blue-100 dark:bg-white/10 font-bold"
             GitHub
           </PrimaryColorLink>
         </li>
-        <li class={CLS}>
+        <li>
           <PrimaryColorLink
             href="https://code.visualstudio.com"
             aria-label="View tool"
@@ -115,11 +115,11 @@ const CLS = "block rounded-lg px-4 py-2 bg-blue-100 dark:bg-white/10 font-bold"
         </li>
 
         {
-          /* <li class={CLS}>
+          /* <li>
             <BlueLink href="https://www.cloudflare.com/">Cloudflare</BlueLink>
           </li> */
         }
       </ul>
-    </div>
+    </BaseCol>
   </BaseCol>
 </ContentLayout>

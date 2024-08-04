@@ -1,10 +1,12 @@
+import { BLOG_SLUG } from "@consts"
 import type { IBaseFields } from "@interfaces/base-fields"
 import type { IFieldMap } from "@interfaces/field-map"
-import type { CollectionEntry } from "astro:content"
+import { getCollection, type CollectionEntry } from "astro:content"
+import { range } from "lodash-es"
 import { join } from "path"
 import { getAllMDFiles } from "./files"
 import { getFields, getFrontmatter, type IMarkdownBase } from "./markdown"
-import { getUrlFriendlyTag } from "./urls"
+import { getSlug, getUrlFriendlyTag } from "./urls"
 
 export const POSTS_DIR = join(process.cwd(), "src/content/posts")
 export const REVIEWS_DIR = join(process.cwd(), "src/content/review")
@@ -96,7 +98,13 @@ export function getPostByPath(path: string, index: number = -1): IBasePost {
   return post
 }
 
-export function sortPosts(
+/**
+ * Sort post in descending order by date added. If there is a date tie,
+ * then order by title.
+ * @param posts
+ * @returns
+ */
+export function sortPostsByDateDesc(
   posts: CollectionEntry<"posts">[],
 ): CollectionEntry<"posts">[] {
   const ret = posts
@@ -107,20 +115,34 @@ export function sortPosts(
     //   )
     // })
     // sort posts by date in descending order
-    .sort((post1, post2) => {
-      const d1 = post1.data.added
-      const d2 = post1.data.added
-      if (d1 > d2) {
-        return -1
-      } else if (d1 < d2) {
-        return 1
-      } else {
-        // dates equal so compare names
-        return post1.data.title.localeCompare(post2.data.title)
+    .sort((a, b) => {
+      let d =
+        (b.data.updated ?? b.data.added).valueOf() -
+        (a.data.updated ?? a.data.added).valueOf()
+
+      if (d !== 0) {
+        return d
       }
+
+      // dates equal so compare names
+      return a.data.title.localeCompare(b.data.title)
     })
 
   return ret
+}
+
+export async function getPublishedPosts(): Promise<CollectionEntry<"posts">[]> {
+  return await getCollection("posts", ({ data }) => {
+    return import.meta.env.DEV || data.draft !== true
+  })
+}
+
+export async function getSortedPosts(): Promise<CollectionEntry<"posts">[]> {
+  return sortPostsByDateDesc(await getPublishedPosts())
+}
+
+export function getPostUrl(post: CollectionEntry<"posts">): string {
+  return `${BLOG_SLUG}/${getSlug(post.id)}`
 }
 
 // export function getAllPosts(authorMap: IAuthorMap): IAuthorPost[] {
@@ -143,17 +165,17 @@ export function sortPosts(
 //   return getAllPosts().concat(getAllReviews())
 // }
 
-export const allPostsBySlugMap = (
-  posts: { slug: string; fields: IFieldMap }[],
-) => {
-  let ret: any = {}
+// export const allPostsBySlugMap = (
+//   posts: { slug: string; fields: IFieldMap }[],
+// ) => {
+//   let ret: any = {}
 
-  posts.forEach(post => {
-    ret[post.slug] = post
-  })
+//   posts.forEach(post => {
+//     ret[post.slug] = post
+//   })
 
-  return ret
-}
+//   return ret
+// }
 
 // export function getCategories(post: CollectionEntry<"posts">) {
 //   const ret: IFieldMap = []
@@ -219,6 +241,21 @@ export const allPostsBySlugMap = (
 //   return categoryMap
 //}
 
+export function getTagPaths(tag: string): string[] {
+  const parts = tag.split("/")
+
+  const ret = range(0, parts.length).map(i =>
+    parts
+      .slice(0, i + 1)
+      .map(p => getUrlFriendlyTag(p))
+      .join("/"),
+  )
+
+  console.log(ret)
+
+  return ret
+}
+
 export function getTagPostMap(
   posts: CollectionEntry<"posts">[],
   max: number = -1,
@@ -227,19 +264,6 @@ export function getTagPostMap(
 
   posts.forEach(post => {
     post.data.tags.forEach((tag: string) => {
-      // Add the tag as is
-      // if (!(tag in tagMap)) {
-      //   tagMap[tag] = []
-      // }
-
-      // if (max === -1 || tagMap[tag].length < max) {
-      //   tagMap[tag].push(post)
-      // }
-
-      // add a url friendly version to make it easier
-      // to find tags
-      //const t = getUrlFriendlyTag(tag)
-
       if (!tagMap.has(tag)) {
         tagMap.set(tag, [])
       }
@@ -248,6 +272,7 @@ export function getTagPostMap(
         tagMap.get(tag)!.push(post)
       }
     })
+    //})
   })
 
   return tagMap

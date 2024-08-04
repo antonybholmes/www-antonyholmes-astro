@@ -6,22 +6,22 @@ export type AstroPage = { props: any; params: any }
 
 export function paginate(
   data: any[],
-  slug: string = "",
+  slugRoot: string = "",
   globalProps: IFieldMap = {},
 ): AstroPage[] {
   const paths = []
 
   const pages = getPageCount(data)
 
-  // add slash to end of slug
-  if (slug.endsWith("/")) {
-    slug = slug.slice(0, slug.length - 2)
+  // remove trailing slash for consistency
+  if (slugRoot.endsWith("/")) {
+    slugRoot = slugRoot.slice(0, slugRoot.length - 2)
   }
 
-  if (slug !== "") {
+  if (slugRoot !== "") {
     paths.push({
       params: {
-        slug,
+        slug: slugRoot,
       },
       props: {
         page: 0,
@@ -34,14 +34,14 @@ export function paginate(
 
   // add page to slug since we are going to generate an array of
   // slugs one for each page of results
-  if (slug !== "") {
-    slug = `${slug}/page/`
+  if (slugRoot !== "") {
+    slugRoot = `${slugRoot}/page/`
   }
 
   range(0, pages).forEach((page: number) => {
     paths.push({
       params: {
-        slug: `${slug}${page + 1}`,
+        slug: `${slugRoot}${page + 1}`,
       },
       props: {
         page,

@@ -13,8 +13,7 @@ added: 2024-08-03T15:39:34.000Z
 updated: 2024-08-03T15:39:34.000Z
 tags:
   - Typescript
-  - Preact
-  - react
+  - React
   - SVG
   - Tutorials
 ---

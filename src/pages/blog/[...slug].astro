@@ -1,0 +1,55 @@
+---
+import { FormattedDate } from "@components/formatted-date"
+import { MarkdownContent } from "@components/markdown-content"
+
+import PostLayout from "@layouts/PostLayout.astro"
+
+import { CompactAvatars } from "@components/people/compact-avatars"
+
+import { type CollectionEntry } from "astro:content"
+import { PostTags } from "@components/posts/post-tags"
+import { HeroImage } from "@components/posts/hero-image"
+import { getSortedPosts } from "@lib/post"
+import { BaseCol } from "@components/base-col"
+import { getSlug } from "@lib/urls"
+
+export async function getStaticPaths() {
+  const posts = await getSortedPosts()
+
+  return posts.map(post => {
+ 
+    return {
+      params: {
+        slug: getSlug(post.id), //post.data.slug,
+      },
+      props: {
+        post,
+      },
+    }
+  })
+}
+
+interface Props {
+  post: CollectionEntry<"posts">
+}
+
+const { post } = Astro.props
+const { Content } = await post.render()
+---
+
+<PostLayout title={post.data.title} tab="Blog">
+  <Fragment slot="main">
+    <HeroImage post={post} />
+
+    <CompactAvatars people={post.data.authors} />
+    <FormattedDate date={post.data.added} />
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-x-4 border-t-2 border-gray-300 pt-8">
+      <MarkdownContent className="col-span-3">
+        <Content />
+      </MarkdownContent>
+      <BaseCol>
+        <PostTags post={post} />
+      </BaseCol>
+    </div>
+  </Fragment>
+</PostLayout>

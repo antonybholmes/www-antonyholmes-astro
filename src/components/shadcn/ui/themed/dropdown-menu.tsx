@@ -214,7 +214,7 @@ const DropdownMenuLabel = forwardRef<
   <DropdownMenuPrimitive.Label
     ref={ref}
     className={cn(
-      "py-1.5 pl-9 text-xs font-semibold",
+      "py-1.5 pl-9 text-xs font-medium",
       inset && "pl-8",
       className,
     )}

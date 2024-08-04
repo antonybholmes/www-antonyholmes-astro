@@ -6,7 +6,7 @@ import { BaseLink } from "./base-link"
 
 export const BASE_PRIMARY_LINK_CLS = cn(
   FOCUS_RING_CLS,
-  "text-blue-500 inline-block data-[underline=true]:hover:decoration-blue-500",
+  "text-primary-color inline-block data-[underline=true]:hover:decoration-primary-color",
 )
 
 export const PrimaryColorLink = forwardRef(function PrimaryColorLink(

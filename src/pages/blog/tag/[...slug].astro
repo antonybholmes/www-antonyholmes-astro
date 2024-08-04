@@ -1,15 +1,14 @@
 ---
-import { PostsPage } from "@components/post/posts-page"
+import { PostsPage } from "@components/posts/posts-page"
 import ContentLayout from "@layouts/ContentLayout.astro"
 import { paginate, type AstroPage } from "@lib/paginate"
-import { getTagPostMap } from "@lib/post"
+import { getSortedPosts, getTagPostMap } from "@lib/post"
 import { getTagBaseUrl, getUrlFriendlyTag } from "@lib/urls"
-import { getCollection } from "astro:content"
 
 export async function getStaticPaths() {
   let paths: AstroPage[] = []
 
-  const allPosts = await getCollection("posts")
+  const allPosts = await getSortedPosts()
 
   const tagMap = getTagPostMap(allPosts)
 
@@ -27,9 +26,8 @@ export async function getStaticPaths() {
   return paths
 }
 
-const { slug } = Astro.params
-
-const { title, superTitle, showTitle, page, root, pages, data } = Astro.props
+ 
+const { title, showTitle, page, root, pages, data } = Astro.props
 ---
 
 <ContentLayout title={title} showTitle={showTitle} tab="Blog">

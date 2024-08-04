@@ -29,7 +29,7 @@ export function Avatar({ person, isSmall = false, className }: IProps) {
           href={href}
           aria-label={`Click to read more information about ${person}`}
           data-underline={true}
-          className={cn("font-semibold", [isSmall, "text-sm"])}
+          className={cn("font-medium", [isSmall, "text-sm"])}
         >
           {person}
         </BaseLink>

@@ -11,7 +11,7 @@ export function PostTagLink({ tag }: IProps) {
       href={getTagBaseUrl(tag)}
       aria-label={`View posts related to ${tag}`}
       data-underline={true}
-      className="border border-gray-600 px-3 py-1 rounded-full hover:text-blue-500 trans-color data-[underline=true]:hover:decoration-blue-500 trans-color"
+      className="inline-block border border-gray-400 px-3 py-1 rounded-full hover:text-blue-500 trans-color data-[underline=true]:hover:decoration-blue-500 trans-color"
     >
       {tag}
     </BaseLink>

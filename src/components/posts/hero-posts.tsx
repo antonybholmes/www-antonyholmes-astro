@@ -22,10 +22,10 @@ export function HeroPosts({ posts }: IPostsProps) {
   const topPosts = posts.slice(1, 4)
 
   return (
-    <section className="flex flex-col gap-12 xl:flex-row">
-      <PreviewPost post={topPost} className="w-full xl:w-60/100" />
+    <section className="grid grid-cols-1 lg:grid-cols-10 gap-y-4 lg:gap-x-12">
+      <PreviewPost post={topPost} className="col-span-6" />
 
-      <ul className="flex w-full flex-col gap-y-4 xl:w-40/100">
+      <ul className="flex w-full flex-col gap-y-4 col-span-4">
         {topPosts.map((post, index) => {
           return (
             <li key={index}>

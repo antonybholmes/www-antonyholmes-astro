@@ -13,8 +13,7 @@ import BaseHead from "./BaseHead.astro"
 //import "@fontsource/lato/700.css"
 
 import Footer from "@layouts/Footer.astro"
-import { cn } from "@lib/class-names"
-
+ 
 // import "@fontsource/figtree/300.css"
 // import "@fontsource/figtree/400.css"
 // import "@fontsource/figtree/500.css"
@@ -27,7 +26,7 @@ import { cn } from "@lib/class-names"
 // import "@fontsource/poppins/600.css"
 // import "@fontsource/poppins/700.css"
 
-let { title, headerMode = "light", isIndexed = true } = Astro.props
+let { title, isIndexed = true } = Astro.props
 ---
 
 <html lang="en">
@@ -36,10 +35,10 @@ let { title, headerMode = "light", isIndexed = true } = Astro.props
     <slot name="head" />
   </head>
 
-  <body class={cn([headerMode === "light", "bg-white", "bg-slate-800"])}>
+  <body class="flex flex-col">
     <slot name="main" />
     <Footer />
 
-    <slot name="end" />
+    <slot name="footer" />
   </body>
 </html>

@@ -11,6 +11,7 @@ authors:
   - Antony Holmes
 added: 2024-08-03T15:59:02.000Z
 tags:
+  - Typescript
   - Tailwind
   - Tutorials
 updated: 2024-08-03T15:59:02.000Z

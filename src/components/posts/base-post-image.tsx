@@ -8,12 +8,13 @@ interface IProps extends IPostProps {
 export function BasePostImage({ post, imgClassName, className }: IProps) {
   return (
     <div
-      className={cn("overflow-hidden z-10 border border-red-500", className)}
+      className={cn("overflow-hidden z-10", className)}
     >
       <img
         src={post.data.hero}
         alt={post.data.title}
-        className={cn("scale-102 hover:scale-103 z-0 trans-all", imgClassName)}
+        title={post.data.title}
+        className={cn("scale-102 hover:scale-104 z-0 trans-all", imgClassName)}
       />
     </div>
   )

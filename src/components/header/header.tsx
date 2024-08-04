@@ -3,8 +3,9 @@ import { VCenterRow } from "@components/v-center-row"
 import { cn } from "@lib/class-names"
 import { type ReactNode } from "react"
 
+import { ContentDiv } from "@components/content-div"
 import type { IElementProps } from "@interfaces/element-props"
-import { HeaderMenuPopover } from "./header-menu-popover"
+import HeaderLinks from "./header-links"
 import { Logo } from "./logo"
 // import { LoggedInComp } from "@modules/edb"
 // import { HeaderMenuPopover } from "./header-menu-popover"
@@ -16,11 +17,12 @@ export interface IHeaderChildrenProps {
 }
 
 export interface IHeaderProps extends IElementProps, IHeaderChildrenProps {
-  name?: string
   tab?: string
 }
 
 export function Header({
+  title,
+  tab,
   className,
   headerLeftChildren,
   headerRightChildren,
@@ -46,21 +48,26 @@ export function Header({
   // }
 
   return (
-    <header className={cn("grid grid-cols-4 h-11", className)}>
-      <VCenterRow className="gap-x-2">
-        <HeaderMenuPopover />
-        <Logo />
-        {headerLeftChildren}
-      </VCenterRow>
+    <ContentDiv className="mb-8">
+      <header className={cn("grid grid-cols-4", className)}>
+        <VCenterRow className="gap-x-8">
+          {/* <HeaderMenuPopover /> */}
+          <Logo />
+          <HeaderLinks title={title} tab={tab} />
+          {headerLeftChildren}
+        </VCenterRow>
 
-      <VCenterRow className="justify-center col-span-2">{children}</VCenterRow>
+        <VCenterRow className="justify-center col-span-2">
+          {children}
+        </VCenterRow>
 
-      <VCenterRow className="gap-x-2 justify-end pr-2">
-        {headerRightChildren}
+        <VCenterRow className="gap-x-2 justify-end pr-2">
+          {headerRightChildren}
 
-        {/* <LoggedInComp /> */}
-        {/* <ThemeMenu /> */}
-      </VCenterRow>
-    </header>
+          {/* <LoggedInComp /> */}
+          {/* <ThemeMenu /> */}
+        </VCenterRow>
+      </header>
+    </ContentDiv>
   )
 }

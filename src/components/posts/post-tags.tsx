@@ -7,9 +7,9 @@ export interface IPostProps extends IElementProps {
   post: CollectionEntry<"posts">
 }
 
-export function PostTags({ post, className }: IPostProps) {
+export function PostTags({ post }: IPostProps) {
   return (
-    <ul className="flex flex-row flex-wrap gap-2 text-xs">
+    <ul className="flex flex-row flex-wrap gap-1.5">
       {post.data.tags
         .sort()
         .map((tag: string) => tag.trim())

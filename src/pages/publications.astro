@@ -1,0 +1,19 @@
+---
+import { PublicationsPage } from "@components/pages/publications/publications-page"
+ 
+import ContentLayout from "@layouts/ContentLayout.astro"
+import { getSelectedPublications } from "@lib/api"
+import { getEntryBySlug } from "astro:content"
+
+const publications = getSelectedPublications("antony-holmes")
+const person = await getEntryBySlug("people", "antony-holmes")
+---
+
+<ContentLayout title="Publications">
+  <PublicationsPage
+    person={person}
+    publications={publications}
+    client:load
+    slot="main"
+  />
+</ContentLayout>

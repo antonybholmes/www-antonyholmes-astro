@@ -11,7 +11,7 @@ interface IProps extends IElementProps {
 
 export function Avatars({
   people,
-  showTitle = false,
+ 
   isSmall = false,
   className,
 }: IProps) {

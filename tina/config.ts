@@ -34,10 +34,12 @@ export default defineConfig({
         path: "src/content/posts",
         format: "md",
         defaultItem: () => {
+          const today = new Date()
           return {
             // When a new post is created the title field will be set to "New post"
             title: "New Post",
-            added: new Date(),
+            added: today,
+            updated: today,
             authors: ["Antony Holmes"],
             draft: true,
           };
@@ -82,12 +84,12 @@ export default defineConfig({
             isTitle: true,
             required: true,
           },
-          {
-            label: "Slug",
-            name: "slug",
-            type: "string",
-            //required: true,
-          },
+          // {
+          //   label: "Slug",
+          //   name: "slug",
+          //   type: "string",
+          //   //required: true,
+          // },
           {
             type: "image",
             label: "Hero image",
@@ -100,8 +102,18 @@ export default defineConfig({
             list: true,
           },
           {
-            label: "Publication Date",
+            label: "Added",
             name: "added",
+            type: "datetime",
+            // ui: {
+            //   dateFormat: "MMM DD YYYY",
+            //   parse: (value) => value && value.format("YYYY-MM-DD"),
+            // },
+            required: true,
+          },
+          {
+            label: "Updated",
+            name: "updated",
             type: "datetime",
             // ui: {
             //   dateFormat: "MMM DD YYYY",
@@ -128,16 +140,7 @@ export default defineConfig({
             //required: true,
             description: "If this is checked the post will not be added",
           },
-          {
-            label: "Updated",
-            name: "updated",
-            type: "datetime",
-            // ui: {
-            //   dateFormat: "MMM DD YYYY",
-            //   parse: (value) => value && value.format("YYYY-MM-DD"),
-            // },
-            //required: true,
-          },
+          
         ],
       },
     ],

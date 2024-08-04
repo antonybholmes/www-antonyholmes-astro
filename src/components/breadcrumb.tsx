@@ -3,13 +3,15 @@ import { cn } from "@lib/class-names"
 import type { ReactNode } from "react"
 
 import { ChevronRightIcon } from "@components/icons/chevron-right-icon"
-import { HomeIcon } from "@components/icons/home-icon"
 import type { ICrumbProps } from "@lib/crumbs"
 import { BaseLink } from "./link/base-link"
 
+const LINK_CLS =
+  "trans-color text-sky-500/75 group-hover:text-sky-500 dark:text-sky-400 dark:group-hover:text-white"
+
 interface BreadcrumbProps extends IElementProps, ICrumbProps {}
 
-export function Breadcrumb({ crumbs, className = "" }: BreadcrumbProps) {
+export function Breadcrumb({ crumbs, className }: BreadcrumbProps) {
   if (!crumbs) {
     return null
   }
@@ -18,16 +20,16 @@ export function Breadcrumb({ crumbs, className = "" }: BreadcrumbProps) {
 
   ret.push(
     <li key="home">
-      <BaseLink
+      {/* <BaseLink
         href="/"
         aria-label="Home"
-        className="trans-300 transition-color fill-sky-500/50 hover:fill-sky-500 dark:fill-sky-400 dark:hover:fill-white"
+        className="trans-300 transition-color fill-sky-500/75 hover:fill-sky-500 dark:fill-sky-400 dark:hover:fill-white"
       >
         <HomeIcon w="w-4" />
-      </BaseLink>
-      {/* <ToBlueLink href="/" aria-label="Home">
+      </BaseLink> */}
+      <BaseLink href="/" aria-label="Home" className={LINK_CLS}>
         Home
-      </ToBlueLink> */}
+      </BaseLink>
     </li>,
   )
 
@@ -40,12 +42,12 @@ export function Breadcrumb({ crumbs, className = "" }: BreadcrumbProps) {
       <li key={`divider-${i}`} className="group flex flex-row gap-x-2">
         <ChevronRightIcon
           w="w-3"
-          className="trans-300 transition-all stroke-sky-500/50 group-hover:translate-x-0.5 group-hover:stroke-sky-500 dark:group-hover:stroke-white"
+          className="trans-300 transition-all stroke-sky-500/75 group-hover:translate-x-0.5 group-hover:stroke-sky-500 dark:group-hover:stroke-white"
         />
         <BaseLink
           href={crumb[1]}
           aria-label={`Visit ${crumb[0]}`}
-          className="trans-300 transition-color text-sky-500/50 group-hover:text-sky-500 dark:text-sky-400 dark:group-hover:text-white"
+          className={LINK_CLS}
         >
           {crumb[0]}
         </BaseLink>

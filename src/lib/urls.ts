@@ -1,5 +1,6 @@
-import { POST_SLUG, TAG_SLUG } from "@consts"
-import { capitalize } from "lodash-es"
+import { TAG_SLUG } from "@consts"
+
+export const PATH_SEP = "/"
 
 export function getUrlFriendlyTag(tag: string): string {
   return tag
@@ -25,28 +26,36 @@ export function getUrlFriendlyTags(tags: string[]): string[] {
   return tags.map(tag => getUrlFriendlyTag(tag))
 }
 
-export function getFormattedTag(tag: string) {
-  return tag
-    .trim()
-    .replaceAll("-", " ")
-    .replaceAll(" and ", " & ")
-    .split(" ")
-    .map(tag => capitalize(tag))
-    .join(" ")
-}
+// export function getFormattedTag(tag: string) {
+//   return tag
+//     .trim()
+//     .replaceAll("-", " ")
+//     .replaceAll(" and ", " & ")
+//     .split(" ")
+//     .map(tag => capitalize(tag))
+//     .join(" ")
+// }
 
 export const getTagBaseUrl = (tag: string) => {
   return `${TAG_SLUG}/${getUrlFriendlyTag(tag)}`
 }
 
-export const getPostBaseUrl = (slug: string): string => {
-  return `${POST_SLUG}/${slug}`
+export function getSlug(path: string): string {
+  return path
+    .replace(/\.md$/, "")
+    .replaceAll("\\", PATH_SEP)
+    .split(PATH_SEP)
+    .map(p => getUrlFriendlyTag(p))
+    .join(PATH_SEP)
+}
+
+export function getSlugDir(path: string): string {
+  // remove last entry to get the dir part of the name
+  return getSlug(path).split(PATH_SEP).slice(0, -1).join(PATH_SEP)
 }
 
 export function getCanonicalSlug(path: string): string {
-  return getUrlFriendlyTag(
-    path.replace(/\.md$/, "").replaceAll("\\", "/").replace(/^.+\//, ""),
-  )
+  return getSlug(path).replace(/^.+\//, "")
 }
 
 export function getDateFromSlug(slug: string): string {

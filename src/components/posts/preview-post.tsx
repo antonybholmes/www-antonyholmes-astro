@@ -24,10 +24,10 @@ export function PreviewPost({
   post,
   className,
   imageClassName,
-  headerClassName = "text-2xl md:text-4xl",
+  headerClassName = "text-2xl md:text-3xl",
   innerClassName,
   contentClassName = "text-base",
-  showSection = true,
+ 
   showDescription = true,
   showAvatar = true,
   showAvatarImage = true,
@@ -47,7 +47,7 @@ export function PreviewPost({
         {showDescription && (
           <p
             className={cn(
-              "text-slate-600 dark:text-slate-400",
+              "text-gray-500 dark:text-gray-400",
               contentClassName,
             )}
           >
@@ -67,14 +67,14 @@ export function PreviewPost({
             <FormattedDate date={date} />
           </>
         ) : (
-          <VCenterRow className="justify-between">
+          <VCenterRow className="gap-x-2">
             {showAvatar && (
               <CompactAvatars
                 people={post.data.authors}
                 showImages={showAvatarImage}
               />
             )}
-
+            <span className="rounded-full w-1 h-1 aspect-square shrink-0 grow-0 bg-gray-400" />
             <FormattedDate date={date} />
           </VCenterRow>
         )}

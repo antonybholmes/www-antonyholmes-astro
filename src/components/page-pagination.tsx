@@ -1,3 +1,4 @@
+import { BLOG_SLUG } from "@consts"
 import type { ILinkProps } from "@interfaces/link-props"
 import { cn } from "@lib/class-names"
 import { range } from "lodash-es"
@@ -5,7 +6,7 @@ import { ChevronRightIcon } from "./icons/chevron-right-icon"
 import { BaseLink } from "./link/base-link"
 
 const BTN_CLS =
-  "flex flex-row justify-center items-center min-w-8 h-8 border border-transparent"
+  "flex flex-row justify-center items-center min-w-8 h-8 border border-transparent rounded"
 
 function LinkButton({ className, children, ...props }: ILinkProps) {
   return (
@@ -24,14 +25,7 @@ function LinkButton({ className, children, ...props }: ILinkProps) {
 
 function NavButton({ className, children, ...props }: ILinkProps) {
   return (
-    <LinkButton
-      className={cn(
-        BTN_CLS,
-        "gap-x-2 stroke-blue-600 px-2 text-blue-600",
-        className,
-      )}
-      {...props}
-    >
+    <LinkButton className={cn("gap-x-2   px-2 ", className)} {...props}>
       {children}
     </LinkButton>
   )
@@ -40,7 +34,7 @@ function NavButton({ className, children, ...props }: ILinkProps) {
 function PrevButton({ href }: ILinkProps) {
   return (
     <NavButton href={href} aria-label="Previous page">
-      <ChevronRightIcon className=" rotate-180" /> Prev
+      <ChevronRightIcon className="rotate-180" /> Prev
     </NavButton>
   )
 }
@@ -48,7 +42,7 @@ function PrevButton({ href }: ILinkProps) {
 function NextButton({ href }: ILinkProps) {
   return (
     <NavButton href={href} aria-label="Next page">
-      Next <ChevronRightIcon className="w-4" />
+      Next <ChevronRightIcon />
     </NavButton>
   )
 }
@@ -124,7 +118,7 @@ function getPath(page: number, root: string) {
   return `${root}/page/${page + 1}`
 }
 
-export function PagePagination({ page, pages, root = "/post" }: IProps) {
+export function PagePagination({ page, pages, root = BLOG_SLUG }: IProps) {
   page = Math.max(0, page)
 
   const pageStart = Math.max(page - 1, 1)
@@ -134,7 +128,7 @@ export function PagePagination({ page, pages, root = "/post" }: IProps) {
   const nextPage = Math.min(pages - 1, page + 1)
 
   return (
-    <ul className="flex flex-row items-center gap-x-1">
+    <ul className="flex flex-row items-center gap-x-1 font-medium">
       <li>
         <PrevButton href={getPath(prevPage, root)} />
       </li>
@@ -145,7 +139,7 @@ export function PagePagination({ page, pages, root = "/post" }: IProps) {
 
       {pageStart > 1 && <Ellipsis />}
 
-      {range(pageStart, pageEnd, 1).map((p: number, index: number) => (
+      {range(pageStart, pageEnd, 1).map((p: number) => (
         <li key={p}>
           <PageButton href={getPath(p, root)} page={p} selected={p === page} />
         </li>

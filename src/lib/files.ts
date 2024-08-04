@@ -4,7 +4,7 @@ import path from "path"
 export function getAllFiles(dir: string, ret: string[] = []) {
   const files = fs.readdirSync(dir)
 
-  files.forEach(file => {
+  files.forEach((file: string) => {
     const p = path.join(dir, "/", file) //`${dirPath}/${file}`
     if (fs.statSync(p).isDirectory()) {
       getAllFiles(p, ret)

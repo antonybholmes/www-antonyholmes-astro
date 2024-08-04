@@ -4,7 +4,7 @@ import { Children } from "react"
 import { Breadcrumb } from "@components/breadcrumb"
 import { ContentDiv } from "@components/content-div"
 import type { ICrumbProps } from "@lib/crumbs"
-import BaseLayout from "./BaseLayout.astro"
+import { BaseLayout } from "./base-layout"
 
 export interface IProps extends ILayoutProps, ICrumbProps {
   headerClassName?: string
@@ -12,9 +12,7 @@ export interface IProps extends ILayoutProps, ICrumbProps {
 
 export function ContentLayout({
   title = "",
-  subTitle,
-  superTitle,
-  showTitle = false,
+ 
   tab,
   isIndexed,
   headerClassName, //"text-white bg-card-blue lg:text-slate-900 lg:bg-white",
@@ -44,7 +42,7 @@ export function ContentLayout({
               className="mb-8"
             />
           )} */}
-          c[0]
+          {c[0]}
         </div>
       </ContentDiv>
       <ContentDiv>{c[1]}</ContentDiv>

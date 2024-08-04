@@ -32,11 +32,7 @@ export function ModuleButtonLink({
     </BaseLink>
   )
 }
-
-interface IProps extends IElementProps {
-  tab?: string
-  onClick: MouseEventHandler<HTMLAnchorElement>
-}
+ 
 
 // export function HeaderLinks({ onClick, className }: IProps) {
 //   // sort alphabetically and ignore sections
@@ -65,7 +61,7 @@ interface IProps extends IElementProps {
 //                 backgroundColor: module.color ?? "lightslategray",
 //               }}
 //             >
-//               <span className="font-bold">{module.name[0].toUpperCase()}</span>
+//               <span className="font-semibold">{module.name[0].toUpperCase()}</span>
 //               <span>{module.name[1].toLowerCase()}</span>
 //             </div>
 

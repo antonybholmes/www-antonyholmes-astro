@@ -37,7 +37,7 @@ export function CompactAvatars({
         </ul>
       )}
 
-      <ul className="flex flex-row flex-wrap items-center gap-x-1 text-sm font-semibold">
+      <ul className="flex flex-row flex-wrap items-center gap-x-1 text-sm font-medium">
         {people.map((person, index) => (
           <li key={index}>
             <BaseLink
