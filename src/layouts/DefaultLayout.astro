@@ -1,11 +1,11 @@
 ---
-import { type ILayoutProps } from "@interfaces/layout-props";
-import { cn } from "@lib/class-names";
-import BaseLayout from "./BaseLayout.astro";
+import { type ILayoutProps } from "@interfaces/layout-props"
+import { cn } from "@lib/class-names"
+import BaseLayout from "./BaseLayout.astro"
 
 export interface Props extends ILayoutProps {
-  headerMode?: string;
-  navLightBg?: string;
+  headerMode?: string
+  navLightBg?: string
 }
 
 let {
@@ -14,10 +14,10 @@ let {
   headerMode = "light",
   navLightBg = "bg-white",
   className,
-} = Astro.props;
+} = Astro.props
 
 if (!tab) {
-  tab = title;
+  tab = title
 }
 ---
 

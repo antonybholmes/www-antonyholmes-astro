@@ -4,30 +4,106 @@
   License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
  */
 
+body {
+  @apply text-sm text-gray-900;
+}
 
 img {
-	max-width: 100%;
-	height: auto;
-	border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 
 code {
-	padding: 2px 5px;
-	background-color: rgb(var(--gray-light));
-	border-radius: 2px;
+  padding: 2px 5px;
+  background-color: rgb(var(--gray-light));
+  border-radius: 2px;
 }
+
 pre {
-	padding: 1.5em;
-	border-radius: 8px;
+  padding: 1.5em;
+  border-radius: 8px;
 }
+
 pre > code {
-	all: unset;
+  all: unset;
 }
+
 blockquote {
-	border-left: 4px solid var(--accent);
-	padding: 0 0 0 20px;
-	margin: 0px;
-	font-size: 1.333em;
+  border-left: 4px solid var(--accent);
+  padding: 0 0 0 20px;
+  margin: 0px;
+  font-size: 1.333em;
 }
 
+.trans-300 {
+  @apply duration-300 ease-out;
+}
 
+///
+/// markdown
+///
+
+.markdown a {
+  @apply text-blue-600 hover:underline;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown p,
+.markdown ol,
+.markdown pre,
+.markdown ul {
+  @apply mb-4;
+}
+
+.markdown ol {
+  @apply ml-8 list-outside list-decimal;
+}
+
+.markdown ul {
+  @apply ml-8 list-outside list-disc;
+}
+
+.markdown ul li::marker {
+  @apply text-2xl;
+}
+
+.markdown h1 {
+  @apply text-3xl capitalize;
+}
+
+.markdown h1:not(:first-child) {
+  @apply mt-8;
+}
+
+.markdown h2 {
+  @apply text-2xl capitalize;
+}
+
+.markdown h2:not(:first-child) {
+  @apply mt-8;
+}
+
+.markdown h3 {
+  @apply text-xl capitalize;
+}
+
+.markdown h3:not(:first-child) {
+  @apply mt-8;
+}
+
+.markdown h4 {
+  @apply text-lg capitalize;
+}
+
+.markdown h4:not(:first-child) {
+  @apply mt-8;
+}
+
+.markdown th,
+td {
+  padding: 0.5rem 2rem;
+}

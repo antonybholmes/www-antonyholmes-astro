@@ -31,13 +31,13 @@ export default defineConfig({
       {
         name: "post",
         label: "Posts",
-        path: "content/posts",
+        path: "src/content/posts",
         format: "md",
         defaultItem: () => {
           return {
             // When a new post is created the title field will be set to "New post"
             title: "New Post",
-            added: new Date(),
+            pubDate: new Date(),
             authors: ["Antony Holmes"],
             draft: true,
           };
@@ -69,7 +69,7 @@ export default defineConfig({
                   .toLowerCase()
                   .replace(/ /g, "-")
                   .replace(/[^\w-]+/g, ""),
-              added: values.added ?? new Date().toLocaleString(),
+              pubDate: values.pubDate ?? new Date().toLocaleString(),
               updated: new Date().toLocaleString(),
             };
           },
@@ -100,8 +100,8 @@ export default defineConfig({
             list: true,
           },
           {
-            label: "Added",
-            name: "added",
+            label: "Publication Date",
+            name: "pubDate",
             type: "datetime",
             // ui: {
             //   dateFormat: "MMM DD YYYY",
