@@ -22,13 +22,13 @@ url: 'https://www.fidelity.com'
 status: added
 title: 'Hi, Fidelity'
 slug: hi-fidelity
-hero: /assets/posts/bank-2048x1024.webp
+hero: /assets/posts/opt/bank-1600x800.avif
 authors:
   - Antony Holmes
-added: 2024-08-03T15:58:05.000Z
+added: 2022-07-18
 tags:
   - Low Cost
-updated: 2024-08-03T15:58:05.000Z
+updated: 2022-07-18
 ---
 
 Fidelity is a great one-stop-shop for all your banking and investing needs. I currently use them as my primary bank. Maybe you should too after reading this.

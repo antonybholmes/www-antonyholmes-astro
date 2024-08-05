@@ -6,11 +6,11 @@ type: post
 status: added
 title: Creating a React toggle switch using SVG
 slug: creating-a-react-toggle
-hero: /assets/posts/code-2048x1024.webp
+hero: /assets/posts/opt/code-1600x800.avif
 authors:
   - Antony Holmes
-added: 2024-08-03T15:39:34.000Z
-updated: 2024-08-03T15:39:34.000Z
+added: 2023-01-03
+updated: 2023-01-03
 tags:
   - Typescript
   - React
@@ -18,15 +18,15 @@ tags:
   - Tutorials
 ---
 
-Let's make a simple UI toggle switch using Preact and SVG. No need for some huge library dependency.
+Let's make a simple UI toggle switch using React and SVG. No need for some huge library dependency.
 
 <!-- end -->
 
 I like to delve into making base UI components using minimal amounts of code and not have to rely on some third party library with an inevitably questionable API.
 
-I like to use Preact for my site since it mostly works as a drop in replacement for React and is smaller and faster, but this also means that some third party React libraries just won't work. Rather than waste time on trying to fix issues, I sometimes find it easier to just create simple components from scratch so I can precisely control the look and feel.
+I like to use React for my site since it mostly works as a drop in replacement for React and is smaller and faster, but this also means that some third party React libraries just won't work. Rather than waste time on trying to fix issues, I sometimes find it easier to just create simple components from scratch so I can precisely control the look and feel.
 
-This is a tutorial on making an animated toggle switch using Preact, Tailwind and SVG. You can of course use regular CSS, but I prefer Tailwind's class based approach. This tutorial assumes you have Tailwind and Preact working in your environment.
+This is a tutorial on making an animated toggle switch using React, Tailwind and SVG. You can of course use regular CSS, but I prefer Tailwind's class based approach. This tutorial assumes you have Tailwind and React working in your environment.
 
 I work with Typescript (I dislike Javascript's lack of a type checking system so I think TS is an acceptable superset of the language).
 

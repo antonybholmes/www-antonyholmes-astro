@@ -7,18 +7,18 @@ type: post
 status: added
 title: New website design!
 slug: new-website-design
-hero: /assets/posts/code-2048x1024.webp
+hero: /assets/posts/opt/code-1600x800.avif
 authors:
   - Antony Holmes
-added: 2024-08-03T15:57:34.000Z
+added: 2021-07-05
 tags:
   - Website
   - Gatsby
   - react
-updated: 2024-08-03T15:57:34.000Z
+updated: 2021-07-05
 ---
 
-I have redesigned my website using React and Gatsby.
+I have redesigned my website using React and Astro.
 
 <!-- end -->
 

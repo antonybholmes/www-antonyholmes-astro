@@ -18,13 +18,13 @@ url: 'https://www.citi.com'
 status: added
 title: Citi Double Cash Card
 slug: citi-double-cash-card
-hero: /assets/posts/credit-cards-2048x1024.webp
+hero: /assets/posts/opt/credit-cards-1600x800.avif
 authors:
   - Antony Holmes
-added: 2024-08-03T15:59:18.000Z
+added: 2022-05-22
 tags:
   - Cash Back
-updated: 2024-08-03T15:59:18.000Z
+updated: 2022-05-22
 ---
 
 Citi offers a compelling card to get 2% cash back.

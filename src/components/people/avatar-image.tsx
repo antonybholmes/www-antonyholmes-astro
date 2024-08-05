@@ -11,7 +11,7 @@ interface IProps extends IAvatarProps {}
 export function AvatarImage({ person, className }: IProps) {
   return (
     <img
-      src={`/assets/people/${getUrlFriendlyImg(person)}`}
+      src={`/assets/people/opt/${getUrlFriendlyImg(person)}`}
       alt={`Picture of ${person}`}
       className={cn("rounded-full", className)}
     />

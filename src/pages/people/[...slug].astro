@@ -4,6 +4,8 @@ import { HCenterRow } from "@components/h-center-row"
 import { MarkdownContent } from "@components/markdown-content"
 import { PageTitle } from "@components/page-title"
 import { AvatarImage } from "@components/people/avatar-image"
+import { PostsPage } from "@components/posts/posts-page"
+import { PEOPLE_SLUG } from "@consts"
 
 import ContentLayout from "@layouts/ContentLayout.astro"
 import { getAuthorBaseUrl } from "@lib/author"
@@ -48,7 +50,7 @@ interface Props {
   pages: number
 }
 
-const { person } = Astro.props
+const { person, data, page, pages } = Astro.props
 
 const { Content } = await person.render()
 ---
@@ -78,12 +80,12 @@ const { Content } = await person.render()
     </BaseRow>
 
     <section class="mt-16 border-t border-slate-200 pt-16">
-      <!-- <PostsPage
+      <PostsPage
         posts={data}
         page={page}
         pages={pages}
         root={`${PEOPLE_SLUG}/${person.slug}`}
-      /> -->
+      />
     </section>
   </div>
 </ContentLayout>

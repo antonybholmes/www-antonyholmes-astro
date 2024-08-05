@@ -20,9 +20,9 @@ url: 'https://www.capitalone.com/credit-cards/secured-mastercard'
 status: added
 title: Capital One Secured Mastercard Credit Card
 slug: capital-one-secured
-hero: /assets/posts/bank-2048x1024.webp
-added: 2022-03-22T04:00:00.000Z
-updated: 2024-08-03T15:28:54.000Z
+hero: /assets/posts/opt/bank-1600x800.avif
+added: 2022-04-22
+updated: 2022-04-22
 tags:
   - cheese
   - Secured

@@ -6,15 +6,15 @@ type: post
 status: added
 title: Simplifying class name strings
 slug: simplifying-class-name-strings
-hero: /assets/posts/code-2048x1024.webp
+hero: /assets/posts/opt/code-1600x800.avif
 authors:
   - Antony Holmes
-added: 2024-08-03T15:59:02.000Z
+added: 2023-01-01
 tags:
   - Typescript
   - Tailwind
   - Tutorials
-updated: 2024-08-03T15:59:02.000Z
+updated: 2023-01-01
 ---
 
 Simplify class name strings without external libraries.

@@ -8,14 +8,14 @@ status: added
 related: []
 title: The Vanilla Investor
 slug: the-vanilla-investor
-hero: /assets/posts/vanilla-2048x1024.webp
+hero: /assets/posts/opt/vanilla-1600x800.avif
 authors:
   - Antony Holmes
 added: 2021-12-09T05:00:00.000Z
 tags:
   - Portfolio Design
   - Guides
-updated: 2024-08-03T15:52:08.000Z
+updated: 2021-12-09T05:00:00.000Z
 ---
 
 There's an old adage in financial circles that **you get what you don't pay for**.

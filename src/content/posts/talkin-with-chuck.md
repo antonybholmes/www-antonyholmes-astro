@@ -20,13 +20,13 @@ url: 'https://www.fidelity.com'
 status: added
 title: Should you talk to chuck?
 slug: should-you-talk-to-chuck
-hero: /assets/posts/bank-2048x1024.webp
+hero: /assets/posts/opt/bank-1600x800.avif
 authors:
   - Antony Holmes
-added: 2024-08-03T15:56:58.000Z
+added: 2022-08-22
 tags:
   - Low Cost
-updated: 2024-08-03T15:56:58.000Z
+updated: 2022-08-22
 ---
 
 Schwab is a great one-stop-shop for all your banking and investing needs. Let's see why.

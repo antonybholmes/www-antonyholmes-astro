@@ -13,7 +13,7 @@
         "src/components/*"
       ],
       "@assets/*": [
-        "src/assets/posts/*"
+        "src/assets/posts/opt/*"
       ],
       "@lib/*": [
         "src/lib/*"

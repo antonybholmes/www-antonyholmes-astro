@@ -12,8 +12,8 @@ export function getUrlFriendlyTag(tag: string): string {
 
 export function getUrlFriendlyImg(
   img: string,
-  ext = "webp",
-  size: number | [number, number] = 1024,
+  ext = "avif",
+  size: number | [number, number] = 800,
 ): string {
   if (!Array.isArray(size)) {
     size = [size, size]

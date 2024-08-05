@@ -8,13 +8,13 @@ heroCaption: 'With enough small potatoes, we could reach the moon.'
 status: added
 title: Small Potatoes
 slug: small-potatoes
-hero: /assets/posts/potatoes-2048x1024.webp
+hero: /assets/posts/opt/potatoes-1600x800.avif
 authors:
   - Antony Holmes
-added: 2024-08-03T15:56:31.000Z
+added: 2022-02-07
 tags:
   - Investing
-updated: 2024-08-03T15:56:31.000Z
+updated: 2022-02-07
 ---
 
 Small changes can lead to big outcomes with a little bit of disipline.

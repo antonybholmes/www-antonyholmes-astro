@@ -6,15 +6,15 @@ type: post
 status: draft
 title: Experiments with Astro
 slug: experiments-with-astro
-hero: /assets/posts/code-2048x1024.webp
+hero: /assets/posts/opt/code-1600x800.avif
 authors:
   - Antony Holmes
-added: 2024-08-03T15:37:15.000Z
-updated: 2024-08-03T15:37:15.000Z
+added: 2022-08-15
+updated: 2022-08-15
 tags:
   - Website
   - Astro
-  - Preact
+  - React
 ---
 
 If you're a developer and you are interested in how this site was made, read on.
@@ -27,7 +27,7 @@ Eventually I became annoyed that Gatsby loads itself as large JS blob even to re
 
 With that in mind, I looked around for other static site tools and eventually settled on Astro since it allows me to continue to use React based developement, but strips almost all of the JS out of the final build so the site is an almost pure static site.
 
-Most of the site that you see is static, rendered at build time and served as plain HTML for speed, SEO and accessibility. I used Tailwind to style components and Preact in place of React because it has a smaller footprint, runs faster and gives better overall Lighthouse scores (I find React tends to score badly on the mobile test because of having to load react and react-dom).
+Most of the site that you see is static, rendered at build time and served as plain HTML for speed, SEO and accessibility. I used Tailwind to style components and React in place of React because it has a smaller footprint, runs faster and gives better overall Lighthouse scores (I find React tends to score badly on the mobile test because of having to load react and react-dom).
 
 The Publications page includes a number of custom UI components I built such as radio buttons and checkboxes. These are built using SVG for the UI with a little CSS animation to make them more interactive.
 
