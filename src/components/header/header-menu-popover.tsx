@@ -3,7 +3,7 @@ import { cn } from "@lib/class-names"
 
 //import { PrimaryColorLink } from "@components/link/primary-color-link"
 import { VCenterRow } from "@components/v-center-row"
-import { useState, type MouseEventHandler } from "react"
+import { useState } from "react"
 
 import { Popover, PopoverContent } from "@components/shadcn/ui/themed/popover"
 
@@ -32,7 +32,6 @@ export function ModuleButtonLink({
     </BaseLink>
   )
 }
- 
 
 // export function HeaderLinks({ onClick, className }: IProps) {
 //   // sort alphabetically and ignore sections

@@ -1,22 +1,12 @@
 ---
 import type { ILayoutProps } from "@interfaces/layout-props"
-import { createCrumbs, type ICrumbProps } from "@lib/crumbs"
 import DefaultLayout from "./DefaultLayout.astro"
 
 import { ContentDiv } from "@components/content-div"
 
-export interface Props extends ILayoutProps, ICrumbProps {}
+export interface Props extends ILayoutProps {}
 
-let {
-  title,
-
-  tab,
-  crumbs,
-} = Astro.props
-
-if (!crumbs) {
-  crumbs = createCrumbs(Astro.url.pathname)
-}
+let { title, tab } = Astro.props
 ---
 
 <DefaultLayout title={title} tab={tab}>

@@ -5,11 +5,17 @@ import { BasePostImage } from "./base-post-image"
 import type { IPostProps } from "./post-tags"
 
 interface IProps extends IPostProps {
-  imgClassName?:string
+  imgClassName?: string
 }
 
 export function PostImage({ post, imgClassName, className }: IProps) {
-  const image = <BasePostImage post={post} imgClassName={imgClassName} className={className} />
+  const image = (
+    <BasePostImage
+      post={post}
+      imgClassName={imgClassName}
+      className={className}
+    />
+  )
 
   if (post.slug) {
     return (

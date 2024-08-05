@@ -1,5 +1,4 @@
 ---
- 
 import education from "../../content/education.json"
 import jobs from "../../content/jobs.json"
 import skills from "../../content/skills.json"
@@ -28,7 +27,7 @@ skills.map((skillset: any) => {
         class="mt-16 grid grid-cols-1 gap-x-4 gap-y-4 text-sm md:grid-cols-3 xl:grid-cols-5"
       >
         {
-          skillList.map((skill) => {
+          skillList.map(skill => {
             return (
               <li class="trans-color rounded-xl bg-indigo-400 bg-gradient-to-br px-4 py-8 text-white hover:bg-indigo-500">
                 <h3 class="font-semibold">{skill.name}</h3>
@@ -44,7 +43,7 @@ skills.map((skillset: any) => {
       <h2 class="text-center text-4xl font-semibold">Experience</h2>
       <ul class="mt-16 flex flex-col gap-y-8">
         {
-          jobs.map((job) => (
+          jobs.map(job => (
             <li>
               <article class="grid grid-cols-1 gap-x-8 gap-y-4 lg:grid-cols-4">
                 <header class="mt-4">
@@ -59,7 +58,7 @@ skills.map((skillset: any) => {
                 <div class="trans-300 transition-color col-span-3 rounded-2xl bg-gray-100 p-6 hover:bg-gray-200 dark:bg-white/10 lg:p-10">
                   <p>{job.overview}</p>
                   <ul class="ml-6 mt-4 flex list-disc flex-col gap-y-2">
-                    {job.details.map((detail) => (
+                    {job.details.map(detail => (
                       <li>{detail}</li>
                     ))}
                   </ul>
@@ -75,7 +74,7 @@ skills.map((skillset: any) => {
       <h2 class="text-center text-4xl font-semibold">Volunteer Work</h2>
       <ul class="mt-16 flex flex-col gap-y-8">
         {
-          volunteer.map((job) => (
+          volunteer.map(job => (
             <li>
               <article class="grid grid-cols-1 gap-x-8 gap-y-4 lg:grid-cols-4">
                 <header class="mt-4">
@@ -89,7 +88,7 @@ skills.map((skillset: any) => {
                 </header>
                 <div class="trans-300 transition-color col-span-3 rounded-2xl bg-gray-100 p-8 hover:bg-gray-200 dark:bg-white/10">
                   <ul class="ml-6 flex list-disc flex-col gap-y-2">
-                    {job.details.map((detail) => (
+                    {job.details.map(detail => (
                       <li>{detail}</li>
                     ))}
                   </ul>
@@ -106,7 +105,7 @@ skills.map((skillset: any) => {
 
       <ul class="mt-16 flex flex-col gap-y-4">
         {
-          education.map((degree) => (
+          education.map(degree => (
             <li>
               <article class="grid grid-cols-1 gap-x-8 gap-y-4 lg:grid-cols-4">
                 <div />
@@ -120,7 +119,7 @@ skills.map((skillset: any) => {
                   </header>
 
                   <ul class="mt-2 text-sm text-gray-500">
-                    {degree.details.map((detail) => (
+                    {degree.details.map(detail => (
                       <li>{detail}</li>
                     ))}
                   </ul>

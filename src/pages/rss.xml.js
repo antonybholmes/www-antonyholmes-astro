@@ -1,5 +1,5 @@
 import rss from "@astrojs/rss"
-import { getSlug} from "@lib/urls"
+import { getSlug } from "@lib/urls"
 
 import { getSortedPosts } from "@lib/post"
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts"

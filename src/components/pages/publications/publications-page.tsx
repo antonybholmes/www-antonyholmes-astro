@@ -195,7 +195,7 @@ interface IProps {
   publications: any[]
 }
 
-export function PublicationsPage({  publications }: IProps) {
+export function PublicationsPage({ publications }: IProps) {
   //const [publications, setPublications] = useState<any[]>([])
 
   const [journals, setJournals] = useState<any[]>([])
@@ -209,12 +209,10 @@ export function PublicationsPage({  publications }: IProps) {
     new Set<string>(),
   )
 
-  const [selectedAuthors] = useState<Set<string>>(
-    new Set<string>(),
-  )
+  const [selectedAuthors] = useState<Set<string>>(new Set<string>())
 
   const [showAbstract, setShowAbstract] = useState(false)
-  
+
   //const [instituteOnly, setInstituteOnly] = useState(true)
   const [firstAuthorOnly] = useState(true) //id === "all")
   const [descending] = useState(true)
@@ -241,7 +239,6 @@ export function PublicationsPage({  publications }: IProps) {
 
   const [recordsPerPage] = useState(SEARCH_RECORDS_PER_PAGE)
 
- 
   // function fetchData() {
   //   axios
   //     .get(PUB_API_URL)
@@ -384,12 +381,6 @@ export function PublicationsPage({  publications }: IProps) {
     }
   }
 
- 
-
- 
- 
- 
-
   function showMoreOnClick() {
     setPageEnd(Math.min(pageEnd + 1, pages - 1))
   }
@@ -407,7 +398,6 @@ export function PublicationsPage({  publications }: IProps) {
 
     setSelectedJournals(sj)
   }
- 
 
   //const hasSearchResults = query !== EMPTY_QUERY
   //let publications: any[] = hasSearchResults

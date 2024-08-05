@@ -8,7 +8,6 @@ export interface IProps extends ILayoutProps, ICrumbProps {
 }
 
 export function BaseThreeQuarterLayout({
- 
   isRight = true,
   className,
   children,

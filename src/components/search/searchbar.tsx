@@ -4,7 +4,7 @@ import { VCenterRow } from "@components/v-center-row"
 import type { IElementProps } from "@interfaces/element-props"
 import { cn } from "@lib/class-names"
 import { useEffect, useState } from "react"
- 
+
 interface ISearchButtonProps {
   globalHover: boolean
   onClick: any

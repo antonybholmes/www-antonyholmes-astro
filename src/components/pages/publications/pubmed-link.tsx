@@ -22,8 +22,6 @@ interface IPubMedLinkProps {
 export default function PubMedLink({ person }: IPubMedLinkProps) {
   const [_hover, _setHover] = useState(false)
 
- 
-
   let url: string
 
   if (person.data.pubmed) {

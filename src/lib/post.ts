@@ -250,7 +250,6 @@ export function getTagPaths(tag: string): string[] {
       .map(p => getUrlFriendlyTag(p))
       .join("/"),
   )
- 
 
   return ret
 }

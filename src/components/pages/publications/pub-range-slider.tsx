@@ -103,7 +103,7 @@ export function PubRangeSlider({
     setYear1(Math.max(0, Math.min(p, data.length - 1)))
   }
 
-  function onMouseDownYear1( ) {
+  function onMouseDownYear1() {
     // @ts-ignore
     window.addEventListener("mousemove", onMouseMoveYear1)
     window.addEventListener("mouseup", onMouseUpYear1)
@@ -121,7 +121,7 @@ export function PubRangeSlider({
     setYear2(Math.max(r1, Math.min(data.length - 1, p)))
   }
 
-  function onMouseDownYear2( ) {
+  function onMouseDownYear2() {
     // @ts-ignore
     window.addEventListener("mousemove", onMouseMoveYear2)
     window.addEventListener("mouseup", onMouseUpYear2)
@@ -133,7 +133,7 @@ export function PubRangeSlider({
     window.removeEventListener("mouseup", onMouseUpYear2)
   }
 
-  function onMouseEnter( ) {
+  function onMouseEnter() {
     // @ts-ignore
     refHint.current.style.visibility = "visible"
   }

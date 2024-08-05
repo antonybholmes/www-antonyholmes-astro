@@ -18,10 +18,9 @@ interface SortProps extends IElementProps {
   selected: string
 }
 
-export function SortOrder({  className }: SortProps) {
+export function SortOrder({ className }: SortProps) {
   //const [selectedIndex, setSelectedIndex] = useState(0)
 
- 
   return (
     <RadioGroup
       //items={ITEMS}

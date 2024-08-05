@@ -1,12 +1,11 @@
 ---
- 
 import { PrimaryColorLink } from "@components/link/primary-color-link"
 import ContentLayout from "../layouts/ContentLayout.astro"
 import { HEADER_LINKS } from "../menus"
 ---
 
 <ContentLayout title="Site Map" showTitle={true}>
-  <div class="mt-8 grid grid-cols-1 gap-8 md:grid-cols-4 mb-64" slot="main">
+  <div class="mb-64 mt-8 grid grid-cols-1 gap-8 md:grid-cols-4" slot="main">
     <section>
       <h3 class="mt-4 font-bold">Learn More</h3>
       <ul class="mt-4 flex flex-col gap-y-4">
@@ -14,7 +13,10 @@ import { HEADER_LINKS } from "../menus"
           HEADER_LINKS.map((link: any, i: number) => {
             return (
               <li>
-                <PrimaryColorLink aria-label={`Goto ${link.name}`} href={link.url}>
+                <PrimaryColorLink
+                  aria-label={`Goto ${link.name}`}
+                  href={link.url}
+                >
                   {link.name}
                 </PrimaryColorLink>
               </li>
@@ -34,18 +36,26 @@ import { HEADER_LINKS } from "../menus"
         </li>
 
         <li>
-          <PrimaryColorLink href="/privacy" aria-label="View privacy information">
+          <PrimaryColorLink
+            href="/privacy"
+            aria-label="View privacy information"
+          >
             Privacy Policy
           </PrimaryColorLink>
         </li>
         <li>
-          <PrimaryColorLink href="/terms" aria-label="View terms and conditions">
+          <PrimaryColorLink
+            href="/terms"
+            aria-label="View terms and conditions"
+          >
             Terms of Use
           </PrimaryColorLink>
         </li>
 
         <li>
-          <PrimaryColorLink href="/contact" aria-label="Contact us">Contact</BlueLink>
+          <PrimaryColorLink href="/contact" aria-label="Contact us"
+            >Contact</PrimaryColorLink
+          >
         </li>
       </ul>
     </section>

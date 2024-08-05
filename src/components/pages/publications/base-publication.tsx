@@ -48,7 +48,6 @@ interface BasePublicationProps extends IElementProps {
   publication: any
   showCount?: boolean
   showAbstract?: boolean
- 
 }
 
 function BasePublication({
@@ -56,7 +55,7 @@ function BasePublication({
   publication,
   showAbstract = false,
   showCount = false,
- 
+
   className,
 }: BasePublicationProps) {
   const [isExpanded, setExpanded] = useState(false)

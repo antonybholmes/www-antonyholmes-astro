@@ -13,7 +13,6 @@ export function PostsPage({
   pages,
   showLatestPosts,
   root,
- 
 }: IPostsProps) {
   const heroPosts = posts.slice(0, 4)
   const headPosts = posts.slice(4, 6)

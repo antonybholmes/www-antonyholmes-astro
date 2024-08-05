@@ -2,7 +2,7 @@ import { cn } from "@lib/class-names"
 
 import type { IDivProps } from "@interfaces/div-props"
 import { Children, forwardRef, type ForwardedRef } from "react"
- 
+
 export const ContentDiv = forwardRef(function ContentDiv(
   { className, children, ...props }: IDivProps,
   ref: ForwardedRef<HTMLDivElement>,

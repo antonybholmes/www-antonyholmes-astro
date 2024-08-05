@@ -1,7 +1,7 @@
 import { Checkbox } from "@components/shadcn/ui/themed/check-box"
 import { VCenterRow } from "@components/v-center-row"
 import { getShortName } from "@lib/text"
- 
+
 interface JournalProps {
   index: number
   journal: [string, number]
@@ -46,7 +46,6 @@ export function JournalFilter({
   onClick,
   max = 10,
 }: JournalFilterProps) {
- 
   // journals = journals.slice(
   //   0,
   //   isExpanded ? (showAll ? journals.length : max) : 0

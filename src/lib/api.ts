@@ -1,7 +1,7 @@
+import { existsSync, readdirSync, statSync } from "fs"
 import fs from "fs-extra"
 import { join } from "path"
 import { getCanonicalSlug } from "./urls"
-import { existsSync, readdirSync, statSync } from "fs"
 
 export const CONTENT_DIR = join(process.cwd(), "content")
 export const POSTS_DIR = join(CONTENT_DIR, "posts")

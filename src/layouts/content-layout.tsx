@@ -12,7 +12,7 @@ export interface IProps extends ILayoutProps, ICrumbProps {
 
 export function ContentLayout({
   title = "",
- 
+
   tab,
   isIndexed,
   headerClassName, //"text-white bg-card-blue lg:text-gray-900 lg:bg-white",

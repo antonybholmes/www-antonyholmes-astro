@@ -1,4 +1,3 @@
- 
 import { Journal } from "./journal-filter"
 
 interface AuthorFilterProps {
@@ -12,9 +11,7 @@ export function AuthorFilter({
   authors,
   selected,
   onClick,
- 
 }: AuthorFilterProps) {
- 
   // if (max > -1 && !showAll) {
   //  authors = authors.slice(0, max)
   // }

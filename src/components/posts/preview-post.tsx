@@ -27,7 +27,7 @@ export function PreviewPost({
   headerClassName = "text-2xl md:text-3xl",
   innerClassName,
   contentClassName = "text-base",
- 
+
   showDescription = true,
   showAvatar = true,
   showAvatarImage = true,
@@ -46,10 +46,7 @@ export function PreviewPost({
         </BaseCol>
         {showDescription && (
           <p
-            className={cn(
-              "text-gray-500 dark:text-gray-400",
-              contentClassName,
-            )}
+            className={cn("text-gray-500 dark:text-gray-400", contentClassName)}
           >
             {post.data.description}
           </p>

@@ -5,9 +5,9 @@ import { BaseCol } from "@components/base-col"
 
 import { FormattedDate } from "@components/formatted-date"
 import { CompactAvatars } from "@components/people/compact-avatars"
+import { VCenterRow } from "@components/v-center-row"
 import { PostImage } from "./post-image"
 import { PostTitleLink } from "./post-title-link"
-import { VCenterRow } from "@components/v-center-row"
 
 interface IProps extends IPostProps {
   showAvatar?: boolean

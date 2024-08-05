@@ -2,7 +2,6 @@ import Stack from "./stack"
 import { StringBuffer } from "./string-buffer"
 
 function getSearchStack(q: string): any[] {
- 
   const buffer = new StringBuffer()
   let quoteMode = false
   let fieldMode = false
