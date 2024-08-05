@@ -1,30 +1,100 @@
 ---
- 
+import { BaseCol } from "@components/base-col"
+import { HCenterCol } from "@components/h-center-col"
+import { BaseLink } from "@components/link/base-link"
+import { PrimaryColorLink } from "@components/link/primary-color-link"
+import { AvatarImage } from "@components/people/avatar-image"
+import { PostsPage } from "@components/posts/posts-page"
+import { VCenterCol } from "@components/v-center-col"
+import { VCenterRow } from "@components/v-center-row"
+import { GITHUB_URL, RECORDS_PER_PAGE } from "@consts"
 import ContentLayout from "@layouts/ContentLayout.astro"
-import { FormattedDate } from "@components/formatted-date"
-import { BasePostImage } from "@components/posts/base-post-image"
+import { getAuthorBaseUrl } from "@lib/author"
+import { getPageItems } from "@lib/paginate"
 import { getSortedPosts } from "@lib/post"
-import { getSlug } from "@lib/urls"
+ 
 
-const posts = await getSortedPosts()
+const posts = getPageItems(await getSortedPosts(), 0, RECORDS_PER_PAGE)
+
+//const person = authorMap[getUrlFriendlyTag("Antony Holmes")]
 ---
 
-<ContentLayout title="Home">
-  <section slot="main">
-    <ul>
-      {
-        posts.map(post => (
-          <li>
-            <a href={`/blog/${getSlug(post.id)}/`}>
-              <BasePostImage post={post} className="rounded-lg max-h-48" />
-              <h4 class="title">{post.data.title}</h4>
-              <p class="date">
-                <FormattedDate date={post.data.added} />
-              </p>
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </section>
+<ContentLayout title="Home" showCrumbs={false}>
+  <Fragment slot="main">
+    <div class="grid grid-cols-1  xl:grid-cols-5  gap-12">
+      
+
+      <BaseCol className="gap-y-6 text-base col-span-3">
+          <BaseCol className="gap-y-2">
+          <h1 class="text-5xl font-bold">Antony Holmes</h1>
+          <h2 class="text-3xl font-semibold text-gray-400">Researcher & Software Engineer in New York</h2>
+        </BaseCol>
+
+          <p >
+            Hi there! Welcome to my personal website. That's me in
+            the photo, posing by the Hudson River for no particular reason, except maybe to look cool wearing Risky Business style sunglasses.
+          </p>
+
+          <p >
+            I'm a researcher in New York who learned how to do a
+            few cool things with Java, Python, C++, Go, React, Next.js, and Astro, 
+            some of which were used to make the site you're looking at now.
+          </p>
+
+          <p >
+            I made this site with love and to try and get high{" "}
+            <PrimaryColorLink href="https://pagespeed.web.dev/">Lighthouse</PrimaryColorLink>{
+              " "
+            }
+            scores. I think I mostly succeeded.
+          </p>
+
+          <p>My blog covers an assortment of topics, mostly on tech, finance and whatever else takes my fancy.</p>
+
+          <p>
+            I have an aptly named publications page where you can view all of
+            the scientific literature I have written, primarily focused on
+            cancer genetics.
+          </p>
+
+          <p >My life story probably won't be optioned, but if it is, I hope the movie contains the music of Kraftwerk.</p>
+         
+
+        <VCenterRow className="justify-center">
+          <VCenterRow className="gap-6">
+            <PrimaryColorLink href={GITHUB_URL} data-underline={true}>
+              GitHub
+            </PrimaryColorLink>
+
+            <PrimaryColorLink href="/resume" data-underline={true}>
+              Resume
+            </PrimaryColorLink>
+
+            <PrimaryColorLink
+              href="/publications"
+                data-underline={true}
+            >
+              Publications
+            </PrimaryColorLink>
+          </VCenterRow>
+        </VCenterRow>
+      </BaseCol>
+
+       <HCenterCol className="col-span-2">
+        <BaseLink
+          href={getAuthorBaseUrl("Antony Holmes")}
+          aria-label="View profile"
+        >
+          <AvatarImage 
+            person="Antony Holmes"
+            className="w-64 h-64 shadow-box"
+            client:visible
+          />
+        </BaseLink>
+      </HCenterCol>
+    </div>
+    <section class="mt-16 border-t border-slate-200 pt-16">
+      <PostsPage posts={posts} page={0} pages={1} />
+    </section>
+  </Fragment>
 </ContentLayout>

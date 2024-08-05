@@ -11,7 +11,7 @@ export default function RestPosts({ posts }: IPostsProps) {
               post={post}
               showAvatarImage={false}
               className="border-t border-slate-200 pt-6"
-              imageClassName="h-48"
+              imgClassName="h-48 rounded-md"
               headerClassName="text-2xl"
             />
           </li>

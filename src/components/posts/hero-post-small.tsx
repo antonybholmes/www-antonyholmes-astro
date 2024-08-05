@@ -27,7 +27,7 @@ export function HeroPostSmall({
       )}
     >
       <div className="col-span-1">
-        <PostImage post={post} className="h-48 w-full md:h-32" />
+        <PostImage post={post} className="h-48 w-full md:h-20 rounded-md border" />
       </div>
       <BaseCol className="col-span-3 gap-y-1 lg:col-span-3 xl:col-span-2 ">
         <BaseCol>

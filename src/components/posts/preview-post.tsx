@@ -9,7 +9,7 @@ import { PostImage } from "./post-image"
 import { PostTitleLink } from "./post-title-link"
 
 interface IProps extends IPostProps {
-  imageClassName?: string
+  imgClassName?: string
   headerClassName?: string
   innerClassName?: string
   contentClassName?: string
@@ -23,7 +23,7 @@ interface IProps extends IPostProps {
 export function PreviewPost({
   post,
   className,
-  imageClassName,
+  imgClassName = "rounded-lg",
   headerClassName = "text-2xl md:text-3xl",
   innerClassName,
   contentClassName = "text-base",
@@ -37,7 +37,7 @@ export function PreviewPost({
 
   return (
     <article className={cn("flex flex-col gap-y-4", className)}>
-      <PostImage post={post} className={imageClassName} />
+      <PostImage post={post} className={imgClassName} />
 
       <BaseCol className={cn("gap-y-2", innerClassName)}>
         <BaseCol>

@@ -4,10 +4,12 @@ import { getPostUrl } from "@lib/post"
 import { BasePostImage } from "./base-post-image"
 import type { IPostProps } from "./post-tags"
 
-interface IProps extends IPostProps {}
+interface IProps extends IPostProps {
+  imgClassName?:string
+}
 
-export function PostImage({ post }: IProps) {
-  const image = <BasePostImage post={post} className="rounded-xl" />
+export function PostImage({ post, imgClassName, className }: IProps) {
+  const image = <BasePostImage post={post} imgClassName={imgClassName} className={className} />
 
   if (post.slug) {
     return (
