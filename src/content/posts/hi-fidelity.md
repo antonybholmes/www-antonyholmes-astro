@@ -28,6 +28,8 @@ authors:
 added: 2022-07-18
 tags:
   - Low Cost
+  - Banking
+  - Investing
 updated: 2022-07-18
 ---
 

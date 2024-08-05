@@ -27,7 +27,7 @@ export function HeroPostSmall({
       )}
     >
       <div className="col-span-1">
-        <PostImage post={post} className="h-48 w-full md:h-20 rounded-md border" />
+        <PostImage post={post} className="h-48 w-full md:h-20 rounded-md" />
       </div>
       <BaseCol className="col-span-3 gap-y-1 lg:col-span-3 xl:col-span-2 ">
         <BaseCol>
@@ -35,7 +35,7 @@ export function HeroPostSmall({
           <PostTitleLink post={post} className="text-2xl lg:text-lg" />
         </BaseCol>
         {/* <CondComp cond={showDescription}>
-          <HTML html={post.excerpt} className="text-sm text-slate-600" />
+          <HTML html={post.excerpt} className="text-sm text-gray-600" />
         </CondComp> */}
 
         <VCenterRow className="gap-x-2">

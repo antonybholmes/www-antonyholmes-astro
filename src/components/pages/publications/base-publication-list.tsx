@@ -41,13 +41,13 @@ export function BasePublicationList({
       elems.push(
         <li
           key={`divider-${p}`}
-          className="my-4 flex flex-row items-center gap-x-4 text-xs text-slate-500"
+          className="my-4 flex flex-row items-center gap-x-4 text-xs text-gray-500"
         >
-          <hr className="grow text-slate-100" />
+          <hr className="grow text-gray-100" />
           <span>
             Page {page + p + 1} {pageBreak} {publications.length}
           </span>
-          <hr className="grow text-slate-100" />
+          <hr className="grow text-gray-100" />
         </li>,
       )
     }

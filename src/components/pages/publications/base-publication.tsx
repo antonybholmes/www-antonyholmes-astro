@@ -16,7 +16,7 @@ type AbstractProps = {
 function Abstract({ publication, isExpanded = false }: AbstractProps) {
   return (
     <>
-      <div className="mt-2 text-sm text-slate-500">
+      <div className="mt-2 text-sm text-gray-500">
         <p className={cn("overflow-hidden", [!isExpanded, "h-0"])}>
           {publication.abstract}
         </p>
@@ -155,7 +155,7 @@ function BasePublication({
       <div className="grow">
         <BaseRow className="gap-x-2">
           <div className="grow">
-            {/* <ul className="m-0 flex flex-row flex-wrap items-center gap-x-4 gap-y-1 text-sm text-slate-500">
+            {/* <ul className="m-0 flex flex-row flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-500">
           {links.map(link => link)}
         </ul> */}
             <h2 className="text-lg font-semibold">
@@ -189,7 +189,7 @@ function BasePublication({
           {/* <VCenterRow>
             <PillButton
               ariaLabel="Show abstract"
-              className="h-7 w-7 min-w-7 stroke-slate-400 hover:bg-slate-200 hover:stroke-slate-900"
+              className="h-7 w-7 min-w-7 stroke-gray-400 hover:bg-gray-200 hover:stroke-gray-900"
               onClick={() => setExpanded(!isExpanded)}
             >
               <ChevronRightIcon

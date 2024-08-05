@@ -33,7 +33,7 @@ export function HeroPosts({ posts }: IPostsProps) {
                 post={post}
                 className={cn([
                   index > 0,
-                  "border-t border-slate-200  pt-6 dark:border-white/10",
+                  "border-t border-gray-300  pt-6 dark:border-white/10",
                 ])}
               />
             </li>

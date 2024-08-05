@@ -18,7 +18,7 @@ details:
   - Unlimited 1.5% cash back credit card.
 url: 'https://www.fidelity.com'
 status: added
-title: Should you talk to chuck?
+title: Should you talk to chuck? Yes
 slug: should-you-talk-to-chuck
 hero: /assets/posts/opt/bank-1600x800.avif
 authors:
@@ -26,6 +26,8 @@ authors:
 added: 2022-08-22
 tags:
   - Low Cost
+  - Banking
+  - Investing
 updated: 2022-08-22
 ---
 

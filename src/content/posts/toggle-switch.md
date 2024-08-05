@@ -22,7 +22,7 @@ Let's make a simple UI toggle switch using React and SVG. No need for some huge 
 
 <!-- end -->
 
-I like to delve into making base UI components using minimal amounts of code and not have to rely on some third party library with an inevitably questionable API.
+I like to delve into making basic UI components using minimal amounts of code and not have to rely on some third party library with an inevitably questionable API.
 
 I like to use React for my site since it mostly works as a drop in replacement for React and is smaller and faster, but this also means that some third party React libraries just won't work. Rather than waste time on trying to fix issues, I sometimes find it easier to just create simple components from scratch so I can precisely control the look and feel.
 
@@ -146,7 +146,7 @@ export function ToggleSwitch({
           className={cn("trans-300 transition-colors", [
             isSelected,
             "fill-blue-600",
-            "fill-slate-200 group-hover:fill-slate-300",
+            "fill-gray-200 group-hover:fill-gray-300",
           ])}
         />
         <circle

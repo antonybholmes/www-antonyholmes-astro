@@ -86,7 +86,7 @@ export function JournalFilter({
           "rotate-180",
         ])}
       >
-        <ChevronDownIcon className="w-3 stroke-slate-500 stroke-2" />
+        <ChevronDownIcon className="w-3 stroke-gray-500 stroke-2" />
       </Button> */}
     </div>
   )

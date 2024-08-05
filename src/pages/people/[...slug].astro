@@ -1,4 +1,5 @@
 ---
+import { BaseCol } from "@components/base-col"
 import { BaseRow } from "@components/base-row"
 import { HCenterRow } from "@components/h-center-row"
 import { MarkdownContent } from "@components/markdown-content"
@@ -56,7 +57,7 @@ const { Content } = await person.render()
 ---
 
 <ContentLayout title={person.data.name}>
-  <div slot="main">
+  <BaseCol className="gap-y-16" slot="main">
     <BaseRow className="gap-x-8">
       <div class="w-full">
         <HCenterRow className="mb-8 lg:hidden">
@@ -79,7 +80,7 @@ const { Content } = await person.render()
       />
     </BaseRow>
 
-    <section class="mt-16 border-t border-slate-200 pt-16">
+    <section class="border-t border-gray-300 pt-16">
       <PostsPage
         posts={data}
         page={page}
@@ -87,5 +88,5 @@ const { Content } = await person.render()
         root={`${PEOPLE_SLUG}/${person.slug}`}
       />
     </section>
-  </div>
+  </BaseCol>
 </ContentLayout>

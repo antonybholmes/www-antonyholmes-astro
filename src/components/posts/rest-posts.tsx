@@ -10,7 +10,7 @@ export default function RestPosts({ posts }: IPostsProps) {
             <PreviewPost
               post={post}
               showAvatarImage={false}
-              className="border-t border-slate-200 pt-6"
+              className="border-t border-gray-300 pt-6"
               imgClassName="h-48 rounded-md"
               headerClassName="text-2xl"
             />
