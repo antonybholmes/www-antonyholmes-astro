@@ -4,8 +4,7 @@ import tailwind from "@astrojs/tailwind"
 import { defineConfig } from "astro/config"
 
 import react from "@astrojs/react"
-
-import remarkExcerpt from "remark-excerpt"
+ 
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,9 +17,6 @@ export default defineConfig({
     routing: {
       prefixDefaultLocale: false,
     },
-  },
-  markdown: {
-    remarkPlugins: [remarkExcerpt],
   },
   integrations: [mdx(), sitemap(), tailwind(), react()],
 })
