@@ -6,7 +6,7 @@ import type { IPostProps } from "./post-tags"
 
 export function PostTitleLink({ post, className }: IPostProps) {
   return (
-    <h2 className={cn("font-semibold capitalize", className)}>
+    <h2 className={cn("font-bold capitalize", className)}>
       <BaseLink
         href={getPostUrl(post)}
         aria-label={post.data.title}

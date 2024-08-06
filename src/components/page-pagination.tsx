@@ -1,6 +1,6 @@
-import { BLOG_SLUG } from "@consts"
 import type { ILinkProps } from "@interfaces/link-props"
 import { cn } from "@lib/class-names"
+import type { UndefStr } from "@lib/text"
 import { range } from "lodash-es"
 import { ChevronRightIcon } from "./icons/chevron-right-icon"
 import { BaseLink } from "./link/base-link"
@@ -114,11 +114,11 @@ interface IProps {
   root?: string
 }
 
-function getPath(page: number, root: string) {
-  return `${root}/page/${page + 1}`
+function getPath(page: number, root: UndefStr) {
+  return `${root ? `${root}/` : ""}page/${page + 1}`
 }
 
-export function PagePagination({ page, pages, root = BLOG_SLUG }: IProps) {
+export function PagePagination({ page, pages, root }: IProps) {
   page = Math.max(0, page)
 
   const pageStart = Math.max(page - 1, 1)

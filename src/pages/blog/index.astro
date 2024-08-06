@@ -1,5 +1,9 @@
 ---
-import { PostsPage } from "@components/posts/posts-page"
+import { ChevronRightIcon } from "@components/icons/chevron-right-icon"
+import { BaseLink } from "@components/link/base-link"
+import { PrimaryColorLink } from "@components/link/primary-color-link"
+import { HeroPosts } from "@components/posts/hero-posts"
+import { PostCol } from "@components/posts/post-col"
 import ContentLayout from "@layouts/ContentLayout.astro"
 import { getPageCount, getPageItems } from "@lib/paginate"
 import { getSortedPosts } from "@lib/post"
@@ -7,9 +11,34 @@ import { getSortedPosts } from "@lib/post"
 const allPosts = await getSortedPosts()
 const pages = getPageCount(allPosts)
 
-const posts = getPageItems(allPosts, 0, 10)
+const engineeringPosts = allPosts.filter(post =>
+  post.id.includes("engineering/"),
+)
 ---
 
-<ContentLayout title="Blog" showTitle={false}>
-  <PostsPage posts={posts} page={0} pages={pages} slot="main" />
+<ContentLayout title="Blog" contentClassName="gap-y-16">
+  <Fragment slot="main">
+    <HeroPosts posts={allPosts} page={0} pages={pages} />
+    <section class="grid grid-cols-1 gap-y-4 lg:grid-cols-2 lg:gap-x-12">
+      <PostCol title="Latest" posts={allPosts} page={0} pages={pages}>
+        <BaseLink
+          href="/blog/latest"
+          data-underline={true}
+          className="trans-color group inline-flex flex-row gap-x-1 hover:text-primary-color data-[underline=true]:hover:decoration-primary-color"
+          ><span>View all</span>
+          <ChevronRightIcon
+            stroke="stroke-[2px] stroke-foreground group-hover:stroke-primary-color "
+          /></BaseLink
+        >
+      </PostCol>
+
+      <PostCol
+        title="Engineering"
+        posts={engineeringPosts}
+        page={0}
+        pages={pages}
+      />
+    </section>
+  </Fragment>
+  <!-- <PostsPage posts={posts} page={0} pages={pages} slot="main" /> -->
 </ContentLayout>

@@ -20,7 +20,7 @@ tags:
 
 Let's make a simple UI toggle switch using React and SVG. No need for some huge library dependency.
 
-<!-- end -->
+<!-- excerpt -->
 
 I like to delve into making basic UI components using minimal amounts of code and not have to rely on some third party library with an inevitably questionable API.
 

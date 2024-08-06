@@ -131,6 +131,16 @@ export function sortPostsByDateDesc(
   return ret
 }
 
+export function getPostFirstSentence(post: CollectionEntry<"posts">) {
+  const sentences = post.body.split("\n").filter(x => x.length > 0)
+
+  if (sentences.length > 0) {
+    return sentences[0]
+  } else {
+    return ""
+  }
+}
+
 export async function getPublishedPosts(): Promise<CollectionEntry<"posts">[]> {
   return await getCollection("posts", ({ data }) => {
     return import.meta.env.DEV || data.draft !== true

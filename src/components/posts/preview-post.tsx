@@ -5,6 +5,7 @@ import { BaseCol } from "@components/base-col"
 import { FormattedDate } from "@components/formatted-date"
 import { CompactAvatars } from "@components/people/compact-avatars"
 import { VCenterRow } from "@components/v-center-row"
+import { getPostFirstSentence } from "@lib/post"
 import { PostImage } from "./post-image"
 import { PostTitleLink } from "./post-title-link"
 
@@ -35,6 +36,8 @@ export function PreviewPost({
 }: IProps) {
   const date = post.data.added
 
+  //{post.data.description}
+
   return (
     <article className={cn("flex flex-col gap-y-4", className)}>
       <PostImage post={post} className={imgClassName} />
@@ -48,7 +51,7 @@ export function PreviewPost({
           <p
             className={cn("text-gray-500 dark:text-gray-400", contentClassName)}
           >
-            {post.data.description}
+            {getPostFirstSentence(post)}
           </p>
         )}
 

@@ -15,6 +15,12 @@ export async function getStaticPaths() {
 const { page, pages, data } = Astro.props
 ---
 
-<ContentLayout title="Blog" tab="Blog">
-  <PostsPage posts={data} page={page} pages={pages} slot="main" />
+<ContentLayout title="Latest" tab="Blog">
+  <PostsPage
+    posts={data}
+    page={page}
+    pages={pages}
+    root="/blog/latest"
+    slot="main"
+  />
 </ContentLayout>
