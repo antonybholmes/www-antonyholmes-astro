@@ -13,7 +13,7 @@ function LinkButton({ className, children, ...props }: ILinkProps) {
     <BaseLink
       className={cn(
         BTN_CLS,
-        "transition duration-300 hover:border-gray-300",
+        "transition duration-300 hover:border-border",
         className,
       )}
       {...props}
@@ -97,7 +97,7 @@ function PageButton({ href, page, selected }: IPageButtonProps) {
       <BasePageButton
         href={href}
         page={page}
-        className="transition duration-300 hover:border-gray-300"
+        className="transition duration-300 hover:border-border"
         aria-label={`Goto page ${page}`}
       />
     )

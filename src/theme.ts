@@ -149,7 +149,7 @@ export const MENU_BUTTON_CLS = cn(
 
 export const TOOLBAR_H_CLS = "h-16"
 
-export const H2_CLS = "font-medium text-base"
+export const H2_CLS = "font-bold text-lg"
 export const H3_CLS = "font-medium text-sm"
 
 export const FILE_MENU_ITEM_HEADING_CLS = "text-lg font-medium"

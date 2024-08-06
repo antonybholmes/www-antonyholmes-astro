@@ -107,7 +107,7 @@ export function SearchBar({
   return (
     <VCenterRow
       className={cn(
-        "trans-300 m-0 gap-x-2 overflow-hidden rounded-lg border border-gray-100 bg-gray-100 py-1 pl-3 pr-2 transition hover:border-gray-300 hover:bg-white",
+        "trans-300 m-0 gap-x-2 overflow-hidden rounded-lg border border-gray-100 bg-gray-100 py-1 pl-3 pr-2 transition hover:border-border hover:bg-white",
         className,
       )}
       onMouseEnter={onMouseEnter}
@@ -125,7 +125,7 @@ export function SearchBar({
 
       <ClearButton onClick={onClear} visible={value !== ""} />
       <span
-        className={cn("h-6 border-l border-gray-300", [
+        className={cn("h-6 border-l border-border", [
           value !== "",
           "visible",
           "invisible",

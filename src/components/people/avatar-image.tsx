@@ -8,12 +8,13 @@ export interface IAvatarProps extends IElementProps {
 
 interface IProps extends IAvatarProps {}
 
-export function AvatarImage({ person, className }: IProps) {
+export function AvatarImage({ person, className, ...props }: IProps) {
   return (
     <img
       src={`/assets/people/opt/${getUrlFriendlyImg(person)}`}
       alt={`Picture of ${person}`}
       className={cn("rounded-full", className)}
+      {...props}
     />
   )
 }

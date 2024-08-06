@@ -11,6 +11,7 @@ import ContentLayout from "@layouts/ContentLayout.astro"
 import { getAuthorBaseUrl } from "@lib/author"
 import { getPageItems } from "@lib/paginate"
 import { getSortedPosts } from "@lib/post"
+import { H2_CLS } from "@theme"
 
 const posts = getPageItems(await getSortedPosts(), 0, RECORDS_PER_PAGE)
 
@@ -29,16 +30,16 @@ const posts = getPageItems(await getSortedPosts(), 0, RECORDS_PER_PAGE)
         </BaseCol>
 
         <p>
-          Hi there! Welcome to my personal website. That's me in the photo,
-          posing by the Hudson River for no particular reason, except maybe to
-          look cool wearing Risky Business sunglasses.
+          Hi there! I'm Antony and I like making software. That's me in the
+          photo, posing by the Hudson River for no particular reason, except
+          maybe to look cool wearing Risky Business sunglasses.
         </p>
 
         <p>
-          I'm a researcher and sofware engineer in New York City who has learned
+          I'm a researcher and sofware engineer in New York City who's learned
           how to do a few cool things with Java, Python, C++, Go, React,
-          Next.js, and Astro, some of which were used to make the site you're
-          looking at now.
+          Next.js, and Astro, some of which were used to make what you're
+          looking at right now.
         </p>
 
         <p>
@@ -74,8 +75,8 @@ const posts = getPageItems(await getSortedPosts(), 0, RECORDS_PER_PAGE)
         >
           <AvatarImage
             person="Antony Holmes"
-            className="shadow-box h-64 w-64"
-            client:visible
+            className="shadow-box aspect-square h-64 w-64 shrink-0 grow-0"
+            title="It's........ me"
           />
         </BaseLink>
       </HCenterCol>
@@ -95,7 +96,10 @@ const posts = getPageItems(await getSortedPosts(), 0, RECORDS_PER_PAGE)
         </PrimaryColorLink>
       </VCenterRow>
     </VCenterRow>
-    <section class="border-t border-gray-300 pt-16">
+    <section class="flex flex-col gap-y-8">
+      <VCenterRow className="border-b border-t-4 border-foreground py-3">
+        <h2 class={H2_CLS}>Some of my latest posts</h2>
+      </VCenterRow>
       <PostsPage posts={posts} page={0} pages={1} />
     </section>
   </BaseCol>

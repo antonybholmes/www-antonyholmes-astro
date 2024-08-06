@@ -48,15 +48,15 @@ export const FOOTER_LINKS = [
 
 export const INFO_LINKS = [
   {
+    name: "Site Map",
+    url: "/sitemap",
+  },
+  {
     name: "Terms",
     url: "/terms",
   },
   {
     name: "Privacy",
     url: "/privacy",
-  },
-  {
-    name: "Site Map",
-    url: "/sitemap",
   },
 ]
