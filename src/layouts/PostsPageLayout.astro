@@ -1,0 +1,23 @@
+---
+import { PostsPage } from "@components/posts/posts-page"
+import ContentLayout from "@layouts/ContentLayout.astro"
+import { formatSection } from "@lib/post"
+ 
+import type { CollectionEntry } from "astro:content"
+
+interface Props {
+  section:string,
+  page: number,
+  pages: number,
+  data: CollectionEntry<"posts">[]
+}
+
+const { section, page, pages, data } = Astro.props
+
+const currentPath = Astro.url.pathname;
+ 
+---
+
+<ContentLayout title={formatSection(section)} tab="Blog">
+  <PostsPage posts={data} page={page} pages={pages} root={currentPath} slot="main" />
+</ContentLayout>

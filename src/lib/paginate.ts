@@ -24,6 +24,7 @@ export function paginate(
         slug: slugRoot,
       },
       props: {
+        type: "posts",
         page: 0,
         pages,
         data: getPageItems(data, 0),
@@ -44,6 +45,7 @@ export function paginate(
         slug: `${slugRoot}${page + 1}`,
       },
       props: {
+        type: "posts",
         page,
         pages,
         data: getPageItems(data, page),

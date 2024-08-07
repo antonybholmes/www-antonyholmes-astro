@@ -24,7 +24,7 @@ interface IProps extends IPostProps {
 export function PreviewPost({
   post,
   className,
-  imgClassName = "rounded-lg",
+  imgClassName = "rounded-lg h-64",
   headerClassName = "text-2xl md:text-3xl",
   innerClassName,
   contentClassName = "text-base",

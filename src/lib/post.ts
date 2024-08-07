@@ -2,14 +2,43 @@ import { BLOG_SLUG } from "@consts"
 import type { IBaseFields } from "@interfaces/base-fields"
 import type { IFieldMap } from "@interfaces/field-map"
 import { getCollection, type CollectionEntry } from "astro:content"
-import { range } from "lodash-es"
+import { capitalize, range } from "lodash-es"
 import { join } from "path"
 import { getAllMDFiles } from "./files"
 import { getFields, getFrontmatter, type IMarkdownBase } from "./markdown"
-import { getSlug, getUrlFriendlyTag } from "./urls"
+import { getSlug, getSlugBaseName, getSlugDir, getSlugDirRoot, getSlugSubPaths, getUrlFriendlyTag } from "./urls"
 
 export const POSTS_DIR = join(process.cwd(), "src/content/posts")
 export const REVIEWS_DIR = join(process.cwd(), "src/content/review")
+
+export interface IPostSection {
+  name: string
+  slug: string
+}
+
+export function makePostSection(slug: string): IPostSection {
+  return {
+    name: formatSection(slug),
+    slug,
+  }
+}
+
+export function formatSection(section: string): string {
+  return section
+      .replace(/-+/g, " ")
+      .replace("and", "&")
+      .split(" ")
+      .map(t => capitalize(t))
+      .join(" ") 
+ 
+}
+
+export interface IPost {
+  post: CollectionEntry<"posts">
+  meta: {
+    section: IPostSection
+  }
+}
 
 export interface IPostFields extends IBaseFields {
   index: number
@@ -153,6 +182,48 @@ export async function getSortedPosts(): Promise<CollectionEntry<"posts">[]> {
 
 export function getPostUrl(post: CollectionEntry<"posts">): string {
   return `${BLOG_SLUG}/${getSlug(post.id)}`
+}
+
+export function getPostSlugDir(post: CollectionEntry<"posts">): string {
+  return getSlugDir(getSlug(post.id))
+}
+
+export function getPostSection(post: CollectionEntry<"posts">): string {
+  return getSlugBaseName(post.id)
+}
+
+/**
+ * Returns all path combinations from a post.id slug
+ * @param post 
+ * @returns 
+ */
+export function getPostSlugSubPaths(post: CollectionEntry<"posts">): string[] {
+  return getSlugSubPaths(post.id)
+}
+
+export function getPostSectionMap(
+  posts: CollectionEntry<"posts">[],
+  max: number = -1,
+): Map<string, CollectionEntry<"posts">[]> {
+  const sectionMap = new Map<string, CollectionEntry<"posts">[]>()
+
+  posts.forEach(post => {
+    const sections = getPostSlugSubPaths(post)
+
+    sections.forEach((section: string) => {
+      if (!sectionMap.has(section)) {
+        sectionMap.set(section, [])
+      }
+
+      if (max === -1 || sectionMap.get(section)!.length < max) {
+        
+        sectionMap.get(section)!.push(post)
+      }
+    })
+    //})
+  })
+
+  return sectionMap
 }
 
 // export function getAllPosts(authorMap: IAuthorMap): IAuthorPost[] {

@@ -9,6 +9,7 @@ import { VCenterRow } from "@components/v-center-row"
 import { getPostFirstSentence } from "@lib/post"
 import { PostImage } from "./post-image"
 import { PostTitleLink } from "./post-title-link"
+import { PostSectionLink } from "./post-section-link"
 
 interface IProps extends IPostProps {
   showAvatar?: boolean
@@ -33,7 +34,7 @@ export function HeroPostSmall({
       </div>
       <BaseCol className="col-span-3 gap-y-1 lg:col-span-3 xl:col-span-2 ">
         <BaseCol>
-          {/* <PostCategoryLink post={post} textSize="text-xl md:text-base" /> */}
+           <PostSectionLink post={post} textSize="text-xl md:text-base" /> 
           <PostTitleLink post={post} className="text-2xl lg:text-lg" />
         </BaseCol>
         {/* <CondComp cond={showDescription}>

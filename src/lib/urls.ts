@@ -1,4 +1,5 @@
 import { TAG_SLUG } from "@consts"
+import { range } from "lodash-es"
 
 export const PATH_SEP = "/"
 
@@ -40,18 +41,44 @@ export const getTagBaseUrl = (tag: string) => {
   return `${TAG_SLUG}/${getUrlFriendlyTag(tag)}`
 }
 
-export function getSlug(path: string): string {
-  return path
+export function getSlug(slug: string): string {
+  return slug
     .replace(/\.md$/, "")
     .replaceAll("\\", PATH_SEP)
     .split(PATH_SEP)
     .map(p => getUrlFriendlyTag(p))
-    .join(PATH_SEP)
+    .join(PATH_SEP).toLowerCase()
 }
 
-export function getSlugDir(path: string): string {
+export function getSlugDir(slug: string): string {
+  if (!slug.includes(PATH_SEP)) {
+    return ""
+  }
+
+  //console.log("test", slug, getSlug(slug).split(PATH_SEP).slice(0, -1).join(PATH_SEP))
   // remove last entry to get the dir part of the name
-  return getSlug(path).split(PATH_SEP).slice(0, -1).join(PATH_SEP)
+  return getSlug(slug).split(PATH_SEP).slice(0, -1).join(PATH_SEP)
+}
+
+export function getSlugBaseName(slug: string): string {
+  // get the end of the path using slice and then return the last element
+  return getSlugDir(slug).split(PATH_SEP).slice(-1)[0]
+}
+
+export function getSlugDirRoot(slug: string): string {
+  return getSlugDir(slug).split(PATH_SEP)[0]
+}
+
+export function getSlugSubPaths(slug: string): string[] {
+  const parts = getSlugDir(slug).split(PATH_SEP)
+
+  const ret = range(0, parts.length).map(i =>
+    parts
+      .slice(0, i + 1)
+      .join(PATH_SEP),
+  )
+
+  return ret
 }
 
 export function getCanonicalSlug(path: string): string {
