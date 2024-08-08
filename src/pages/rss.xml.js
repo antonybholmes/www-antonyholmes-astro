@@ -1,7 +1,7 @@
 import rss from "@astrojs/rss"
 import { getSlug } from "@lib/urls"
 
-import { getSortedPosts } from "@lib/post"
+import { getSortedPosts } from "@lib/astro/post"
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts"
 
 export async function GET(context) {

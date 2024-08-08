@@ -8,9 +8,10 @@ import { PostsPage } from "@components/posts/posts-page"
 import { VCenterRow } from "@components/v-center-row"
 import { GITHUB_URL, RECORDS_PER_PAGE } from "@consts"
 import ContentLayout from "@layouts/ContentLayout.astro"
+import { getSortedPosts } from "@lib/astro/post"
 import { getAuthorBaseUrl } from "@lib/author"
 import { getPageItems } from "@lib/paginate"
-import { getSortedPosts } from "@lib/post"
+
 import { H2_CLS } from "@theme"
 
 const posts = getPageItems(await getSortedPosts(), 0, RECORDS_PER_PAGE)

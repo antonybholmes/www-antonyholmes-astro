@@ -1,15 +1,14 @@
 import type { IElementProps } from "@interfaces/element-props"
 
-import type { CollectionEntry } from "astro:content"
-
+ 
 import { cn } from "@lib/class-names"
 
 import type { IFieldMap } from "@interfaces/field-map"
 import { HeroPostSmall } from "./hero-post-small"
 import { PreviewPost } from "./preview-post"
-
+ 
 export interface IPostsProps extends IElementProps {
-  posts: CollectionEntry<"posts">[]
+  posts: any[]
   page: number
   pages: number
   showLatestPosts?: boolean

@@ -1,7 +1,7 @@
 import { PEOPLE_SLUG } from "@consts"
 
 import type { CollectionEntry } from "astro:content"
-import { join } from "path"
+//import { join } from "path"
 import { getAllFiles } from "./files"
 
 import type { IBaseFields } from "@interfaces/base-fields"
@@ -28,7 +28,7 @@ export interface IAuthor extends IPostAuthor {
   html: string
 }
 
-const PEOPLE_DIR = join(process.cwd(), "src/content/people")
+const PEOPLE_DIR = "src/content/people"
 
 export function getAuthorPaths() {
   return getAllFiles(PEOPLE_DIR)
@@ -40,7 +40,7 @@ export function getAuthorBaseUrl(name: string) {
 
 export function getAuthorBySlug(slug: string): IPostAuthor {
   slug = getCanonicalSlug(slug)
-  const fullPath = join(PEOPLE_DIR, `${slug}.md`)
+  const fullPath = `${PEOPLE_DIR}/${slug}.md`
 
   return { slug: slug, frontmatter: getAuthorFrontmatter(fullPath) }
 }

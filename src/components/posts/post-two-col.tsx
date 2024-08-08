@@ -1,4 +1,3 @@
-import { BaseCol } from "@components/base-col"
 import type { IPostsProps } from "./hero-posts"
 
 import { HeroPostSmall } from "./hero-post-small"
@@ -8,14 +7,14 @@ interface IProps extends IPostsProps {
   maxPosts?: number
 }
 
-export function PostCol({ title, posts, maxPosts = 3, children }: IProps) {
+export function PostTwoCol({ title, posts, maxPosts = 9, children }: IProps) {
   return (
     <PostSection title={title} headerChildren={children}>
-      <BaseCol className="gap-y-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         {posts.slice(0, maxPosts).map((post, index) => {
           return <HeroPostSmall post={post} key={index} />
         })}
-      </BaseCol>
+      </div>
     </PostSection>
   )
 }

@@ -2,10 +2,10 @@
 import { type CollectionEntry } from "astro:content"
 
 import {
-  getPostSectionMap,
+ 
   getPostSection,
   getPostSlugSubPaths,
-  getSortedPosts,
+ 
 } from "@lib/post"
 import { getSlug } from "@lib/urls"
 
@@ -13,6 +13,7 @@ import { paginate, type AstroPage } from "@lib/paginate"
 import PostPageLayout from "@layouts/PostPageLayout.astro"
 import PostsPageLayout from "@layouts/PostsPageLayout.astro"
 import { BLOG_SLUG } from "@consts"
+import { getPostSectionMap, getSortedPosts } from "@lib/astro/post"
 
 export async function getStaticPaths() {
   const allPosts = await getSortedPosts()
@@ -38,9 +39,7 @@ export async function getStaticPaths() {
   const sectionMap = getPostSectionMap(allPosts)
 
   ;[...sectionMap.entries()].forEach(([section, posts]) => {
-    paths = paths.concat(
-      paginate(posts, section, { section })
-    )
+    paths = paths.concat(paginate(posts, section, { section }))
   })
 
   return paths
@@ -55,7 +54,13 @@ interface Props {
 }
 
 const { type, section, page, pages, data } = Astro.props
+
+const root = `${BLOG_SLUG}/${section}`
 ---
 
-{type === "post" && <PostPageLayout post={data[0]} section={section}/>}
-{type === "posts" && <PostsPageLayout page={page} pages={pages} data={data} section={section} />}
+{type === "post" && <PostPageLayout post={data[0]} section={section} />}
+{
+  type === "posts" && (
+    <PostsPageLayout page={page} pages={pages} data={data} section={section} root={root} />
+  )
+}

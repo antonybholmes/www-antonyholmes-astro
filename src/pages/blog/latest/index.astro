@@ -2,9 +2,9 @@
 import { PostsPage } from "@components/posts/posts-page"
 import { RECORDS_PER_PAGE } from "@consts"
 import ContentLayout from "@layouts/ContentLayout.astro"
+import { getSortedPosts } from "@lib/astro/post"
 import { getPageCount, getPageItems } from "@lib/paginate"
-import { getSortedPosts } from "@lib/post"
-
+ 
 const allPosts = await getSortedPosts()
 
 const pages = getPageCount(allPosts)

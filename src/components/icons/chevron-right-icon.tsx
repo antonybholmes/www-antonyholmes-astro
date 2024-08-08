@@ -5,6 +5,7 @@ export function ChevronRightIcon({
   w = "w-3",
   stroke = "stroke-[2px] stroke-foreground",
   className,
+  ...props
 }: IIconProps) {
   return (
     <svg
@@ -12,6 +13,7 @@ export function ChevronRightIcon({
       viewBox="0 0 16 16"
       className={cn(ICON_CLS, stroke, w, className)}
       style={{ strokeLinecap: "round", strokeLinejoin: "round", fill: "none" }}
+      {...props}
     >
       <path d="M 6,2 L 12,8 L 6,14" />
     </svg>

@@ -169,9 +169,9 @@ const DropdownMenuCheckboxItem = forwardRef<
           </DropdownMenuPrimitive.ItemIndicator>
         </span>
 
-        <span className={DROPDOWN_MENU_ICON_CONT_CLS}>
-          {c.length > 1 && c[1]}
-        </span>
+        {c.length > 1 && (
+          <span className={DROPDOWN_MENU_ICON_CONT_CLS}>{c[1]}</span>
+        )}
       </span>
 
       {c.length > 0 && <span className="grow">{c[0]}</span>}
