@@ -8,10 +8,10 @@ export interface Props extends ILayoutProps {
   contentClassName?: string
 }
 
-let { title, tab, contentClassName } = Astro.props
+let { title, tab, contentClassName, className = "py-8" } = Astro.props
 ---
 
-<DefaultLayout title={title} tab={tab}>
+<DefaultLayout title={title} tab={tab} className={className}>
   <ContentDiv slot="main" contentClassName={contentClassName}>
     <slot name="main" />
   </ContentDiv>

@@ -48,7 +48,7 @@ export function Header({
   // }
 
   return (
-    <ContentDiv className="mb-8">
+    <ContentDiv>
       <header className={cn("grid grid-cols-4", className)}>
         <VCenterRow className="gap-x-8">
           {/* <HeaderMenuPopover /> */}

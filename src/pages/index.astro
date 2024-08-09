@@ -1,5 +1,6 @@
 ---
 import { BaseCol } from "@components/base-col"
+import { ContentDiv } from "@components/content-div"
 import { HCenterCol } from "@components/h-center-col"
 import { ChevronRightIcon } from "@components/icons/chevron-right-icon"
 import { BaseLink } from "@components/link/base-link"
@@ -11,6 +12,7 @@ import PostSection from "@components/posts/PostSection.astro"
 import { VCenterRow } from "@components/v-center-row"
 import { GITHUB_URL, RECORDS_PER_PAGE } from "@consts"
 import ContentLayout from "@layouts/ContentLayout.astro"
+import DefaultLayout from "@layouts/DefaultLayout.astro"
 import { getSortedPosts } from "@lib/astro/post"
 import { getAuthorBaseUrl } from "@lib/author"
 import { getPageItems } from "@lib/paginate"
@@ -22,99 +24,113 @@ const posts = getPageItems(await getSortedPosts(), 0, RECORDS_PER_PAGE)
 //const person = authorMap[getUrlFriendlyTag("Antony Holmes")]
 ---
 
-<ContentLayout title="Home">
-  <BaseCol className="gap-y-8" slot="main">
-    <div class="grid grid-cols-1 gap-y-8 xl:grid-cols-5">
-      <BaseCol className="col-span-3 gap-y-4 text-base">
-        <BaseCol className="mb-4 gap-y-2">
-          <h1 class="text-5xl font-bold">Antony Holmes</h1>
-          <h2 class="text-3xl font-semibold text-gray-400">
-            Researcher & Software Engineer in New York
-          </h2>
-        </BaseCol>
+<DefaultLayout title="Home">
+  <BaseCol className="relative gap-y-8 overflow-hidden" slot="main">
+    <BaseCol className="relative overflow-hidden py-16">
+      <div
+        class="absolute -inset-1 z-0 rounded-lg bg-gradient-to-r from-purple-600 to-pink-600 opacity-5 blur"
+      >
+      </div>
+      <ContentDiv className="relative z-10">
+        <div class="grid grid-cols-1 gap-y-8 xl:grid-cols-5">
+          <BaseCol className="col-span-3 gap-y-4 text-base">
+            <BaseCol className="mb-4 gap-y-2">
+              <h1 class="text-5xl font-bold">Antony Holmes</h1>
+              <h2 class="text-3xl font-semibold text-gray-400">
+                Researcher & Software Engineer in New York
+              </h2>
+            </BaseCol>
 
-        <p class={LINK_CLS}>
-          Hi there! I'm Antony and I like making software. That's me in the
-          photo, posing by the Hudson River for no particular reason, except
-          maybe to look cool wearing Risky Business sunglasses.
-        </p>
+            <p class={LINK_CLS}>
+              Hi there! I'm Antony and I like making software. That's me in the
+              photo, posing by the Hudson River for no particular reason, except
+              maybe to look cool wearing Risky Business sunglasses.
+            </p>
 
-        <p class={LINK_CLS}>
-          I'm a researcher and sofware engineer in New York City who's learned
-          how to do a few cool things with Java, Python, C++, Go, React,
-          Next.js, and Astro, some of which were used to make what you're
-          looking at right now.
-        </p>
+            <p class={LINK_CLS}>
+              I'm a researcher and sofware engineer in New York City who's
+              learned how to do a few cool things with Java, Python, C++, Go,
+              React, Next.js, and Astro, some of which were used to make what
+              you're looking at right now.
+            </p>
 
-        <p class={LINK_CLS}>
-          I made this site with love and to try and get high{" "}
-          <PrimaryColorLink
-            href="https://pagespeed.web.dev/"
-            data-underline={true}>Lighthouse</PrimaryColorLink
-          >{" "}
-          scores. I think I mostly succeeded.
-        </p>
+            <p class={LINK_CLS}>
+              I made this site with love and to try and get high{" "}
+              <PrimaryColorLink
+                href="https://pagespeed.web.dev/"
+                data-underline={true}>Lighthouse</PrimaryColorLink
+              >{" "}
+              scores. I think I mostly succeeded.
+            </p>
 
-        <p class={LINK_CLS}>
-          My blog covers an assortment of topics, mostly on tech, finance and
-          whatever else takes my fancy.
-        </p>
+            <p class={LINK_CLS}>
+              My blog covers an assortment of topics, mostly on tech, finance
+              and whatever else takes my fancy.
+            </p>
 
-        <p class={LINK_CLS}>
-          I have an aptly named publications page where you can view all of the
-          scientific literature I have written, primarily focused on cancer
-          genetics.
-        </p>
+            <p class={LINK_CLS}>
+              I have an aptly named publications page where you can view all of
+              the scientific literature I have written, primarily focused on
+              cancer genetics.
+            </p>
 
-        <p class={LINK_CLS}>
-          My life story probably won't be optioned, but if it is, I hope the
-          movie contains the music of Kraftwerk.
-        </p>
+            <p class={LINK_CLS}>
+              My life story probably won't be optioned, but if it is, I hope the
+              movie contains the music of Kraftwerk.
+            </p>
+          </BaseCol>
+
+          <HCenterCol className="col-span-2">
+            <BaseLink
+              href={getAuthorBaseUrl("Antony Holmes")}
+              aria-label="View profile"
+            >
+              <AvatarImage
+                person="Antony Holmes"
+                className="shadow-box aspect-square h-64 w-64 shrink-0 grow-0"
+                title="It's........ me"
+              />
+            </BaseLink>
+          </HCenterCol>
+        </div>
+      </ContentDiv>
+    </BaseCol>
+    <ContentDiv>
+      <BaseCol>
+        <VCenterRow className="justify-center">
+          <VCenterRow className="gap-6">
+            <PrimaryColorLink href={GITHUB_URL} data-underline={true}>
+              GitHub
+            </PrimaryColorLink>
+
+            <PrimaryColorLink href="/resume" data-underline={true}>
+              Resume
+            </PrimaryColorLink>
+
+            <PrimaryColorLink href="/publications" data-underline={true}>
+              Publications
+            </PrimaryColorLink>
+          </VCenterRow>
+        </VCenterRow>
       </BaseCol>
+    </ContentDiv>
 
-      <HCenterCol className="col-span-2">
+    <ContentDiv>
+      <PostSection title="Some of my latest posts">
         <BaseLink
-          href={getAuthorBaseUrl("Antony Holmes")}
-          aria-label="View profile"
+          href="/blog/latest"
+          data-underline={true}
+          className="trans-color group inline-flex flex-row gap-x-1 text-xs hover:text-primary-color data-[underline=true]:hover:decoration-primary-color"
+          slot="header"
         >
-          <AvatarImage
-            person="Antony Holmes"
-            className="shadow-box aspect-square h-64 w-64 shrink-0 grow-0"
-            title="It's........ me"
+          <span>View all</span>
+          <ChevronRightIcon
+            stroke="stroke-[2px] stroke-foreground group-hover:stroke-primary-color"
           />
         </BaseLink>
-      </HCenterCol>
-    </div>
-    <VCenterRow className="justify-center">
-      <VCenterRow className="gap-6">
-        <PrimaryColorLink href={GITHUB_URL} data-underline={true}>
-          GitHub
-        </PrimaryColorLink>
 
-        <PrimaryColorLink href="/resume" data-underline={true}>
-          Resume
-        </PrimaryColorLink>
-
-        <PrimaryColorLink href="/publications" data-underline={true}>
-          Publications
-        </PrimaryColorLink>
-      </VCenterRow>
-    </VCenterRow>
-
-    <PostSection title="Some of my latest posts">
-      <BaseLink
-        href="/blog/latest"
-        data-underline={true}
-        className="trans-color group inline-flex flex-row gap-x-1 text-xs hover:text-primary-color data-[underline=true]:hover:decoration-primary-color"
-        slot="header"
-      >
-        <span>View all</span>
-        <ChevronRightIcon
-          stroke="stroke-[2px] stroke-foreground group-hover:stroke-primary-color"
-        />
-      </BaseLink>
-
-      <PostsPage posts={posts} page={0} pages={1} slot="main" />
-    </PostSection>
+        <PostsPage posts={posts} page={0} pages={1} slot="main" />
+      </PostSection>
+    </ContentDiv>
   </BaseCol>
-</ContentLayout>
+</DefaultLayout>
