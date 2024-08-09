@@ -1,7 +1,6 @@
-
 import { VCenterRow } from "@components/v-center-row"
-import { H2_CLS } from "@theme"
 import type { IElementProps } from "@interfaces/element-props"
+import { H2_CLS } from "@theme"
 import type { ReactNode } from "react"
 
 interface IProps extends IElementProps {

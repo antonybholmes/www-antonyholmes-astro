@@ -4,7 +4,7 @@ import { RECORDS_PER_PAGE } from "@consts"
 import ContentLayout from "@layouts/ContentLayout.astro"
 import { getSortedPosts } from "@lib/astro/post"
 import { getPageCount, getPageItems } from "@lib/paginate"
- 
+
 const allPosts = await getSortedPosts()
 
 const pages = getPageCount(allPosts)

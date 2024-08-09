@@ -1,0 +1,17 @@
+---
+import { VCenterRow } from "@components/v-center-row"
+import { H2_CLS } from "@theme"
+
+let { title } = Astro.props
+---
+
+<section class="flex flex-col gap-y-8">
+  <VCenterRow
+    className="justify-between border-b border-t-4 border-foreground py-3"
+  >
+    <h2 class={H2_CLS}>{title}</h2>
+    <VCenterRow><slot name="header" /></VCenterRow>
+  </VCenterRow>
+
+  <slot name="main" />
+</section>

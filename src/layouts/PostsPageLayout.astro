@@ -10,18 +10,12 @@ interface Props {
   page: number
   pages: number
   data: CollectionEntry<"posts">[]
-  root:string
+  root: string
 }
 
 const { section, page, pages, data, root } = Astro.props
 ---
 
 <ContentLayout title={formatSection(section)} tab="Blog">
-  <PostsPage
-    posts={data}
-    page={page}
-    pages={pages}
-    root={root}
-    slot="main"
-  />
+  <PostsPage posts={data} page={page} pages={pages} root={root} slot="main" />
 </ContentLayout>

@@ -34,11 +34,10 @@ export function PostsPage({
       )}
 
       {/* <Pagination page={page} pages={pages} /> */}
-      
-        <HCenterRow className="mt-16">
-          <PagePagination page={page} pages={pages} root={root} />
-        </HCenterRow>
-      
+
+      <HCenterRow className="mt-16">
+        <PagePagination page={page} pages={pages} root={root} />
+      </HCenterRow>
 
       {showLatestPosts && <LatestPosts posts={posts} page={0} pages={0} />}
 

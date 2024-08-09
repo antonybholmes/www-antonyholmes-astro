@@ -11,7 +11,7 @@ export default {
     },
     extend: {
       colors: {
-        gray: colors.slate,
+        gray: colors.gray,
         theme: colors.blue,
         border: "rgb(var(--border) / <alpha-value>)",
         "light-border": "rgb(var(--light-border) / <alpha-value>)",

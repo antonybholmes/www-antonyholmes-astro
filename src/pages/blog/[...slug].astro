@@ -1,12 +1,7 @@
 ---
 import { type CollectionEntry } from "astro:content"
 
-import {
- 
-  getPostSection,
-  getPostSlugSubPaths,
- 
-} from "@lib/post"
+import { getPostSection, getPostSlugSubPaths } from "@lib/post"
 import { getSlug } from "@lib/urls"
 
 import { paginate, type AstroPage } from "@lib/paginate"
@@ -61,6 +56,12 @@ const root = `${BLOG_SLUG}/${section}`
 {type === "post" && <PostPageLayout post={data[0]} section={section} />}
 {
   type === "posts" && (
-    <PostsPageLayout page={page} pages={pages} data={data} section={section} root={root} />
+    <PostsPageLayout
+      page={page}
+      pages={pages}
+      data={data}
+      section={section}
+      root={root}
+    />
   )
 }

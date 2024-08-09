@@ -11,7 +11,7 @@ export function PostTitleLink({ post, className }: IPostProps) {
         href={getPostUrl(post)}
         aria-label={post.data.title}
         data-underline={true}
-        className=" hover:text-blue-600 data-[underline=true]:hover:decoration-blue-600"
+        className="hover:text-blue-600 data-[underline=true]:hover:decoration-blue-600 trans-color"
       >
         {post.data.title}
       </BaseLink>

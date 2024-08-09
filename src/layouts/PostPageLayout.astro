@@ -1,14 +1,14 @@
 ---
-import type { CollectionEntry } from 'astro:content'
-import PostLayout from './PostLayout.astro'
-import { HeroImage } from '@components/posts/hero-image'
-import { CompactAvatars } from '@components/people/compact-avatars'
-import { FormattedDate } from '@components/formatted-date'
-import { MarkdownContent } from '@components/markdown-content'
-import { BaseCol } from '@components/base-col'
-import { PostTags } from '@components/posts/post-tags'
-
-
+import type { CollectionEntry } from "astro:content"
+import PostLayout from "./PostLayout.astro"
+import { HeroImage } from "@components/posts/hero-image"
+import { CompactAvatars } from "@components/people/compact-avatars"
+import { FormattedDate } from "@components/formatted-date"
+import { MarkdownContent } from "@components/markdown-content"
+import { BaseCol } from "@components/base-col"
+import { PostTags } from "@components/posts/post-tags"
+import { ClockIcon } from "@components/icons/clock-icon"
+import { VCenterRow } from "@components/v-center-row"
 
 interface Props {
   section: string
@@ -16,7 +16,7 @@ interface Props {
 }
 
 const { section, post } = Astro.props
-const { Content } = await post.render()
+const { Content, remarkPluginFrontmatter } = await post.render()
 ---
 
 <PostLayout title={post.data.title} tab="Blog">
@@ -24,7 +24,18 @@ const { Content } = await post.render()
     <HeroImage post={post} />
 
     <CompactAvatars people={post.data.authors} />
-    <FormattedDate date={post.data.added} />
+
+    <VCenterRow className="gap-x-4">
+      <FormattedDate date={post.data.added} />
+
+      <span class="h-full w-2px bg-foreground/25"></span>
+
+      <VCenterRow className="gap-x-2 text-foreground/75">
+        <ClockIcon stroke="fill-foreground/75" />
+        <span>{remarkPluginFrontmatter.minutesRead}</span></VCenterRow
+      >
+    </VCenterRow>
+
     <div
       class="grid grid-cols-1 gap-x-4 border-t-2 border-border pt-8 lg:grid-cols-4"
     >

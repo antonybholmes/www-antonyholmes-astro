@@ -10,8 +10,9 @@ import type { IFieldMap } from "@interfaces/field-map"
 import { getCollection, type CollectionEntry } from "astro:content"
 import { range } from "lodash-es"
 //import { join } from "path"
-import { getAllMDFiles } from "../files"
-import { getFields, getFrontmatter, type IMarkdownBase } from "../markdown"
+import { getAllMDFiles } from "./files"
+import { getFields, getFrontmatter, type IMarkdownBase } from "./markdown"
+import { POSTS_DIR, REVIEWS_DIR } from "../post"
 import {
   getSlug,
   getSlugBaseName,
@@ -19,8 +20,6 @@ import {
   getSlugSubPaths,
   getUrlFriendlyTag,
 } from "../urls"
-import { POSTS_DIR, REVIEWS_DIR } from "../post"
-
 
 export interface IPostFields extends IBaseFields {
   index: number

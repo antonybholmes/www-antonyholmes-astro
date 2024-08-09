@@ -6,8 +6,7 @@ import { ChevronRightIcon } from "@components/icons/chevron-right-icon"
 import type { ICrumbProps } from "@lib/crumbs"
 import { BaseLink } from "./link/base-link"
 
-const LINK_CLS =
-  "trans-color text-sky-500/75 group-hover:text-sky-500 dark:text-sky-400 dark:group-hover:text-white"
+const LINK_CLS = "trans-color text-primary-color/60 hover:text-primary-color"
 
 interface BreadcrumbProps extends IElementProps, ICrumbProps {}
 
@@ -23,7 +22,7 @@ export function Breadcrumb({ crumbs, className }: BreadcrumbProps) {
       {/* <BaseLink
         href="/"
         aria-label="Home"
-        className="trans-300 transition-color fill-sky-500/75 hover:fill-sky-500 dark:fill-sky-400 dark:hover:fill-white"
+        className="trans-300 transition-color fill-primary-color/60 hover:fill-primary-color dark:fill-sky-400 dark:hover:fill-white"
       >
         <HomeIcon w="w-4" />
       </BaseLink> */}
@@ -42,7 +41,7 @@ export function Breadcrumb({ crumbs, className }: BreadcrumbProps) {
       <li key={`divider-${i}`} className="group flex flex-row gap-x-2">
         <ChevronRightIcon
           w="w-3"
-          className="trans-300 transition-all stroke-sky-500/75 group-hover:translate-x-0.5 group-hover:stroke-sky-500 dark:group-hover:stroke-white"
+          className="trans-300 transition-all stroke-primary-color/60 group-hover:translate-x-0.5 group-hover:stroke-primary-color dark:group-hover:stroke-white"
         />
         <BaseLink
           href={crumb[1]}

@@ -7,7 +7,7 @@ import rehypeStringify from "rehype-stringify"
 import remarkParse from "remark-parse"
 import remarkRehype from "remark-rehype"
 import { unified } from "unified"
-import { getCanonicalSlug, getDateFromSlug } from "./urls"
+import { getCanonicalSlug, getDateFromSlug } from "../urls"
 
 export interface IMarkdownFields {
   index: number

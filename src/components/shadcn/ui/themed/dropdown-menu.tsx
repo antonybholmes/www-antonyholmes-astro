@@ -84,7 +84,7 @@ const DropdownMenuContent = forwardRef<
       sideOffset={sideOffset}
       className={cn(
         ROUNDED_CLS,
-        "flex flex-col text-xs px-px py-1.5 z-modal min-w-48 overflow-hidden border border-border/50  bg-popover text-popover-foreground shadow-lg",
+        "flex flex-col text-xs px-px gap-y-0.5 py-1.5 z-modal min-w-48 overflow-hidden border border-border/50 bg-popover text-popover-foreground shadow-lg",
         "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
         className,
       )}
@@ -99,7 +99,6 @@ const DropdownMenuPrimitiveItem = DropdownMenuPrimitive.Item
 const DROPDOWN_MENU_CLS = cn(
   BUTTON_H_CLS,
   ROW_BUTTON_CLS,
-
   "relative border border-transparent cursor-default select-none gap-x-1 outline-none focus:bg-muted focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
 )
 
@@ -156,7 +155,7 @@ const DropdownMenuCheckboxItem = forwardRef<
       className={cn(
         BUTTON_H_CLS,
         ROUNDED_CLS,
-        "relative flex cursor-default select-none flex-row items-center gap-x-1 text-xs outline-none transition-colors border border-transparent focus:bg-muted data-[disabled]:pointer-events-none data-[state=checked]:bg-muted data-[state=checked]:border-border data-[disabled]:opacity-50",
+        "relative flex cursor-default select-none flex-row items-center gap-x-1 text-xs outline-none transition-colors focus:bg-muted data-[disabled]:pointer-events-none data-[state=checked]:bg-muted data-[disabled]:opacity-50",
         className,
       )}
       checked={checked}

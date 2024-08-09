@@ -7,44 +7,42 @@ import { INFO_LINKS } from "@menus"
 import { BaseLink } from "@components/link/base-link"
 import { ContentDiv } from "@components/content-div"
 import { BaseCol } from "@components/base-col"
+import { VCenterRow } from "@components/v-center-row"
 
 //import ThemeToggle from "./theme-toggle"
 //import ThemeToggleSwitch from "./theme-toggle-switch"
 ---
 
-<footer class="flex flex-col gap-y-16 pb-16 pt-32">
+<footer class="flex flex-col pt-32">
   <ContentDiv>
     <div
-      class="flex flex-col gap-x-32 gap-y-12 border-t border-border pt-8 text-xs md:flex-row"
+      class="flex flex-col justify-between gap-y-12 border-t border-border py-5 text-xs md:flex-row"
     >
-      <BaseCol className="gap-y-4">
-        <ul
-          class="flex flex-row gap-x-8 text-sm font-medium dark:border-white/20"
-        >
-          <li>
-            &copy; <script type="text/javascript" is:inline>
-              document.write(new Date().getFullYear())
-            </script>
-            {SITE_TITLE}
-          </li>
-        </ul>
-      </BaseCol>
-      <ul class="flex flex-col gap-y-4 text-sm">
-        {
-          INFO_LINKS.map((link: { name: string; url: string }) => (
-            <li>
-              <BaseLink
-                href={link.url}
-                aria-label={`View ${link.name}`}
-                data-underline={true}
-              >
-                {link.name}
-              </BaseLink>
-            </li>
-          ))
-        }
-      </ul>
+      <VCenterRow className="flex flex-row gap-x-8 dark:border-white/20">
+        <span class="font-medium">
+          &copy; <script type="text/javascript" is:inline>
+            document.write(new Date().getFullYear())
+          </script>
+          {SITE_TITLE}
+        </span>
 
+        <ul class="flex flex-row gap-x-4 font-thin">
+          {
+            INFO_LINKS.map((link: { name: string; url: string }) => (
+              <li>
+                <BaseLink
+                  href={link.url}
+                  aria-label={`View ${link.name}`}
+                  data-underline={true}
+                  className="hover:text-primary-color data-[underline=true]:hover:decoration-primary-color trans-color"
+                >
+                  {link.name}
+                </BaseLink>
+              </li>
+            ))
+          }
+        </ul>
+      </VCenterRow>
       <ul class="flex flex-row gap-x-4 gap-y-4 text-sm" slot="main">
         <li>
           <BaseLink href={GITHUB_URL} aria-label="View my GitHub profile">

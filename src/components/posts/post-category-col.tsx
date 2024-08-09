@@ -8,7 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@components/shadcn/ui/themed/dropdown-menu"
 import { formatSection } from "@lib/post"
- 
+
 import { useEffect, useState } from "react"
 import { PostCol } from "./post-col"
 
@@ -30,7 +30,7 @@ export function PostCategoryCol({ section, postMap }: IProps) {
   return (
     <PostCol
       title={formatSection(_section)}
-      posts={posts??[]}
+      posts={posts ?? []}
       page={0}
       pages={0}
     >
@@ -43,8 +43,12 @@ export function PostCategoryCol({ section, postMap }: IProps) {
           />
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          {[...postMap.keys()].sort().map((s,si) => (
-            <DropdownMenuCheckboxItem checked={s === _section} onCheckedChange={()=>setSection(s)} key={si}>
+          {[...postMap.keys()].sort().map((s, si) => (
+            <DropdownMenuCheckboxItem
+              checked={s === _section}
+              onCheckedChange={() => setSection(s)}
+              key={si}
+            >
               {formatSection(s)}
             </DropdownMenuCheckboxItem>
           ))}

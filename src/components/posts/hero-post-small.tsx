@@ -8,8 +8,8 @@ import { CompactAvatars } from "@components/people/compact-avatars"
 import { VCenterRow } from "@components/v-center-row"
 import { getPostFirstSentence } from "@lib/post"
 import { PostImage } from "./post-image"
-import { PostTitleLink } from "./post-title-link"
 import { PostSectionLink } from "./post-section-link"
+import { PostTitleLink } from "./post-title-link"
 
 interface IProps extends IPostProps {
   showAvatar?: boolean
@@ -32,9 +32,9 @@ export function HeroPostSmall({
       <div className="col-span-1">
         <PostImage post={post} className="h-48 w-full md:h-32 rounded-md" />
       </div>
-      <BaseCol className="col-span-3 gap-y-1 lg:col-span-3 xl:col-span-2 ">
+      <BaseCol className="col-span-3 gap-y-1 lg:col-span-3 xl:col-span-2">
         <BaseCol>
-           <PostSectionLink post={post} textSize="text-xl md:text-base" /> 
+          <PostSectionLink post={post} textSize="text-xl md:text-base" />
           <PostTitleLink post={post} className="text-2xl lg:text-lg" />
         </BaseCol>
         {/* <CondComp cond={showDescription}>
@@ -47,7 +47,7 @@ export function HeroPostSmall({
           </p>
         )}
 
-        <VCenterRow className="gap-x-2">
+        <VCenterRow className="gap-x-2 mt-1">
           {showAvatar && (
             <CompactAvatars people={post.data.authors} showImages={false} />
           )}

@@ -47,7 +47,8 @@ export function getSlug(slug: string): string {
     .replaceAll("\\", PATH_SEP)
     .split(PATH_SEP)
     .map(p => getUrlFriendlyTag(p))
-    .join(PATH_SEP).toLowerCase()
+    .join(PATH_SEP)
+    .toLowerCase()
 }
 
 export function getSlugDir(slug: string): string {
@@ -73,9 +74,7 @@ export function getSlugSubPaths(slug: string): string[] {
   const parts = getSlugDir(slug).split(PATH_SEP)
 
   const ret = range(0, parts.length).map(i =>
-    parts
-      .slice(0, i + 1)
-      .join(PATH_SEP),
+    parts.slice(0, i + 1).join(PATH_SEP),
   )
 
   return ret

@@ -9,7 +9,6 @@ import ContentLayout from "@layouts/ContentLayout.astro"
 import { getPostSectionMap, getSortedPosts } from "@lib/astro/post"
 import { getPageCount } from "@lib/paginate"
 
-
 const allPosts = await getSortedPosts()
 
 const postMap = getPostSectionMap(allPosts, 3)
@@ -30,7 +29,7 @@ const news = allPosts.filter(post => post.id.includes("news"))
           className="trans-color group inline-flex flex-row gap-x-1 text-xs hover:text-primary-color data-[underline=true]:hover:decoration-primary-color"
           ><span>View all</span>
           <ChevronRightIcon
-            stroke="stroke-[2px] stroke-foreground group-hover:stroke-primary-color "
+            stroke="stroke-[2px] stroke-foreground group-hover:stroke-primary-color"
           /></BaseLink
         >
       </PostCol>

@@ -7,6 +7,7 @@ import { CompactAvatars } from "@components/people/compact-avatars"
 import { VCenterRow } from "@components/v-center-row"
 import { getPostFirstSentence } from "@lib/post"
 import { PostImage } from "./post-image"
+import { PostSectionLink } from "./post-section-link"
 import { PostTitleLink } from "./post-title-link"
 
 interface IProps extends IPostProps {
@@ -24,7 +25,7 @@ interface IProps extends IPostProps {
 export function PreviewPost({
   post,
   className,
-  imgClassName = "rounded-lg h-64",
+  imgClassName = "rounded-lg h-72",
   headerClassName = "text-2xl md:text-3xl",
   innerClassName,
   contentClassName = "text-base",
@@ -43,8 +44,8 @@ export function PreviewPost({
       <PostImage post={post} className={imgClassName} />
 
       <BaseCol className={cn("gap-y-2", innerClassName)}>
-        <BaseCol>
-          {/* {showSection && <PostCategoryLink post={post} />} */}
+        <BaseCol className="gap-y-1">
+          <PostSectionLink post={post} textSize="text-xl md:text-base" />
           <PostTitleLink post={post} className={headerClassName} />
         </BaseCol>
         {showDescription && (

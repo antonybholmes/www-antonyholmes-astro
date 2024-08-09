@@ -4,7 +4,7 @@ import tailwind from "@astrojs/tailwind"
 import { defineConfig } from "astro/config"
 
 import react from "@astrojs/react"
- 
+import { remarkReadingTime } from './remark-reading-time.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,6 +17,9 @@ export default defineConfig({
     routing: {
       prefixDefaultLocale: false,
     },
+  },
+  markdown: {
+    remarkPlugins: [remarkReadingTime],
   },
   integrations: [mdx(), sitemap(), tailwind(), react()],
 })

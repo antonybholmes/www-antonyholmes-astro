@@ -10,7 +10,7 @@ export function FormattedDate({ date, className }: IProps) {
   return (
     <time
       dateTime={date.toISOString()}
-      className={cn("font-light text-gray-500", className)}
+      className={cn("font-light text-foreground/75", className)}
     >
       {format(date, "LLL dd, yyyy")}
     </time>

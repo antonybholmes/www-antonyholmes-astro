@@ -1,16 +1,10 @@
 // post functions that work in browser
 
 import { BLOG_SLUG } from "@consts"
-import { capitalize, range } from "lodash-es"
+import { capitalize } from "lodash-es"
 //import { join } from "path"
 
-import {
-  getSlug,
-  getSlugBaseName,
-  getSlugDir,
-  getSlugSubPaths,
-  getUrlFriendlyTag,
-} from "./urls"
+import { getSlug, getSlugBaseName, getSlugDir, getSlugSubPaths } from "./urls"
 
 export const POSTS_DIR = "src/content/posts"
 export const REVIEWS_DIR = "src/content/review"
@@ -25,10 +19,9 @@ export function formatSection(section: string): string {
 }
 
 interface IPost {
-  id:string
-  body:string
+  id: string
+  body: string
 }
-
 
 export function getPostFirstSentence(post: IPost) {
   const sentences = post.body.split("\n").filter((x: string) => x.length > 0)
@@ -39,9 +32,6 @@ export function getPostFirstSentence(post: IPost) {
     return ""
   }
 }
-
- 
-  
 
 export function getPostUrl(post: IPost): string {
   return `${BLOG_SLUG}/${getSlug(post.id)}`
@@ -63,8 +53,6 @@ export function getPostSection(post: IPost): string {
 export function getPostSlugSubPaths(post: IPost): string[] {
   return getSlugSubPaths(post.id)
 }
-
- 
 
 // export function getAllPosts(authorMap: IAuthorMap): IAuthorPost[] {
 //   return sortPosts(
@@ -161,4 +149,3 @@ export function getPostSlugSubPaths(post: IPost): string[] {
 
 //   return categoryMap
 //}
-

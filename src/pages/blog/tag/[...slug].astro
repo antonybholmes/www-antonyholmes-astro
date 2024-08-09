@@ -3,7 +3,7 @@ import { PostsPage } from "@components/posts/posts-page"
 import ContentLayout from "@layouts/ContentLayout.astro"
 import { getSortedPosts, getTagPostMap } from "@lib/astro/post"
 import { paginate, type AstroPage } from "@lib/paginate"
- 
+
 import { getTagBaseUrl, getUrlFriendlyTag } from "@lib/urls"
 
 export async function getStaticPaths() {
